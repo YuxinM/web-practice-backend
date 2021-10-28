@@ -11,7 +11,6 @@ import com.example.webpractice.vo.UserVO;
 public interface UserService {
 
 
-
     ResponseVO register(UserVO userVO);
 
     ResponseVO login(UserVO userVO);

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServlet;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,7 +20,7 @@ import java.util.List;
 
 @CrossOrigin
 @Controller
-@RequestMapping("/paper")
+@RequestMapping("/api/paper")
 public class PaperController {
 
 
@@ -27,20 +28,30 @@ public class PaperController {
     PaperService paperService;
 
 
-    @GetMapping("get/{id}")
-    public ResponseVO getPaperById(@PathVariable("id")int id){
-
+    @GetMapping("/get/{id}")
+    @ResponseBody
+    public ResponseVO getPaperById(@PathVariable("id") int id) {
         return paperService.getPaperById(id);
     }
 
     @PostMapping("/add")
+    @ResponseBody
     public ResponseVO addPaper(@RequestBody PaperVO paperVO,
-                               @RequestParam("file")MultipartFile file){
+                               @RequestParam("file") MultipartFile file) {
         return null;
     }
 
-
-
+    @GetMapping("/get")
+    @ResponseBody
+    public ResponseVO get(@RequestParam(value = "type", defaultValue = "1") Integer pageNum,
+                          @RequestParam(value = "title", required = false) String title,
+                          @RequestParam(value = "grade", required = false) String grade,
+                          @RequestParam(value = "release_time", required = false) String[] release_time,
+                          @RequestParam(value = "implement_time", required = false) String[] implement_time,
+                          @RequestParam(value = "department", required = false) String department,
+                          @RequestParam(value = "status", required = false) String status) {
+        return null;
+    }
 
 
 }

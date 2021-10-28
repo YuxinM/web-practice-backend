@@ -22,6 +22,7 @@ import java.util.List;
 
 /**
  * 下载阿里云OSS文件与读取工具类
+ *
  * @Author MengYuxin
  * @Date 2021/10/25 17:24
  */
@@ -32,7 +33,7 @@ public class FileReader {
     @Autowired
     AliyunConfig aliyunConfig;
 
-   // private static final Logger logger= LoggerFactory.getLogger(FileReader.class);
+    // private static final Logger logger= LoggerFactory.getLogger(FileReader.class);
 
     /**
      * 得到阿里云OSS的指定bucket中所有文件名
@@ -49,16 +50,17 @@ public class FileReader {
         for (OSSObjectSummary s : summaries) {
             if (s.getKey().endsWith(".csv")) {
                 names.add(s.getKey());
-               // System.out.println(s.getKey());
+                // System.out.println(s.getKey());
             }
         }
-        log.info("得到阿里云OSS上所有的文件，一共{}个",names.size());
+        log.info("得到阿里云OSS上所有的文件，一共{}个", names.size());
         return names;
 
     }
 
     /**
      * 下载文件到本地临时存储位置
+     *
      * @param bucketName bucket名称
      * @param fileName   OSS中文件名
      * @return 返回正常字符串说明下载成功 null说明下载失败
@@ -81,11 +83,11 @@ public class FileReader {
                     MainConfig.USER_DATA_DIR_NAME);
             File file = new File(storePath);
             //创建文件夹
-            if(!file.exists()) {
+            if (!file.exists()) {
                 file.mkdirs();
             }
-            storePath=FileUtil.jointPath(storePath,FileUtil.getUUID()+".csv");
-            file=new File(storePath);
+            storePath = FileUtil.jointPath(storePath, FileUtil.getUUID() + ".csv");
+            file = new File(storePath);
             //创建文件
             file.createNewFile();
             OutputStream out = new FileOutputStream(file);// response.getOutputStream();
@@ -102,7 +104,7 @@ public class FileReader {
             ossClient.shutdown();
             return storePath;
         } catch (Exception e) {
-            log.error("下载阿里云上文件出错,文件名为{}",fileName);
+            log.error("下载阿里云上文件出错,文件名为{}", fileName);
             e.printStackTrace();
         }
         return null; //有异常就返回null
@@ -111,35 +113,34 @@ public class FileReader {
     /**
      * 读取csv文件
      * 这里返回的是法规的12个属性
+     *
      * @param filepath 文件路径
      * @return 返回null读取失败
      */
-    public String[] readFile(String filepath){
+    public String[] readFile(String filepath) {
         try {
-            ArrayList<String[]> csv=new ArrayList<String[]>();
-            CsvReader reader = new CsvReader(filepath,',', Charset.forName("GBK"));
+            ArrayList<String[]> csv = new ArrayList<String[]>();
+            CsvReader reader = new CsvReader(filepath, ',', Charset.forName("GBK"));
             reader.readHeaders();
-            log.error("出错");
-            while (reader.readRecord()){
-                String[] a=reader.getValues();
+//            log.error("出错");
+            while (reader.readRecord()) {
+                String[] a = reader.getValues();
                 csv.add(a);
             }
             reader.close();
             //提取需要的信息
-            String[] var=new String[12];
-            for(int i=0;i<csv.size();i++){
-                var[i]=csv.get(i)[1]; //属性在第二列
+            String[] var = new String[12];
+            for (int i = 0; i < csv.size(); i++) {
+                var[i] = csv.get(i)[1]; //属性在第二列
             }
             return var;
-        }catch (Exception e){
+        } catch (Exception e) {
             log.error("读取文件出错");
             System.out.println("error");
             e.printStackTrace();
         }
         return null;
     }
-
-
 
 
 //    public static void main(String[] args) {

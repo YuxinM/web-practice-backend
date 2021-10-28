@@ -31,25 +31,25 @@ public class PaperServiceImpl implements PaperService {
 
     /**
      * 根据id获取法规详情
+     *
      * @param id
      * @return
      */
     @Override
     public ResponseVO getPaperById(int id) {
-       
-        List<Papers>papers=paperDAO.getPapersById(id);
-        if(papers.size()==0){
+        List<Papers> papers = paperDAO.getPapersById(id);
+        if (papers.size() == 0) {
             return ResponseVO.buildFailure("对应id的法律文书不存在");
-        }else {
-            Papers target=papers.get(0);
-            String release_time= DateUtil.StampToDate(target.getRelease_time());
-            String implement_time=DateUtil.StampToDate(target.getImplement_time());
-            String input_time=DateUtil.StampToDate(target.getInput_time());
-            String input_user=userDAO.getNameById(target.getUser_id());
-            PaperVO paperVO=new PaperVO(target.getId(),target.getTitle(),
-                    target.getPaper_number(),target.getCategory(),target.getDepartment(),
-                    release_time,implement_time,target.getGrade(),target.getInterpret_department(),
-                    input_user,input_time,target.getContent(),target.getStatus()==1);
+        } else {
+            Papers target = papers.get(0);
+            String release_time = DateUtil.StampToDate(target.getRelease_time());
+            String implement_time = DateUtil.StampToDate(target.getImplement_time());
+            String input_time = DateUtil.StampToDate(target.getInput_time());
+            String input_user = userDAO.getUsernameById(target.getUser_id());
+            PaperVO paperVO = new PaperVO(target.getId(), target.getTitle(),
+                    target.getPaper_number(), target.getCategory(), target.getDepartment(),
+                    release_time, implement_time, target.getGrade(), target.getInterpret_department(),
+                    input_user, input_time, target.getContent(), target.getStatus() == 1);
             return ResponseVO.buildSuccess(paperVO);
 
         }

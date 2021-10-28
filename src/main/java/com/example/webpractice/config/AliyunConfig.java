@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 阿里云OSS配置类
+ *
  * @Author MengYuxin
  * @Date 2021/10/25 19:35
  */
@@ -28,21 +29,21 @@ import org.springframework.stereotype.Component;
 public class AliyunConfig {
 
 
-        private String endPoint;// 地域节点
+    private String endPoint;// 地域节点
 
-        private String accessKeyId;
+    private String accessKeyId;
 
-        private String accessKeySecret;
+    private String accessKeySecret;
 
-        private String bucketName;// OSS的Bucket名称
+    private String bucketName;// OSS的Bucket名称
 
-        private String urlPrefix;// Bucket 域名
+    private String urlPrefix;// Bucket 域名
 
 
-        // 将OSS 客户端交给Spring容器托管
-        @Bean
-        public OSS OSSClient() {
-            log.info("创建OSSClient");
-            return new OSSClient(endPoint, accessKeyId, accessKeySecret);
-        }
+    // 将OSS 客户端交给Spring容器托管
+    @Bean
+    public OSS OSSClient() {
+        log.info("创建OSSClient");
+        return new OSSClient(endPoint, accessKeyId, accessKeySecret);
+    }
 }

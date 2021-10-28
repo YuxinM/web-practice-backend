@@ -4,6 +4,7 @@ import java.io.File;
 
 /**
  * 配置文件
+ *
  * @Author MengYuxin
  * @Date 2021/10/24 16:13
  */
@@ -19,7 +20,6 @@ public class MainConfig {
      * 存放阿里云数据的临时文件夹
      */
     public static final String USER_DATA_DIR_NAME = "user_data";
-
 
 
     public static void main(String[] args) {

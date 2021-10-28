@@ -32,16 +32,17 @@ public class LibraryCreateServiceImpl implements LibraryCreateService {
     FileReader fileReader;
     @Autowired
     AliyunConfig aliyunConfig;
+
     @Override
     public ResponseVO writeInDatabase() {
 
         log.info("开始读取爬虫数据至数据库");
-        List<String>csvList= fileReader.getFileNames(aliyunConfig.getBucketName());
-        for(String filename:csvList){
+        List<String> csvList = fileReader.getFileNames(aliyunConfig.getBucketName());
+        for (String filename : csvList) {
 
             //本地临时存储路径
-            String path=fileReader.download(aliyunConfig.getBucketName(),filename);
-            if(path!=null){
+            String path = fileReader.download(aliyunConfig.getBucketName(), filename);
+            if (path != null) {
                 /**
                  * 这里是一个CSV文件的全部信息 依次如下
                  * 法规标题 法规文号 外规类别
@@ -53,26 +54,26 @@ public class LibraryCreateServiceImpl implements LibraryCreateService {
                  */
 
 
-                String[] csv=fileReader.readFile(path);
-                if(csv!=null) {
-                    Timestamp release_ts=new Timestamp(DateUtil.dateToStamp(csv[5]));
-                    Timestamp implement_ts=null;
-                    if(csv[6].contains("年")) {
+                String[] csv = fileReader.readFile(path);
+                if (csv != null) {
+                    Timestamp release_ts = new Timestamp(DateUtil.dateToStamp(csv[5]));
+                    Timestamp implement_ts = null;
+                    if (csv[6].contains("年")) {
                         implement_ts = new Timestamp(DateUtil.dateToStamp(csv[6]));
-                    }else {
-                        implement_ts=release_ts;
+                    } else {
+                        implement_ts = release_ts;
                     }
-                    Timestamp input_ts=new Timestamp(DateUtil.dateToStamp(csv[9]));
-                    Papers papers=new Papers(csv[0],csv[1],csv[2],
-                            csv[3],release_ts,implement_ts,csv[4],csv[7],1,input_ts,
-                            csv[10],Integer.parseInt(csv[11]));
+                    Timestamp input_ts = new Timestamp(DateUtil.dateToStamp(csv[9]));
+                    Papers papers = new Papers(csv[0], csv[1], csv[2],
+                            csv[3], release_ts, implement_ts, csv[4], csv[7], 1, input_ts,
+                            csv[10], Integer.parseInt(csv[11]));
 
                     //存入一条法规
                     try {
-                        int id=paperDAO.save(papers).getId();
+                        int id = paperDAO.save(papers).getId();
                         //然后把临时文件删除
                         FileUtil.deleteDirRecursion(path);
-                    }catch (Exception e){
+                    } catch (Exception e) {
                         log.error("数据出错，不能存入数据库");
                     }
                 }

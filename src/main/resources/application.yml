@@ -3,11 +3,11 @@ spring:
     url: jdbc:mysql://localhost:3306/practice?useSSL=false&rewriteBatchedStatements=true&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
     username: root
     #本地数据库的密码
-    password: 'myxmyx1207'
+    password: root
     driver-class-name: com.mysql.jdbc.Driver
 
 
-#JPA配置
+  #JPA配置
   jpa:
     database: mysql
     database-platform: org.hibernate.dialect.MySQL5Dialect

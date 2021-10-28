@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/api/user")
 public class UserController {
 
 
@@ -22,21 +22,22 @@ public class UserController {
     UserService userService;
 
     @PostMapping("/register")
-    public ResponseVO register(@RequestBody UserVO userVO){
+    @ResponseBody
+    public ResponseVO register(@RequestBody UserVO userVO) {
         return userService.register(userVO);
     }
 
     @PostMapping("/login")
-    public ResponseVO login(@RequestBody UserVO userVO){
+    @ResponseBody
+    public ResponseVO login(@RequestBody UserVO userVO) {
         return userService.login(userVO);
     }
 
     @PostMapping("/logout/{id}")
-    public ResponseVO logout(@PathVariable("id")int id){
+    @ResponseBody
+    public ResponseVO logout(@PathVariable("id") int id) {
         return userService.logout(id);
     }
-
-
 
 
 }
