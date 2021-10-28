@@ -1,2 +1,0 @@
-# web-practice-backend
-webPractice
