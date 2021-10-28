@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 2021-10-27 11:26:00,765 [main] INFO  -[StartupInfoLogger.java:55]- Starting WebPracticeApplication using Java 1.8.0_291 on LAPTOP-8CTC9VJK with PID 18636 (D:\Project\WebPractice\target\classes started by Lenovo in D:\Project\WebPractice)
 2021-10-27 11:26:00,765 [main] INFO  -[SpringApplication.java:659]- No active profile set, falling back to default profiles: default
 2021-10-27 11:26:03,090 [main] INFO  -[StartupInfoLogger.java:61]- Started WebPracticeApplication in 2.564 seconds (JVM running for 3.547)
@@ -3398,3 +3399,619 @@
 2021-10-28 17:04:18,433 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
 2021-10-28 17:04:18,445 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
 2021-10-28 17:04:18,536 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+=======
+2021-10-28 15:30:35,878 [main] INFO  -[StartupInfoLogger.java:55]- Starting WebPracticeApplication using Java 1.8.0_291 on LAPTOP-8CTC9VJK with PID 31884 (D:\WebPractice\target\classes started by Lenovo in D:\WebPractice)
+2021-10-28 15:30:35,883 [main] INFO  -[SpringApplication.java:659]- No active profile set, falling back to default profiles: default
+2021-10-28 15:30:37,904 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:38,683 [main] INFO  -[StartupInfoLogger.java:61]- Started WebPracticeApplication in 3.09 seconds (JVM running for 4.084)
+2021-10-28 15:30:38,689 [main] INFO  -[LibraryCreateServiceImpl.java:38]- 开始读取爬虫数据至数据库
+2021-10-28 15:30:38,689 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:39,052 [main] INFO  -[FileReader.java:55]- 得到阿里云OSS上所有的文件，一共100个
+2021-10-28 15:30:39,052 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:39,180 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:39,233 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:39,361 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:39,371 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:39,521 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:39,521 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:39,681 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:39,681 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:39,809 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:39,820 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:39,980 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:39,990 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:40,118 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:40,118 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:40,236 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:40,246 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:40,406 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:40,406 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:40,534 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:40,534 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:40,641 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:40,641 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 15:30:40,651 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:40,737 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:40,748 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:40,908 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:40,918 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:41,025 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:41,025 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:41,158 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:41,163 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:41,260 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:41,270 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:41,494 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:41,494 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:41,644 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:41,658 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:41,772 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:41,772 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:41,910 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:41,910 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:42,049 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:42,059 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:42,220 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:42,220 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:42,348 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:42,348 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:42,460 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:42,465 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:42,593 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:42,604 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:42,678 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:42,678 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:42,796 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:42,806 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:42,987 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:42,987 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 15:30:42,987 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:43,169 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:43,169 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:43,286 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:43,286 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:43,425 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:43,435 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:43,553 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:43,561 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:43,671 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:43,681 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:43,788 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:43,788 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:43,894 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:43,894 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 15:30:43,894 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:44,001 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:44,001 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 15:30:44,012 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:44,108 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:44,108 [main] ERROR -[DateUtil.java:46]- 日期格式转换出错
+2021-10-28 15:30:44,108 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:44,225 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:44,235 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:44,395 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:44,406 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:44,534 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:44,534 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 15:30:44,534 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:44,641 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:44,652 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:44,801 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:44,801 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:44,950 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:44,950 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:45,068 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:45,068 [main] ERROR -[DateUtil.java:46]- 日期格式转换出错
+2021-10-28 15:30:45,068 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:45,196 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:45,196 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:45,324 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:45,324 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:45,410 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:45,420 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:45,537 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:45,537 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:45,687 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:45,687 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:45,825 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:45,825 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:45,965 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:45,965 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 15:30:45,965 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:46,102 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:46,102 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:46,220 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:46,230 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:46,326 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:46,337 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:46,444 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:46,444 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:46,582 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:46,582 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:46,710 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:46,710 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:46,838 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:46,838 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:46,945 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:46,945 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:47,066 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:47,066 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:47,169 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:47,169 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:47,286 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:47,286 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:47,382 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:47,382 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:47,500 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:47,500 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:47,596 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:47,596 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:47,692 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:47,702 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:47,799 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:47,809 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:47,921 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:47,926 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:48,066 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:48,066 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:48,214 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:48,225 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:48,321 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:48,321 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 15:30:48,321 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:48,439 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:48,439 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 15:30:48,449 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:48,545 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:48,545 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:48,667 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:48,667 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:48,758 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:48,767 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:48,876 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:48,876 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:48,982 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:48,982 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 15:30:48,982 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:49,132 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:49,132 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:49,228 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:49,238 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:49,368 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:49,368 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:49,457 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:49,457 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:49,558 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:49,558 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:49,686 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:49,686 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 15:30:49,692 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:49,772 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:49,782 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:49,879 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:49,889 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:50,060 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:50,071 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:50,198 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:50,198 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:50,316 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:50,326 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:50,428 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:50,428 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 15:30:50,428 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:50,647 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:50,647 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:50,828 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:50,828 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:50,934 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:50,934 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:51,073 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:51,073 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:51,191 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:51,201 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:51,318 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:51,318 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:51,436 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:51,436 [main] ERROR -[DateUtil.java:46]- 日期格式转换出错
+2021-10-28 15:30:51,436 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:51,572 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:51,575 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:51,735 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:51,745 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:51,841 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:51,841 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 15:30:51,852 [main] INFO  -[AliyunConfig.java:45]- 创建OSSClient
+2021-10-28 15:30:51,927 [main] ERROR -[FileReader.java:122]- 出错
+2021-10-28 15:30:51,927 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:01:05,046 [main] INFO  -[StartupInfoLogger.java:55]- Starting WebPracticeApplication using Java 1.8.0_291 on LAPTOP-8CTC9VJK with PID 12392 (D:\WebPractice\target\classes started by Lenovo in D:\WebPractice)
+2021-10-28 16:01:05,046 [main] INFO  -[SpringApplication.java:659]- No active profile set, falling back to default profiles: default
+2021-10-28 16:01:07,447 [main] INFO  -[StartupInfoLogger.java:61]- Started WebPracticeApplication in 2.654 seconds (JVM running for 3.554)
+2021-10-28 16:01:07,447 [main] INFO  -[LibraryCreateServiceImpl.java:38]- 开始读取爬虫数据至数据库
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/其他文件/中国人民银行 海关总署公告〔2016〕第9号.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/其他文件/中国人民银行公告[2018]第2号.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/其他文件/中国人民银行公告〔2016〕第15号.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/其他文件/中国人民银行公告〔2016〕第16号.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/其他文件/中国人民银行公告〔2016〕第17号.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/其他文件/中国人民银行公告〔2016〕第31号.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/其他文件/中国人民银行公告〔2016〕第3号.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/其他文件/中国人民银行公告〔2016〕第4号.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/其他文件/中国人民银行公告〔2016〕第7号.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/其他文件/中国人民银行公告〔2016〕第8号.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/行政法规/中华人民共和国人民币管理条例.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/行政法规/防范和处置非法集资条例（国务院令第737号）.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行 中华人民共和国国家发展和改革委员会 中国证券监督管理委员会公告〔2020〕第22号（公司信用类债券信息披露管理办法）.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行 中国证券监督管理委员会公告[2018]第14号.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行 中国证券监督管理委员会公告〔2017〕第20号（绿色债券评估认证行为指引（暂行））（中国人民银行 中国证券监督管理委员会公告〔2017〕第20号）.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行 中国证券监督管理委员会关于内地与香港股票市场交易互联互通机制有关问题的通知（银发〔2016〕282号）.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行 中国银行业监督管理委员会公告〔2016〕第10号（国内信用证结算办法）(中国人民银行 中国银行业监督管理委员会公告〔2016〕第10号).csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行 中国银行业监督管理委员会关于加强票据业务监管 促进票据市场健康发展的通知（银发〔2016〕126号）.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行 中国银行业监督管理委员会关于调整个人住房贷款政策有关问题的通知（银发〔2016〕26号）.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行 中国银行保险监督管理委员会 中国证券监督管理委员会 国家发展改革委 财政部关于进一步深化小微企业金融服务的意见（银发[2018]162 号）.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行 中国银行保险监督管理委员会 中国证券监督管理委员会 国家外汇管理局公告〔2020〕第5号（标准化债权类资产认定规则）.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行 中国银行保险监督管理委员会 中国证券监督管理委员会 国家外汇管理局关于规范金融机构资产管理业务的指导意见（银发[2018]106号）.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行 中国银行保险监督管理委员会 中国证券监督管理委员会 国家外汇管理局关于进一步规范金融营销宣传行为的通知（银发〔2019〕316号）.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行 中国银行保险监督管理委员会 中国证券监督管理委员会关于加强非金融企业投资金融机构监管的指导意见（银发[2018]107号）.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行 中国银行保险监督管理委员会 中国证券监督管理委员会关于印发《互联网金融从业机构反洗钱和反恐怖融资管理办法（试行）》的通知（银发[2018]230号）.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行 中国银行保险监督管理委员会 中国证券监督管理委员会关于完善系统重要性金融机构监管的指导意见（银发[2018]301号）.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行 中国银行保险监督管理委员会关于印发《系统重要性银行评估办法》的通知（银发〔2020〕289号）.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行 中国银行保险监督管理委员会关于实施银行业金融机构金融消费者投诉统计分类及编码行业标准的通知（银发[2018]243号）.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行 中国银行保险监督管理委员会关于建立银行业金融机构房地产贷款集中度管理制度的通知（银发〔2020〕322号）.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行 公安部关于做好境外非政府组织代表机构人民币银行账户管理有关工作的通知（银发〔2017〕90号）.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行 发展改革委 证监会关于公司信用类债券违约处置有关事宜的通知.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行 发展改革委 证监会关于印发《绿色债券支持项目目录（2021年版）》的通知（银发〔2021〕96号）.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行 商务部公告〔2016〕第1号（设立外商投资征信机构）（中国人民银行 商务部公告〔2016〕第1号）.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行 国家发展和改革委员会 商务部 国务院国有资产监督管理委员会 中国银行保险监督管理委员会 国家外汇管理局关于进一步优化跨境人民币政策 支持稳外贸稳外资的通知.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行 国家发展改革委 财政部 银保监会 证监会关于促进债券市场信用评级行业健康发展的通知.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行 国家外汇管理局关于人民币合格境外机构投资者境内证券投资管理有关问题的通知（银发[2018]157号）.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行 国家外汇管理局关于进一步便利境外机构投资者投资银行间债券市场有关事项的通知（银发〔2019〕240号）.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行 国家税务总局 国家外汇管理局关于印发《银行业存款类金融机构非居民金融账户涉税信息尽职调查细则》的通知（银发〔2017〕278号）.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行 国家认证认可监督管理委员会关于加强支付技术产品标准实施与安全管理的通知（银发〔2017〕208号）.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行 工业和信息化部 公安部 工商总局关于建立电信网络新型违法犯罪涉案账户紧急止付和快速冻结机制的通知(银发〔2016〕86号).csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行 工商总局关于个体工商户“两证整合”登记制度改革涉及银行账户管理有关事项的通知(银发〔2017〕3号).csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行 民政部关于印发《社会组织反洗钱和反恐怖融资管理办法》的通知（银发〔2017〕261号）.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行 民政部关于规范全国性社会组织开立临时存款账户有关事项的通知(银发〔2016〕99号).csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行 海关总署公告〔2016〕第32号（黄金及黄金制品进出口事宜）(中国人民银行 海关总署公告〔2016〕第32号).csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行 海关总署公告〔2016〕第9号（黄金及黄金制品进出口准许证事宜）(中国人民银行 海关总署公告〔2016〕第9号).csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行 海关总署公告〔2017〕第5号（黄金及黄金制品进出口准许证事宜）(中国人民银行 海关总署公告〔2017〕第5号).csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行 财政部 发展改革委 证监会公告[2018]第15号.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行 财政部 商务部 银监会 证监会 保监会关于金融支持服务贸易发展的指导意见（银发〔2017〕41号）.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行 财政部公告[2018]第16号.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行 财政部关于印发 《储蓄国债（凭证式）管理办法》的通知（银发〔2021〕20号）.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行 银监会 证监会 保监会 扶贫办关于开展金融精准扶贫政策效果评估的通知（银发〔2017〕19号）.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行 银监会 证监会 保监会关于规范债券市场参与者债券交易业务的通知（银发[2017]302号）.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行公告[2018]第10号.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行公告[2018]第18号.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行公告[2018]第3号.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行公告[2018]第7号.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行公告〔2016〕第13号（关于降低个人投资人认购大额存单起点金额有关事宜）（中国人民银行公告〔2016〕第13号）.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行公告〔2016〕第29号（票据交易管理办法）（中国人民银行公告〔2016〕第29号）.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行公告〔2016〕第2号（全国银行间债券市场柜台业务管理办法）（中国人民银行公告〔2016〕第2号）.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行公告〔2016〕第3号（进一步做好境外机构投资者投资银行间债券市场有关事宜）（中国人民银行公告〔2016〕第3号）.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行公告〔2016〕第7号（支付结算违法违规行为举报奖励办法）(中国人民银行公告〔2016〕第7号).csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行公告〔2016〕第8号（关于进一步做好合格机构投资者进入银行间债券市场有关工作）（中国人民银行公告〔2016〕第8号）.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行公告〔2017〕第12号（优化同业存单期限结构）（中国人民银行公告〔2017〕第12号）.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行公告〔2017〕第18号（中国人民银行自动质押融资业务管理办法）（中国人民银行公告〔2017〕第18号）.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行公告〔2017〕第7号（评级机构在银行间债券市场开展信用评级业务有关事宜)(中国人民银行公告〔2017〕第7号).csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行公告〔2020〕6号（标准化票据管理办法）.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行公告〔2020〕第19号（规范商业承兑汇票信息披露）.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行公告〔2020〕第21号（完善银行间债券市场现券做市商管理有关事宜）.csv
+2021-10-28 16:01:07,639 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行公告〔2021〕第4号（修订银行间债券市场债券交易流通有关公告）.csv
+2021-10-28 16:01:07,649 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行公告（修改“证照分离”改革涉及的规范性文件）（中国人民银行公告〔2020〕第15号）.csv
+2021-10-28 16:01:07,649 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行公告（修订《非金融机构支付服务管理办法实施细则》等5件规范性文件）(公告〔2020〕3号).csv
+2021-10-28 16:01:07,649 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行公告（关于开展到期违约债券转让业务有关事宜）（公告〔2019〕24号）.csv
+2021-10-28 16:01:07,649 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行公告（废止《不宜流通人民币挑剔标准》）（公告[2019]1号）.csv
+2021-10-28 16:01:07,649 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行关于“装帧流通人民币审批”行政许可事项取消后相关工作的通知（银发〔2017〕247号）.csv
+2021-10-28 16:01:07,649 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行关于《金融机构大额交易和可疑交易报告管理办法》有关执行要求的通知（银发〔2017〕99号）.csv
+2021-10-28 16:01:07,649 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行关于优化空头支票违规行为综合治理工作的通知（银发〔2019〕155号）.csv
+2021-10-28 16:01:07,649 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行关于信用卡业务有关事项的通知(银发〔2016〕111号).csv
+2021-10-28 16:01:07,649 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行关于军人保障卡等军人银行账户管理有关事项的通知（银发[2018]4号）.csv
+2021-10-28 16:01:07,649 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行关于切实做好新形势下反假货币培训工作的通知（银发〔2019〕319号）.csv
+2021-10-28 16:01:07,649 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行关于加强反洗钱客户身份识别有关工作的通知（银发〔2017〕235号）.csv
+2021-10-28 16:01:07,649 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行关于加强开户管理及可疑交易报告后续控制措施的通知（银发〔2017〕117号）.csv
+2021-10-28 16:01:07,649 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行关于加强征信合规管理工作的通知(银发〔2016〕300号).csv
+2021-10-28 16:01:07,649 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行关于加强支付结算管理 防范电信网络新型违法犯罪有关事项的通知(银发〔2016〕261号).csv
+2021-10-28 16:01:07,649 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行关于加强电子商业汇票交易管理有关事项的通知（银发〔2017〕165号）.csv
+2021-10-28 16:01:07,649 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行关于加强绿色金融债券存续期监督管理有关事宜的通知（银发[2018]29号）.csv
+2021-10-28 16:01:07,649 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行关于加强贵金属交易场所反洗钱和反恐怖融资工作的通知（银发〔2017〕218号）.csv
+2021-10-28 16:01:07,649 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行关于加强跨境金融网络与信息服务管理的通知（银发[2018]176号）.csv
+2021-10-28 16:01:07,649 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行关于印发《上海票据交易所业务监督管理规则》的通知（银发〔2017〕279号）.csv
+2021-10-28 16:01:07,649 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行关于印发《中国人民银行反假人民币奖励办法》的通知(银发〔2016〕21号).csv
+2021-10-28 16:01:07,649 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行关于印发《中国人民银行金融消费者权益保护实施办法》的通知(银发〔2016〕314号).csv
+2021-10-28 16:01:07,649 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行关于印发《义务机构反洗钱交易监测标准建设工作指引》的通知（银发〔2017〕108号）.csv
+2021-10-28 16:01:07,649 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行关于印发《人民币跨境支付系统业务规则》的通知（银发[2018]72号）.csv
+2021-10-28 16:01:07,649 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行关于印发《人民币跨境收付信息管理系统管理办法》的通知（银发〔2017〕126号）.csv
+2021-10-28 16:01:07,649 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行关于印发《企业征信机构备案管理办法》的通知（银发〔2016〕253号）.csv
+2021-10-28 16:01:07,649 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行关于印发《反洗钱数据报送工作数字证书管理规程》的通知（银发〔2016〕163号）.csv
+2021-10-28 16:01:07,649 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行关于印发《国库资金经收支付服务管理办法（试行）》的通知（银发〔2019〕292号）.csv
+2021-10-28 16:01:07,649 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行关于印发《普通纪念币普制币发行管理暂行规定》的通知（银发〔2020〕173号）.csv
+2021-10-28 16:01:07,649 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行关于印发《条码支付业务规范（试行）》的通知（银发〔2017〕296号）.csv
+2021-10-28 16:01:07,649 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行关于印发《银行业金融机构反假货币工作指引》的通知(银发〔2016〕29号).csv
+2021-10-28 16:01:07,649 [main] INFO  -[FileReader.java:53]- csv/规范性文件/中国人民银行关于印发《银行业金融机构反洗钱现场检查数据接口规范（试行）》的通知（银发〔2017〕300号）.csv
+2021-10-28 16:01:07,649 [main] INFO  -[FileReader.java:56]- 得到阿里云OSS上所有的文件，一共100个
+2021-10-28 16:01:08,791 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:01:10,498 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:01:11,235 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:01:11,373 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:01:11,511 [main] ERROR -[DateUtil.java:46]- 日期格式转换出错
+2021-10-28 16:01:11,889 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:01:12,396 [main] ERROR -[DateUtil.java:46]- 日期格式转换出错
+2021-10-28 16:01:13,282 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:01:15,543 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:01:15,660 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:01:16,065 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:01:16,524 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:01:16,994 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:01:17,655 [main] ERROR -[DateUtil.java:46]- 日期格式转换出错
+2021-10-28 16:01:18,007 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:01:18,082 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:09:17,384 [main] INFO  -[StartupInfoLogger.java:55]- Starting WebPracticeApplication using Java 1.8.0_291 on LAPTOP-8CTC9VJK with PID 35060 (D:\WebPractice\target\classes started by Lenovo in D:\WebPractice)
+2021-10-28 16:09:17,395 [main] INFO  -[SpringApplication.java:659]- No active profile set, falling back to default profiles: default
+2021-10-28 16:09:19,688 [main] INFO  -[StartupInfoLogger.java:61]- Started WebPracticeApplication in 2.623 seconds (JVM running for 3.895)
+2021-10-28 16:09:19,688 [main] INFO  -[LibraryCreateServiceImpl.java:38]- 开始读取爬虫数据至数据库
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/其他文件/中国人民银行 海关总署公告〔2016〕第9号.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/其他文件/中国人民银行公告[2018]第2号.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/其他文件/中国人民银行公告〔2016〕第15号.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/其他文件/中国人民银行公告〔2016〕第16号.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/其他文件/中国人民银行公告〔2016〕第17号.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/其他文件/中国人民银行公告〔2016〕第31号.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/其他文件/中国人民银行公告〔2016〕第3号.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/其他文件/中国人民银行公告〔2016〕第4号.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/其他文件/中国人民银行公告〔2016〕第7号.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/其他文件/中国人民银行公告〔2016〕第8号.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/行政法规/中华人民共和国人民币管理条例.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/行政法规/防范和处置非法集资条例（国务院令第737号）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行 中华人民共和国国家发展和改革委员会 中国证券监督管理委员会公告〔2020〕第22号（公司信用类债券信息披露管理办法）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行 中国证券监督管理委员会公告[2018]第14号.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行 中国证券监督管理委员会公告〔2017〕第20号（绿色债券评估认证行为指引（暂行））（中国人民银行 中国证券监督管理委员会公告〔2017〕第20号）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行 中国证券监督管理委员会关于内地与香港股票市场交易互联互通机制有关问题的通知（银发〔2016〕282号）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行 中国银行业监督管理委员会公告〔2016〕第10号（国内信用证结算办法）(中国人民银行 中国银行业监督管理委员会公告〔2016〕第10号).csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行 中国银行业监督管理委员会关于加强票据业务监管 促进票据市场健康发展的通知（银发〔2016〕126号）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行 中国银行业监督管理委员会关于调整个人住房贷款政策有关问题的通知（银发〔2016〕26号）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行 中国银行保险监督管理委员会 中国证券监督管理委员会 国家发展改革委 财政部关于进一步深化小微企业金融服务的意见（银发[2018]162 号）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行 中国银行保险监督管理委员会 中国证券监督管理委员会 国家外汇管理局公告〔2020〕第5号（标准化债权类资产认定规则）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行 中国银行保险监督管理委员会 中国证券监督管理委员会 国家外汇管理局关于规范金融机构资产管理业务的指导意见（银发[2018]106号）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行 中国银行保险监督管理委员会 中国证券监督管理委员会 国家外汇管理局关于进一步规范金融营销宣传行为的通知（银发〔2019〕316号）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行 中国银行保险监督管理委员会 中国证券监督管理委员会关于加强非金融企业投资金融机构监管的指导意见（银发[2018]107号）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行 中国银行保险监督管理委员会 中国证券监督管理委员会关于印发《互联网金融从业机构反洗钱和反恐怖融资管理办法（试行）》的通知（银发[2018]230号）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行 中国银行保险监督管理委员会 中国证券监督管理委员会关于完善系统重要性金融机构监管的指导意见（银发[2018]301号）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行 中国银行保险监督管理委员会关于印发《系统重要性银行评估办法》的通知（银发〔2020〕289号）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行 中国银行保险监督管理委员会关于实施银行业金融机构金融消费者投诉统计分类及编码行业标准的通知（银发[2018]243号）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行 中国银行保险监督管理委员会关于建立银行业金融机构房地产贷款集中度管理制度的通知（银发〔2020〕322号）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行 公安部关于做好境外非政府组织代表机构人民币银行账户管理有关工作的通知（银发〔2017〕90号）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行 发展改革委 证监会关于公司信用类债券违约处置有关事宜的通知.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行 发展改革委 证监会关于印发《绿色债券支持项目目录（2021年版）》的通知（银发〔2021〕96号）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行 商务部公告〔2016〕第1号（设立外商投资征信机构）（中国人民银行 商务部公告〔2016〕第1号）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行 国家发展和改革委员会 商务部 国务院国有资产监督管理委员会 中国银行保险监督管理委员会 国家外汇管理局关于进一步优化跨境人民币政策 支持稳外贸稳外资的通知.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行 国家发展改革委 财政部 银保监会 证监会关于促进债券市场信用评级行业健康发展的通知.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行 国家外汇管理局关于人民币合格境外机构投资者境内证券投资管理有关问题的通知（银发[2018]157号）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行 国家外汇管理局关于进一步便利境外机构投资者投资银行间债券市场有关事项的通知（银发〔2019〕240号）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行 国家税务总局 国家外汇管理局关于印发《银行业存款类金融机构非居民金融账户涉税信息尽职调查细则》的通知（银发〔2017〕278号）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行 国家认证认可监督管理委员会关于加强支付技术产品标准实施与安全管理的通知（银发〔2017〕208号）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行 工业和信息化部 公安部 工商总局关于建立电信网络新型违法犯罪涉案账户紧急止付和快速冻结机制的通知(银发〔2016〕86号).csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行 工商总局关于个体工商户“两证整合”登记制度改革涉及银行账户管理有关事项的通知(银发〔2017〕3号).csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行 民政部关于印发《社会组织反洗钱和反恐怖融资管理办法》的通知（银发〔2017〕261号）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行 民政部关于规范全国性社会组织开立临时存款账户有关事项的通知(银发〔2016〕99号).csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行 海关总署公告〔2016〕第32号（黄金及黄金制品进出口事宜）(中国人民银行 海关总署公告〔2016〕第32号).csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行 海关总署公告〔2016〕第9号（黄金及黄金制品进出口准许证事宜）(中国人民银行 海关总署公告〔2016〕第9号).csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行 海关总署公告〔2017〕第5号（黄金及黄金制品进出口准许证事宜）(中国人民银行 海关总署公告〔2017〕第5号).csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行 财政部 发展改革委 证监会公告[2018]第15号.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行 财政部 商务部 银监会 证监会 保监会关于金融支持服务贸易发展的指导意见（银发〔2017〕41号）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行 财政部公告[2018]第16号.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行 财政部关于印发 《储蓄国债（凭证式）管理办法》的通知（银发〔2021〕20号）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行 银监会 证监会 保监会 扶贫办关于开展金融精准扶贫政策效果评估的通知（银发〔2017〕19号）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行 银监会 证监会 保监会关于规范债券市场参与者债券交易业务的通知（银发[2017]302号）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行公告[2018]第10号.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行公告[2018]第18号.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行公告[2018]第3号.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行公告[2018]第7号.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行公告〔2016〕第13号（关于降低个人投资人认购大额存单起点金额有关事宜）（中国人民银行公告〔2016〕第13号）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行公告〔2016〕第29号（票据交易管理办法）（中国人民银行公告〔2016〕第29号）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行公告〔2016〕第2号（全国银行间债券市场柜台业务管理办法）（中国人民银行公告〔2016〕第2号）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行公告〔2016〕第3号（进一步做好境外机构投资者投资银行间债券市场有关事宜）（中国人民银行公告〔2016〕第3号）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行公告〔2016〕第7号（支付结算违法违规行为举报奖励办法）(中国人民银行公告〔2016〕第7号).csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行公告〔2016〕第8号（关于进一步做好合格机构投资者进入银行间债券市场有关工作）（中国人民银行公告〔2016〕第8号）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行公告〔2017〕第12号（优化同业存单期限结构）（中国人民银行公告〔2017〕第12号）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行公告〔2017〕第18号（中国人民银行自动质押融资业务管理办法）（中国人民银行公告〔2017〕第18号）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行公告〔2017〕第7号（评级机构在银行间债券市场开展信用评级业务有关事宜)(中国人民银行公告〔2017〕第7号).csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行公告〔2020〕6号（标准化票据管理办法）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行公告〔2020〕第19号（规范商业承兑汇票信息披露）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行公告〔2020〕第21号（完善银行间债券市场现券做市商管理有关事宜）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行公告〔2021〕第4号（修订银行间债券市场债券交易流通有关公告）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行公告（修改“证照分离”改革涉及的规范性文件）（中国人民银行公告〔2020〕第15号）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行公告（修订《非金融机构支付服务管理办法实施细则》等5件规范性文件）(公告〔2020〕3号).csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行公告（关于开展到期违约债券转让业务有关事宜）（公告〔2019〕24号）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行公告（废止《不宜流通人民币挑剔标准》）（公告[2019]1号）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于“装帧流通人民币审批”行政许可事项取消后相关工作的通知（银发〔2017〕247号）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于《金融机构大额交易和可疑交易报告管理办法》有关执行要求的通知（银发〔2017〕99号）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于优化空头支票违规行为综合治理工作的通知（银发〔2019〕155号）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于信用卡业务有关事项的通知(银发〔2016〕111号).csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于军人保障卡等军人银行账户管理有关事项的通知（银发[2018]4号）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于切实做好新形势下反假货币培训工作的通知（银发〔2019〕319号）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于加强反洗钱客户身份识别有关工作的通知（银发〔2017〕235号）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于加强开户管理及可疑交易报告后续控制措施的通知（银发〔2017〕117号）.csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于加强征信合规管理工作的通知(银发〔2016〕300号).csv
+2021-10-28 16:09:19,922 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于加强支付结算管理 防范电信网络新型违法犯罪有关事项的通知(银发〔2016〕261号).csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于加强电子商业汇票交易管理有关事项的通知（银发〔2017〕165号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于加强绿色金融债券存续期监督管理有关事宜的通知（银发[2018]29号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于加强贵金属交易场所反洗钱和反恐怖融资工作的通知（银发〔2017〕218号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于加强跨境金融网络与信息服务管理的通知（银发[2018]176号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于印发《上海票据交易所业务监督管理规则》的通知（银发〔2017〕279号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于印发《中国人民银行反假人民币奖励办法》的通知(银发〔2016〕21号).csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于印发《中国人民银行金融消费者权益保护实施办法》的通知(银发〔2016〕314号).csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于印发《义务机构反洗钱交易监测标准建设工作指引》的通知（银发〔2017〕108号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于印发《人民币跨境支付系统业务规则》的通知（银发[2018]72号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于印发《人民币跨境收付信息管理系统管理办法》的通知（银发〔2017〕126号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于印发《企业征信机构备案管理办法》的通知（银发〔2016〕253号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于印发《反洗钱数据报送工作数字证书管理规程》的通知（银发〔2016〕163号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于印发《国库资金经收支付服务管理办法（试行）》的通知（银发〔2019〕292号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于印发《普通纪念币普制币发行管理暂行规定》的通知（银发〔2020〕173号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于印发《条码支付业务规范（试行）》的通知（银发〔2017〕296号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于印发《银行业金融机构反假货币工作指引》的通知(银发〔2016〕29号).csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于印发《银行业金融机构反洗钱现场检查数据接口规范（试行）》的通知（银发〔2017〕300号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于印发《银行业金融机构绿色金融评价方案》的通知.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于印发《非银行支付机构反洗钱现场检查数据接口规范（试行）》的通知（银发〔2017〕301号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于印发《非银行支付机构大额交易报告要素及释义》的通知（银发〔2018〕349号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于印发《非银行支付机构重大事项报告管理办法》的通知（银发〔2021〕198号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于印发假币收缴、鉴定业务专用凭证印章等样式有关事项的通知（银发〔2020〕281号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于印发证券期货保险机构反洗钱执法检查数据提取接口规范的通知（银发〔2019〕63号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于发布《非银行支付机构分类评级管理办法》的通知(银发〔2016〕106号).csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于取消企业银行账户许可的通知（银发〔2019〕41号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于境外人民币业务参加行在境内代理行存放执行正常存款准备金率的通知(银发〔2016〕11号).csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于大额交易和可疑交易报告要素及释义的通知（银发〔2017〕98号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于完善人民币购售业务管理有关问题的通知（银发[2018]159号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于完善开发性银行和政策性银行金融债券发行有关事宜的通知（银发〔2016〕254号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于开展银行业存款类金融机构绿色信贷业绩评价的通知（银发[2018]180号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于强化银行卡受理终端安全管理的通知（银发〔2017〕21号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于持续提升收单服务水平 规范和促进收单服务市场发展的指导意见（银发〔2017〕45号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于改进个人银行账户分类管理有关事项的通知（银发[2018]16号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于落实个人银行账户分类管理制度的通知(银发〔2016〕302号).csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于落实执行联合国安理会相关决议的通知（银发〔2017〕187号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于规范代收业务的通知（银发〔2020〕248号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于规范支付创新业务的通知（银发〔2017〕281号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于进一步做好受益所有人身份识别工作有关问题的通知（银发[2018]164号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于进一步加强征信信息安全管理的通知（银发[2018]102号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于进一步加强支付结算管理防范电信网络新型违法犯罪有关事项的通知（银发〔2019〕85号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于进一步加强银行卡风险管理的通知（银发〔2016〕170号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于进一步完善人民币跨境业务政策 促进贸易投资便利化的通知（银发[2018]3号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于进一步完善存款准备金平均法考核的通知(银发〔2016〕153号).csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于进一步明确境内企业人民币境外放款业务有关事项的通知（银发〔2016〕306号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于金融机构开展人民币海外基金业务的指导意见（银发〔2017〕195号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行关于非银行支付机构开展大额交易报告工作有关要求的通知（银发〔2018〕163号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行办公厅 人力资源社会保障部办公厅关于印发《具有金融功能的第三代社会保障卡技术规范》的通知（银办发〔2017〕170号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行办公厅 保监会办公厅关于投保人与被保险人、受益人关系确认有关事项的通知(银办发〔2016〕270号).csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行办公厅 财政部办公厅 税务总局办公厅关于做好个人所得税住房贷款利息专项附加扣除相关信息归集工作的通知（银办发〔2019〕71号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行办公厅关于“三证合一”登记制度改革有关反洗钱工作管理事项的通知(银办发〔2016〕110号).csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行办公厅关于修订农村支付服务环境建设业务统计指标的通知（银办发〔2017〕90号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行办公厅关于修订支付系统相关管理制度的通知(银办发〔2016〕112号).csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行办公厅关于修订非银行支付机构分类评级相关指标的通知（银办发〔2017〕21号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行办公厅关于加强小额支付系统集中代收付业务管理有关事项的通知（银办发〔2017〕110号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行办公厅关于加强征信系统查询用户信息管理的通知（银办发〔2017〕164号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行办公厅关于加强条码支付安全管理的通知（银办发〔2017〕242号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行办公厅关于印发《中国人民银行人民币防伪事项管理办法》的通知(银办发〔2017〕16号).csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行办公厅关于印发《中央银行会计核算数据集中系统综合前置子系统管理办法》的通知（银办发〔2017〕132号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行办公厅关于印发《支付机构将部分客户备付金交存人民银行操作指引》的通知 (银办发〔2017〕45号).csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行办公厅关于印发《金融机构互联网黄金业务管理暂行办法》的通知（银办发〔2018〕221号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行办公厅关于印发《黄金积存业务管理暂行办法》的通知（银办发〔2018〕222号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行办公厅关于发布《“债券通”（北向通）结算操作规程》的通知（银办发[2018]150 号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行办公厅关于境外中央银行类机构在境内银行业金融机构开立人民币银行结算账户有关事项的通知（银办发〔2015〕227号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行办公厅关于境外机构境内发行人民币债券跨境人民币结算业务有关事宜的通知（银办发〔2016〕258号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行办公厅关于完善人民币跨境收付信息管理系统银行间业务数据报送流程的通知（银办发〔2017〕118号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行办公厅关于实施支付机构客户备付金集中存管有关事项的通知（银办发〔2017〕10号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行办公厅关于强化银行卡磁条交易安全管理的通知（银办发〔2017〕120号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行办公厅关于规范在支票上使用支付密码有关事项的通知(银办发〔2016〕59号).csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行办公厅关于规范银行业金融机构账户黄金业务有关事项的通知（银办发〔2016〕94号 ）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行办公厅关于调整境外机构人民币银行结算账户资金使用有关事宜的通知（银办发〔2016〕15号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行办公厅关于进一步加强反洗钱和反恐怖融资工作的通知（银办发[2018]130号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行办公厅关于进一步加强对涉嫌非法集资资金交易监测预警工作的指导意见(银办发〔2016〕201号).csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行办公厅关于进一步完善跨境资金流动管理 支持金融市场开放有关事宜的通知（银办发[2018]96号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行办公厅关于进一步明确人民币合格境内机构投资者境外证券投资管理有关事项的通知（银办发[2018]81号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行办公厅关于非银行支付机构非现场监管系统上线运行的通知(银办发〔2016〕247号).csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/中国人民银行办公厅关于黄金资产管理业务有关事项的通知（银办发〔2018〕215号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/规范性文件/证券公司短期融资券管理办法（中国人民银行公告[2021]第10号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/部门规章/中国人民银行 中国银行业监督管理委员会令〔2016〕第2号（银行卡清算机构管理办法）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/部门规章/中国人民银行 中国银行业监督管理委员会令〔2017〕第2号（汽车贷款管理办法）（中国人民银行 中国银行业监督管理委员会令〔2017〕第2号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/部门规章/中国人民银行 国家发展和改革委员会 财政部 中国证券监督管理委员会令〔2019〕第5号（信用评级业管理暂行办法）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/部门规章/中国人民银行 海关总署令〔2020〕第3号（修改《黄金及黄金制品进出口管理办法》）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/部门规章/中国人民银行令〔2016〕第3号（金融机构大额交易和可疑交易报告管理办法）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/部门规章/中国人民银行令〔2017〕第1号（内地与香港债券市场互联互通合作管理暂行办法）（中国人民银行令〔2017〕第1号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/部门规章/中国人民银行令〔2017〕第3号（应收账款质押登记办法）（中国人民银行令〔2017〕第3号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/部门规章/中国人民银行令〔2018〕第1号.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/部门规章/中国人民银行令〔2018〕第2号.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/部门规章/中国人民银行令〔2018〕第3号（中国人民银行规章制定程序与管理规定）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/部门规章/中国人民银行令〔2019〕第1号 （中国人民银行关于取消企业银行账户许可有关事宜的决定）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/部门规章/中国人民银行令〔2019〕第2号 （人民币图样使用管理办法）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/部门规章/中国人民银行令〔2019〕第3号 （中国人民银行货币鉴别及假币收缴、鉴定管理办法）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/部门规章/中国人民银行令〔2019〕第4号（应收账款质押登记办法）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/部门规章/中国人民银行令〔2020〕第1号（中国人民银行行政许可实施办法）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/部门规章/中国人民银行令〔2020〕第2号（关于修改《教育储蓄管理办法》等规章的决定）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/部门规章/中国人民银行令〔2020〕第4号（金融控股公司监督管理试行办法）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/部门规章/中国人民银行令〔2020〕第5号（中国人民银行金融消费者权益保护实施办法）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/部门规章/中国人民银行令〔2021〕第1号（非银行支付机构客户备付金存管办法）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/部门规章/中国人民银行令〔2021〕第2号（金融控股公司董事、监事、高级管理人员任职备案管理暂行规定）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/部门规章/中国人民银行令〔2021〕第3号（金融机构反洗钱和反恐怖融资监督管理办法）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:50]- csv/部门规章/中国人民银行关于修改《金融机构大额交易和可疑交易报告管理办法》的决定（中国人民银行银行令〔2018〕第2号）.csv
+2021-10-28 16:09:19,933 [main] INFO  -[FileReader.java:53]- 得到阿里云OSS上所有的文件，一共182个
+2021-10-28 16:09:20,979 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:09:22,605 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:09:23,213 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:09:23,326 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:09:23,411 [main] ERROR -[DateUtil.java:46]- 日期格式转换出错
+2021-10-28 16:09:23,656 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:09:24,019 [main] ERROR -[DateUtil.java:46]- 日期格式转换出错
+2021-10-28 16:09:24,617 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:09:26,430 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:09:26,541 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:09:27,016 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:09:27,486 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:09:28,019 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:09:28,670 [main] ERROR -[DateUtil.java:46]- 日期格式转换出错
+2021-10-28 16:09:29,001 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:09:29,107 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:09:29,363 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:09:29,481 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:09:29,833 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:09:29,928 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:09:30,163 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:09:30,259 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:09:30,600 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:09:30,803 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:09:31,155 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:09:31,389 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:09:31,752 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:09:32,499 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:09:32,585 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:09:33,022 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:09:33,171 [main] ERROR -[LibraryCreateServiceImpl.java:76]- 数据出错，不能存入数据库
+2021-10-28 16:09:33,256 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:09:33,640 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:09:33,960 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:09:34,462 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:09:35,529 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:09:35,838 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:09:37,044 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:09:37,534 [main] ERROR -[DateUtil.java:46]- 日期格式转换出错
+2021-10-28 16:10:53,787 [main] INFO  -[StartupInfoLogger.java:55]- Starting WebPracticeApplication using Java 1.8.0_291 on LAPTOP-8CTC9VJK with PID 15440 (D:\WebPractice\target\classes started by Lenovo in D:\WebPractice)
+2021-10-28 16:10:53,793 [main] INFO  -[SpringApplication.java:659]- No active profile set, falling back to default profiles: default
+2021-10-28 16:10:56,129 [main] INFO  -[StartupInfoLogger.java:61]- Started WebPracticeApplication in 2.583 seconds (JVM running for 3.496)
+2021-10-28 16:10:56,129 [main] INFO  -[LibraryCreateServiceImpl.java:38]- 开始读取爬虫数据至数据库
+2021-10-28 16:10:56,417 [main] INFO  -[FileReader.java:54]- 得到阿里云OSS上所有的文件，一共182个
+2021-10-28 16:10:57,345 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:10:58,945 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:10:59,574 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:10:59,649 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:10:59,734 [main] ERROR -[DateUtil.java:46]- 日期格式转换出错
+2021-10-28 16:11:00,022 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:11:00,342 [main] ERROR -[DateUtil.java:46]- 日期格式转换出错
+2021-10-28 16:11:01,025 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:11:02,743 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:11:02,838 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:11:03,393 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:11:03,862 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:11:04,332 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:11:05,207 [main] ERROR -[DateUtil.java:46]- 日期格式转换出错
+2021-10-28 16:11:05,484 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:11:05,580 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:11:05,750 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:11:05,846 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:11:06,126 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:11:06,198 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:11:06,434 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:11:06,508 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:11:06,721 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:11:06,817 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:11:07,084 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:11:07,287 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:11:07,564 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:11:08,193 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:11:08,268 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:11:08,641 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:11:08,822 [main] ERROR -[LibraryCreateServiceImpl.java:76]- 数据出错，不能存入数据库
+2021-10-28 16:11:08,902 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:11:09,175 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:11:09,451 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:11:09,762 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:11:10,550 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:11:10,817 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:11:11,862 [main] WARN  -[DateUtil.java:27]- 有法律文书文件中日期一栏为空
+2021-10-28 16:11:12,311 [main] ERROR -[DateUtil.java:46]- 日期格式转换出错
+>>>>>>> Stashed changes

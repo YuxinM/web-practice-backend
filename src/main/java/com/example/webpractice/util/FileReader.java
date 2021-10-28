@@ -1,10 +1,7 @@
 package com.example.webpractice.util;
 
 import com.aliyun.oss.OSS;
-import com.aliyun.oss.model.GetObjectRequest;
-import com.aliyun.oss.model.OSSObject;
-import com.aliyun.oss.model.OSSObjectSummary;
-import com.aliyun.oss.model.ObjectListing;
+import com.aliyun.oss.model.*;
 import com.csvreader.CsvReader;
 import com.example.webpractice.config.AliyunConfig;
 import com.example.webpractice.config.MainConfig;
@@ -44,13 +41,13 @@ public class FileReader {
     public List<String> getFileNames(String bucketName) {
 
         OSS ossClient = aliyunConfig.OSSClient();
-        ObjectListing objectListing = ossClient.listObjects(bucketName);
+        ObjectListing objectListing = ossClient.listObjects(
+                new ListObjectsRequest(bucketName).withMaxKeys(300));
         List<OSSObjectSummary> summaries = objectListing.getObjectSummaries();
         List<String> names = new ArrayList<>();
         for (OSSObjectSummary s : summaries) {
             if (s.getKey().endsWith(".csv")) {
                 names.add(s.getKey());
-                // System.out.println(s.getKey());
             }
         }
         log.info("得到阿里云OSS上所有的文件，一共{}个", names.size());
@@ -122,9 +119,12 @@ public class FileReader {
             ArrayList<String[]> csv = new ArrayList<String[]>();
             CsvReader reader = new CsvReader(filepath, ',', Charset.forName("GBK"));
             reader.readHeaders();
-//            log.error("出错");
             while (reader.readRecord()) {
                 String[] a = reader.getValues();
+            }
+           // log.error("出错");
+            while (reader.readRecord()){
+                String[] a=reader.getValues();
                 csv.add(a);
             }
             reader.close();

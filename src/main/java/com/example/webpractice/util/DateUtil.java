@@ -35,11 +35,14 @@ public class DateUtil {
             dateString = dateString.replace(",", " ");
             simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-        } else {
-            dateString = dateString.replace("年", "-");
-            dateString = dateString.replace("月", "-");
-            dateString = dateString.replace("日", "-");
+
+        }else if(dateString.contains("年")&&dateString.contains("月")&&dateString.contains("日")) {
+            dateString=dateString.replace("年","-");
+            dateString=dateString.replace("月","-");
+            dateString=dateString.replace("日","-");
             simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        }else {
+            simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd");
         }
         try {
             Date date = simpleDateFormat.parse(dateString);
