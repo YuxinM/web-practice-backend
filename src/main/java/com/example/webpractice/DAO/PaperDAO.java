@@ -13,11 +13,10 @@ import java.util.List;
  */
 
 @Repository
-public interface PaperDAO extends JpaRepository<Papers,Integer> {
+public interface PaperDAO extends JpaRepository<Papers, Integer> {
 
 
-    List<Papers>getPapersById(int id);
-
+    List<Papers> getPapersById(int id);
 
 
 }

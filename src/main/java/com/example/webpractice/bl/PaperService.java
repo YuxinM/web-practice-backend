@@ -12,6 +12,7 @@ public interface PaperService {
 
     /**
      * 根据id获取法规详情
+     *
      * @param id
      * @return
      */

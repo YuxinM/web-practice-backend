@@ -16,6 +16,7 @@ public class DemoApplicationRunner implements ApplicationRunner {
 
     @Autowired
     LibraryCreateService libraryCreateService;
+
     @Override
     public void run(ApplicationArguments args) throws Exception {
         libraryCreateService.writeInDatabase();

@@ -20,8 +20,8 @@ import javax.persistence.*;
 public class User {
 
 
-    public User(String name, String password) {
-        this.name = name;
+    public User(String username, String password) {
+        this.username = username;
         this.password = password;
     }
 
@@ -30,10 +30,10 @@ public class User {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "username")
+    private String username;
 
-    @Column(name="password")
+    @Column(name = "password")
     private String password;
 
 }

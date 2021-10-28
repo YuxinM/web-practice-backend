@@ -7,9 +7,9 @@ import ch.qos.logback.core.pattern.color.ANSIConstants;
 import ch.qos.logback.core.pattern.color.ForegroundCompositeConverterBase;
 
 
-
 /**
  * 日志输出颜色工具类
+ *
  * @Author MengYuxin
  * @Date 2021/10/27 11:39
  */
