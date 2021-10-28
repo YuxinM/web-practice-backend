@@ -119,9 +119,6 @@ public class FileReader {
             ArrayList<String[]> csv = new ArrayList<String[]>();
             CsvReader reader = new CsvReader(filepath, ',', Charset.forName("GBK"));
             reader.readHeaders();
-            while (reader.readRecord()) {
-                String[] a = reader.getValues();
-            }
            // log.error("出错");
             while (reader.readRecord()){
                 String[] a=reader.getValues();

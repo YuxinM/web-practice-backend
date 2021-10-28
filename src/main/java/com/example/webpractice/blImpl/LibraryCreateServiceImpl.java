@@ -56,20 +56,26 @@ public class LibraryCreateServiceImpl implements LibraryCreateService {
 
                 String[] csv = fileReader.readFile(path);
                 if (csv != null) {
-                    Timestamp release_ts = new Timestamp(DateUtil.dateToStamp(csv[5]));
+                    Timestamp release_ts = null;
                     Timestamp implement_ts = null;
-                    if (csv[6].contains("年")) {
+                    if(csv[5]!=null){
+                        release_ts=new Timestamp(DateUtil.dateToStamp(csv[5]));
+                    }
+
+                    if (csv[6]!=null&&csv[6].contains("年")) {
                         implement_ts = new Timestamp(DateUtil.dateToStamp(csv[6]));
                     } else {
                         implement_ts = release_ts;
                     }
                     Timestamp input_ts = new Timestamp(DateUtil.dateToStamp(csv[9]));
+
                     Papers papers = new Papers(csv[0], csv[1], csv[2],
                             csv[3], release_ts, implement_ts, csv[4], csv[7], 1, input_ts,
                             csv[10], Integer.parseInt(csv[11]));
 
                     //存入一条法规
                     try {
+                        //System.out.println(papers);
                         int id = paperDAO.save(papers).getId();
                         //然后把临时文件删除
                         FileUtil.deleteDirRecursion(path);

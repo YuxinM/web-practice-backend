@@ -25,7 +25,9 @@ public class DateUtil {
      */
     public static long dateToStamp(String dateString) {
 
-        if (dateString.equals("")) {
+
+
+        if (dateString==null||dateString.equals("")) {
             log.warn("有法律文书文件中日期一栏为空");
             return 0;
         }
@@ -48,7 +50,7 @@ public class DateUtil {
             Date date = simpleDateFormat.parse(dateString);
             return date.getTime();
         } catch (ParseException e) {
-            log.error("日期格式转换出错");
+            log.warn("日期格式转换出错");
         }
         return 0;
     }

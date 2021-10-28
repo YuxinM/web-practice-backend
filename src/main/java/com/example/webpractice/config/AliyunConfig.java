@@ -43,7 +43,6 @@ public class AliyunConfig {
     // 将OSS 客户端交给Spring容器托管
     @Bean
     public OSS OSSClient() {
-        log.info("创建OSSClient");
         return new OSSClient(endPoint, accessKeyId, accessKeySecret);
     }
 }

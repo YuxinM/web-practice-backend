@@ -6,6 +6,7 @@ import com.example.webpractice.vo.ConditionVO;
 import com.example.webpractice.vo.PaperVO;
 import com.example.webpractice.vo.ResponseVO;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.stereotype.Service;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -18,6 +19,7 @@ import java.util.List;
  * @Author MengYuxin
  * @Date 2021/10/28 16:22
  */
+@Service
 public class PageServiceImpl implements PageService {
 
     @Override
