@@ -27,10 +27,32 @@ import java.util.List;
 @Slf4j
 public class FileReader {
 
-    @Autowired
-    AliyunConfig aliyunConfig;
 
-    // private static final Logger logger= LoggerFactory.getLogger(FileReader.class);
+    /**
+     * 上传文件到阿里云
+     * @param bucketName bucketName
+     * @param path  阿里云路径
+     * @param file  文件
+     * @param ossClient
+     */
+    public void uploadFile(String bucketName,String path,File
+                            file,OSS ossClient){
+
+        PutObjectRequest putObjectRequest = new PutObjectRequest(bucketName,path,file);
+        ossClient.putObject(putObjectRequest);
+        ossClient.shutdown();
+
+    }
+
+    public boolean deleteFile(String bucketName,String path,OSS ossClient){
+
+        if(!ossClient.doesObjectExist(bucketName, path)){
+            return false;
+        }
+        ossClient.deleteObject(bucketName, path);
+
+    }
+
 
     /**
      * 得到阿里云OSS的指定bucket中所有文件名
@@ -38,17 +60,15 @@ public class FileReader {
      * @param bucketName bucket名称
      * @return 文件名(csv文件)
      */
-    public List<String> getFileNames(String bucketName) {
+    public List<String> getFileNames(String bucketName,OSS ossClient) {
 
-        OSS ossClient = aliyunConfig.OSSClient();
+      //  OSS ossClient = aliyunConfig.OSSClient();
         ObjectListing objectListing = ossClient.listObjects(
-                new ListObjectsRequest(bucketName).withMaxKeys(300));
+                new ListObjectsRequest(bucketName).withMaxKeys(500));
         List<OSSObjectSummary> summaries = objectListing.getObjectSummaries();
         List<String> names = new ArrayList<>();
         for (OSSObjectSummary s : summaries) {
-            if (s.getKey().endsWith(".csv")) {
                 names.add(s.getKey());
-            }
         }
         log.info("得到阿里云OSS上所有的文件，一共{}个", names.size());
         return names;
@@ -63,9 +83,9 @@ public class FileReader {
      * @return 返回正常字符串说明下载成功 null说明下载失败
      */
 
-    public String download(String bucketName, String fileName) {
+    public String downloadCsv(String bucketName, String fileName,OSS ossClient) {
 
-        OSS ossClient = aliyunConfig.OSSClient();
+     ///   OSS ossClient = aliyunConfig.OSSClient();
         OSSObject ossObject = ossClient.getObject(bucketName,
                 fileName);
 
@@ -114,7 +134,7 @@ public class FileReader {
      * @param filepath 文件路径
      * @return 返回null读取失败
      */
-    public String[] readFile(String filepath) {
+    public String[] readCsvFile(String filepath) {
         try {
             ArrayList<String[]> csv = new ArrayList<String[]>();
             CsvReader reader = new CsvReader(filepath, ',', Charset.forName("GBK"));
