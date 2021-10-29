@@ -1,6 +1,7 @@
 package com.example.webpractice.controller;
 
 import com.example.webpractice.bl.PaperService;
+import com.example.webpractice.bl.page.PageService;
 import com.example.webpractice.po.Papers;
 import com.example.webpractice.vo.PaperVO;
 import com.example.webpractice.vo.ResponseVO;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServlet;
+import java.net.ServerSocket;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +29,9 @@ public class PaperController {
     @Autowired
     PaperService paperService;
 
+    @Autowired
+    PageService pageService;
+
 
     @GetMapping("/get/{id}")
     @ResponseBody
@@ -36,8 +41,21 @@ public class PaperController {
 
     @PostMapping("/add")
     @ResponseBody
-    public ResponseVO addPaper(@RequestBody PaperVO paperVO,
-                               @RequestParam("file") MultipartFile file) {
+    public ResponseVO addPaper(@RequestParam(value = "title") String title,
+                               @RequestParam(value = "number",required = false) String number,
+                               @RequestParam(value = "category") String category,
+                               @RequestParam(value = "department") String department,
+                               @RequestParam(value = "grade") String grade,
+                               @RequestParam(value = "release_time") String release_time,
+                               @RequestParam(value = "implement_time") String implement_time,
+                               @RequestParam(value = "interpret_department",required = false) String interpret,
+                               @RequestParam(value = "input_user") String input_user,
+                               @RequestParam(value = "input_time") String input_time,
+                               @RequestParam(value = "content") MultipartFile file,
+                               @RequestParam(value = "status") String status
+                               ) {
+
+
         return null;
     }
 
@@ -50,7 +68,8 @@ public class PaperController {
                           @RequestParam(value = "implement_time", required = false) String[] implement_time,
                           @RequestParam(value = "department", required = false) String department,
                           @RequestParam(value = "status", required = false) String status) {
-        return null;
+
+        return pageService.page(pageNum,title,grade,release_time,implement_time,department,status);
     }
 
 

@@ -29,5 +29,5 @@ public class ConditionVO {
 
     private String department;
 
-    private boolean status;
+    private String status;
 }

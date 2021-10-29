@@ -21,6 +21,16 @@ public class MainConfig {
      */
     public static final String USER_DATA_DIR_NAME = "user_data";
 
+    /**
+     * 存放正文文件夹
+     */
+    public static final String CONTENT = "content";
+
+    /**
+     * 存放附件文件夹
+     */
+    public static final String APPENDIX = "appendix";
+
 
     public static void main(String[] args) {
         System.out.println(PROJECT_ABSOLUTE_PATH);

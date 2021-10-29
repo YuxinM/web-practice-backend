@@ -10,6 +10,7 @@ import com.example.webpractice.vo.ResponseVO;
 import com.example.webpractice.vo.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -54,4 +55,13 @@ public class PaperServiceImpl implements PaperService {
 
         }
     }
+
+    @Override
+    public ResponseVO addPaper(String title, String number, String category,
+                               String department, String grade, String release_time,
+                               String implement_time, String interpret, String input_user,
+                               String input_time, MultipartFile file, String status) {
+        return null;
+    }
 }
+

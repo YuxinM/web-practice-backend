@@ -3,6 +3,7 @@ create database `practice` default character set utf8 collate utf8_general_ci;
 
 use practice;
 
+drop table if exists `appendix`;
 drop table if exists `papers`;
 drop table if exists `user`;
 
@@ -18,7 +19,7 @@ create table user
 
 create table papers
 (
-    id             int          not null auto_increment comment '文书id 主键',
+    id             int          not null auto_increment comment '法规id 主键',
     title          varchar(200) not null comment '法规标题',
     number         varchar(100) comment '法规文号',
     category       varchar(50)  not null comment '外规类别',
@@ -37,6 +38,16 @@ create table papers
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_unicode_ci;
 
+create table appendix
+(
+    id        int          not null comment '附件id',
+    file_name varchar(200) not null comment '文件名 阿里云oss中',
+    paper_id  int          not null comment '法规id 外键',
+    primary key (id),
+    foreign key (paper_id) references papers (id)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4
+  COLLATE = utf8mb4_unicode_ci;
 
 
 insert into `user`

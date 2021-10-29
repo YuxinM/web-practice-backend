@@ -14,5 +14,6 @@ public interface PageService {
 
 
 
-    ResponseVO page(ConditionVO conditionVO);
+
+    ResponseVO page(Integer pageNum, String title, String grade, String[] release_time, String[] implement_time, String department, String status);
 }

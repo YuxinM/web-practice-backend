@@ -18,22 +18,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 下载阿里云OSS文件与读取工具类
- *
+ * 阿里云文件管理类
  * @Author MengYuxin
  * @Date 2021/10/25 17:24
  */
 @Component
 @Slf4j
-public class FileReader {
+public class OssFileManager {
 
 
     /**
-     * 上传文件到阿里云
+     * 上传文件
      * @param bucketName bucketName
      * @param path  阿里云路径
      * @param file  文件
-     * @param ossClient
+     * @param ossClient oss
      */
     public void uploadFile(String bucketName,String path,File
                             file,OSS ossClient){
@@ -44,21 +43,28 @@ public class FileReader {
 
     }
 
+    /**
+     * 删除阿里云上的文件
+     * @param bucketName bucket名称
+     * @param path  路径
+     * @param ossClient oss
+     * @return 删除是否成功
+     */
     public boolean deleteFile(String bucketName,String path,OSS ossClient){
 
         if(!ossClient.doesObjectExist(bucketName, path)){
             return false;
         }
         ossClient.deleteObject(bucketName, path);
-
+        ossClient.shutdown();
+        return true;
     }
 
 
     /**
      * 得到阿里云OSS的指定bucket中所有文件名
-     *
      * @param bucketName bucket名称
-     * @return 文件名(csv文件)
+     * @return 文件名
      */
     public List<String> getFileNames(String bucketName,OSS ossClient) {
 
@@ -76,11 +82,24 @@ public class FileReader {
     }
 
     /**
+     * 以流的形式下载文件
+     * @param bucketName bucket名称
+     * @param fileName  路径
+     * @param ossClient oss
+     * @return  文件流
+     */
+    public BufferedInputStream downloadStream(String bucketName,String fileName,OSS ossClient){
+        OSSObject ossObject = ossClient.getObject(bucketName,
+                fileName);
+        return new BufferedInputStream(ossObject.getObjectContent());
+
+    }
+
+    /**
      * 下载文件到本地临时存储位置
-     *
      * @param bucketName bucket名称
      * @param fileName   OSS中文件名
-     * @return 返回正常字符串说明下载成功 null说明下载失败
+     * @return 返回正常字符串是文件本地路径说明下载成功 null说明下载失败
      */
 
     public String downloadCsv(String bucketName, String fileName,OSS ossClient) {

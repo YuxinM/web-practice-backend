@@ -19,7 +19,6 @@ public class DateUtil {
 
     /**
      * 将日期转化为时间戳
-     *
      * @param dateString
      * @return
      */
@@ -57,7 +56,6 @@ public class DateUtil {
 
     /**
      * 数据库时间戳转化为字符串格式
-     *
      * @param timestamp
      * @return
      */

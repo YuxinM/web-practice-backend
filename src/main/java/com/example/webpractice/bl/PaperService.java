@@ -1,6 +1,7 @@
 package com.example.webpractice.bl;
 
 import com.example.webpractice.vo.ResponseVO;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * @Author MengYuxin
@@ -17,4 +18,9 @@ public interface PaperService {
      * @return
      */
     ResponseVO getPaperById(int id);
+
+    ResponseVO addPaper(String title, String number, String category, String department,
+                        String grade, String release_time, String implement_time,
+                        String interpret, String input_user, String input_time,
+                        MultipartFile file, String status);
 }
