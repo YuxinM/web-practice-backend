@@ -1,8 +1,10 @@
 package com.example.webpractice.util;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.UUID;
 
 /**
@@ -54,6 +56,23 @@ public class FileUtil {
             }
         }
         return pathBuilder.toString();
+    }
+
+    /**
+     * 保存web段传来的文件到本地
+     * @param multipartFile 文件
+     * @param savePath  保存路径
+     * @return  保存是否成功
+     */
+    public static boolean saveFile(MultipartFile multipartFile, String savePath){
+        try {
+            File file=new File(savePath);
+            multipartFile.transferTo(file);
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+        return true;
     }
 
 

@@ -82,17 +82,19 @@ public class OssFileManager {
     }
 
     /**
-     * 以流的形式下载文件
+     * 下载文件
      * @param bucketName bucket名称
      * @param fileName  路径
      * @param ossClient oss
-     * @return  文件流
+     * @return  文件内容
      */
-    public BufferedInputStream downloadStream(String bucketName,String fileName,OSS ossClient){
-        OSSObject ossObject = ossClient.getObject(bucketName,
-                fileName);
-        return new BufferedInputStream(ossObject.getObjectContent());
+    public String downloadContent(String bucketName,String fileName,OSS ossClient,File file){
 
+        ossClient.getObject(new GetObjectRequest(bucketName, fileName), file);
+
+
+
+        return null;
     }
 
     /**

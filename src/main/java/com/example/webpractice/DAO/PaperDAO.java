@@ -26,6 +26,12 @@ public interface PaperDAO extends JpaRepository<Papers, Integer>, JpaSpecificati
     @Query(nativeQuery = true,value = "select * from practice.papers where title=?1")
     List<Papers>findByTitle(String title);
 
+    @Query(nativeQuery = true,value = "select count(*) from practice.papers where content=?1")
+    int numOfFileName(String name);
+
+    @Query(nativeQuery = true,value = "select count(*) from practice.papers where title=?1")
+    int numOfTitle(String title);
+
    // Page<Papers>findAll(Specification<Papers>specification, Pageable pageable);
 
    // List<Papers>findAll(Specification<Papers>specification);

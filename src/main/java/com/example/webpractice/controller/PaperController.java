@@ -56,7 +56,8 @@ public class PaperController {
                                ) {
 
 
-        return null;
+        return paperService.addPaper(title,number,category,department,grade,
+                release_time,implement_time,interpret,input_user,input_time,file,status);
     }
 
     @GetMapping("/get")
