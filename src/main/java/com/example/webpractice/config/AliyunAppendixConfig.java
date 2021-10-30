@@ -37,7 +37,7 @@ public class AliyunAppendixConfig {
 
     // 将OSS 客户端交给Spring容器托管
     @Bean
-    public OSS OSSClient() {
+    public OSS OSSClient1() {
         return new OSSClient(endPoint, accessKeyId, accessKeySecret);
     }
 

@@ -1,0 +1,45 @@
+2021-10-29 17:04:55,673 [main] INFO  -[StartupInfoLogger.java:55]- Starting WebPracticeApplication using Java 1.8.0_291 on LAPTOP-8CTC9VJK with PID 39588 (D:\WebPractice\target\classes started by Lenovo in D:\WebPractice)
+2021-10-29 17:04:55,673 [main] INFO  -[SpringApplication.java:659]- No active profile set, falling back to default profiles: default
+2021-10-29 17:04:58,516 [main] INFO  -[StartupInfoLogger.java:61]- Started WebPracticeApplication in 3.127 seconds (JVM running for 4.186)
+2021-10-29 17:04:58,521 [main] INFO  -[LibraryCreateServiceImpl.java:39]- 开始读取爬虫数据至数据库
+2021-10-29 17:04:58,773 [main] INFO  -[FileReader.java:53]- 得到阿里云OSS上所有的文件，一共183个
+2021-10-29 17:05:00,436 [main] WARN  -[DateUtil.java:31]- 有法律文书文件中日期一栏为空
+2021-10-29 17:05:02,922 [main] WARN  -[DateUtil.java:31]- 有法律文书文件中日期一栏为空
+2021-10-29 17:05:03,966 [main] WARN  -[DateUtil.java:31]- 有法律文书文件中日期一栏为空
+2021-10-29 17:05:04,074 [main] WARN  -[DateUtil.java:31]- 有法律文书文件中日期一栏为空
+2021-10-29 17:05:04,170 [main] WARN  -[DateUtil.java:53]- 日期格式转换出错
+2021-10-29 17:05:04,618 [main] WARN  -[DateUtil.java:31]- 有法律文书文件中日期一栏为空
+2021-10-29 17:05:05,119 [main] WARN  -[DateUtil.java:53]- 日期格式转换出错
+2021-10-29 17:05:06,090 [main] WARN  -[DateUtil.java:31]- 有法律文书文件中日期一栏为空
+2021-10-29 17:05:08,575 [main] WARN  -[DateUtil.java:31]- 有法律文书文件中日期一栏为空
+2021-10-29 17:05:08,767 [main] WARN  -[DateUtil.java:31]- 有法律文书文件中日期一栏为空
+2021-10-29 17:05:09,522 [main] WARN  -[DateUtil.java:31]- 有法律文书文件中日期一栏为空
+2021-10-29 17:05:09,695 [main] ERROR -[LibraryCreateServiceImpl.java:83]- 数据出错，不能存入数据库
+2021-10-29 17:05:10,612 [main] WARN  -[DateUtil.java:31]- 有法律文书文件中日期一栏为空
+2021-10-29 17:05:11,456 [main] WARN  -[DateUtil.java:31]- 有法律文书文件中日期一栏为空
+2021-10-29 17:05:12,220 [main] WARN  -[DateUtil.java:53]- 日期格式转换出错
+2021-10-29 17:05:12,578 [main] WARN  -[DateUtil.java:31]- 有法律文书文件中日期一栏为空
+2021-10-29 17:05:12,645 [main] WARN  -[DateUtil.java:31]- 有法律文书文件中日期一栏为空
+2021-10-29 17:05:12,907 [main] WARN  -[DateUtil.java:31]- 有法律文书文件中日期一栏为空
+2021-10-29 17:05:13,004 [main] WARN  -[DateUtil.java:31]- 有法律文书文件中日期一栏为空
+2021-10-29 17:05:13,280 [main] WARN  -[DateUtil.java:31]- 有法律文书文件中日期一栏为空
+2021-10-29 17:05:13,397 [main] WARN  -[DateUtil.java:31]- 有法律文书文件中日期一栏为空
+2021-10-29 17:05:13,685 [main] WARN  -[DateUtil.java:31]- 有法律文书文件中日期一栏为空
+2021-10-29 17:05:13,792 [main] WARN  -[DateUtil.java:31]- 有法律文书文件中日期一栏为空
+2021-10-29 17:05:14,226 [main] WARN  -[DateUtil.java:31]- 有法律文书文件中日期一栏为空
+2021-10-29 17:05:14,379 [main] WARN  -[DateUtil.java:31]- 有法律文书文件中日期一栏为空
+2021-10-29 17:05:14,759 [main] WARN  -[DateUtil.java:31]- 有法律文书文件中日期一栏为空
+2021-10-29 17:05:15,061 [main] WARN  -[DateUtil.java:31]- 有法律文书文件中日期一栏为空
+2021-10-29 17:05:15,371 [main] WARN  -[DateUtil.java:31]- 有法律文书文件中日期一栏为空
+2021-10-29 17:05:16,213 [main] WARN  -[DateUtil.java:31]- 有法律文书文件中日期一栏为空
+2021-10-29 17:05:16,352 [main] WARN  -[DateUtil.java:31]- 有法律文书文件中日期一栏为空
+2021-10-29 17:05:16,746 [main] WARN  -[DateUtil.java:31]- 有法律文书文件中日期一栏为空
+2021-10-29 17:05:16,938 [main] ERROR -[LibraryCreateServiceImpl.java:83]- 数据出错，不能存入数据库
+2021-10-29 17:05:17,148 [main] WARN  -[DateUtil.java:31]- 有法律文书文件中日期一栏为空
+2021-10-29 17:05:17,483 [main] WARN  -[DateUtil.java:31]- 有法律文书文件中日期一栏为空
+2021-10-29 17:05:17,899 [main] WARN  -[DateUtil.java:31]- 有法律文书文件中日期一栏为空
+2021-10-29 17:05:18,453 [main] WARN  -[DateUtil.java:31]- 有法律文书文件中日期一栏为空
+2021-10-29 17:05:19,560 [main] WARN  -[DateUtil.java:31]- 有法律文书文件中日期一栏为空
+2021-10-29 17:05:19,872 [main] WARN  -[DateUtil.java:31]- 有法律文书文件中日期一栏为空
+2021-10-29 17:05:21,435 [main] WARN  -[DateUtil.java:31]- 有法律文书文件中日期一栏为空
+2021-10-29 17:05:22,086 [main] WARN  -[DateUtil.java:53]- 日期格式转换出错
