@@ -42,9 +42,14 @@ public class PaperServiceImpl implements PaperService {
     @Autowired
     AliyunAppendixConfig aliyunAppendixConfig;
 
+    //正文文件本地临时存储目录
+    private static final String ContentLocalDir = FileUtil.jointPath(MainConfig.PROJECT_ABSOLUTE_PATH,
+            MainConfig.CONTENT);
+
 
     /**
      * 根据id获取法规详情
+     *
      * @param id
      * @return
      */
@@ -59,20 +64,40 @@ public class PaperServiceImpl implements PaperService {
             String implement_time = DateUtil.StampToDate(target.getImplement_time());
             String input_time = DateUtil.StampToDate(target.getInput_time());
             String input_user = userDAO.getUsernameById(target.getUser_id());
-            String content="";
+            String content = "";
             /*
              * 如果正文字段是正文说明是爬取数据，存在数据库
              * 如果是文件名则去阿里云来读文件  filename: 文件路径
              */
-            if(target.getContent().startsWith("filename")){
+            if (target.getContent().startsWith("filename")) {
+                //正文文件的名称
+                String fileName = target.getContent().substring(target.getContent().indexOf(':') + 1);
                 //这是文件在阿里云中的存储位置
-                String ossPath="正文文件/"+target.getContent().substring(target.getContent().indexOf(':'));
+                String ossPath = "正文文件/" + fileName;
+                System.out.println(ossPath);
                 //从阿里云获取文件的流
-                BufferedInputStream in= ossFileManager.downloadStream(aliyunAppendixConfig.getBucketName(),
-                        ossPath,aliyunAppendixConfig.OSSClient1());
 
-            }else {
-                content=target.getContent();
+                File folder = new File(ContentLocalDir);
+                if (!folder.exists() && !folder.isDirectory()) {
+                    folder.mkdirs();
+                }
+                //本地路径
+                String path = FileUtil.jointPath(ContentLocalDir, fileName);
+                // System.out.println(path);
+                File file = new File(path);
+                //System.out.println(file.exists());
+                //将文件下载到本地临时存储位置
+
+                ossFileManager.downloadContent(aliyunAppendixConfig.getBucketName(),
+                        ossPath, aliyunAppendixConfig.OSSClient1(), file);
+                content = ossFileManager.readWord(path);
+                if (content == null) {
+                    return ResponseVO.buildFailure("读取正文失败");
+                }
+                //读取完删除临时文件
+                FileUtil.deleteDirRecursion(path);
+            } else {
+                content = target.getContent();
             }
             PaperVO paperVO = new PaperVO(target.getId(), target.getTitle(),
                     target.getPaper_number(), target.getCategory(), target.getDepartment(),
@@ -83,52 +108,174 @@ public class PaperServiceImpl implements PaperService {
         }
     }
 
+    /**
+     * 添加一条法规
+     *
+     * @param title
+     * @param number
+     * @param category
+     * @param department
+     * @param grade
+     * @param release_time
+     * @param implement_time
+     * @param interpret
+     * @param input_user
+     * @param input_time
+     * @param multipartFile  文件
+     * @param status
+     * @return
+     */
     @Override
     public ResponseVO addPaper(String title, String number, String category,
                                String department, String grade, String release_time,
                                String implement_time, String interpret, String input_user,
                                String input_time, MultipartFile multipartFile, String status) {
 
-        String fileName=multipartFile.getOriginalFilename();
-        String sqlFileName="filename:"+fileName;
-        if(paperDAO.numOfFileName(sqlFileName)!=0){
+        String fileName = multipartFile.getOriginalFilename();
+        String sqlFileName = "filename:" + fileName;
+        if (paperDAO.numOfFileName(sqlFileName) != 0) {
             return ResponseVO.buildFailure("正文文件名已存在");
         }
-        if(paperDAO.numOfTitle(title)!=0){
+        if (paperDAO.numOfTitle(title) != 0) {
             return ResponseVO.buildFailure("标题已存在");
         }
-        if(userDAO.UserExists(input_user)==0){
+        if (userDAO.UserExists(input_user) == 0) {
             return ResponseVO.buildFailure("用户名不存在");
         }
-        String localDir= FileUtil.jointPath(MainConfig.PROJECT_ABSOLUTE_PATH,
-                MainConfig.CONTENT);
+        if (multipartFile.isEmpty()) {
+            return ResponseVO.buildFailure("文件不可为空");
+        }
+
         //本地临时存储正文文件夹的路径
-        File folder=new File(localDir);
+        File folder = new File(ContentLocalDir);
         if (!folder.exists() && !folder.isDirectory()) {
             folder.mkdirs();
         }
         //正文文件的完整路径
-        String fullPath=FileUtil.jointPath(localDir,fileName);
-        if(!FileUtil.saveFile(multipartFile,fullPath)){
+        String fullPath = FileUtil.jointPath(ContentLocalDir, fileName);
+        if (!FileUtil.saveFile(multipartFile, fullPath)) {
             return ResponseVO.buildFailure("未知错误 正文文件存储失败");
         }
-        Timestamp release=new Timestamp(DateUtil.dateToStamp(release_time));
-        Timestamp implement=new Timestamp(DateUtil.dateToStamp(implement_time));
-        Timestamp input=new Timestamp(DateUtil.dateToStamp(input_time));
-        int st=status.equals("true")?1:0;
-        int userId=userDAO.getLoginInfo(input_user).getId();
-        Papers papers=new Papers(title,number,category,department,
-                release,implement,grade,interpret,userId,input,sqlFileName,st);
-        int id=paperDAO.save(papers).getId();
+        Timestamp release = new Timestamp(DateUtil.dateToStamp(release_time));
+        Timestamp implement = new Timestamp(DateUtil.dateToStamp(implement_time));
+        Timestamp input = new Timestamp(DateUtil.dateToStamp(input_time));
+        int st = status.equals("true") ? 1 : 0;
+        int userId = userDAO.getLoginInfo(input_user).getId();
+        Papers papers = new Papers(title, number, category, department,
+                release, implement, grade, interpret, userId, input, sqlFileName, st);
+        int id = paperDAO.save(papers).getId();
         //把本地的文件存入阿里云
         //本地临时文件
-        File file=new File(fullPath);
-        String ossPath="正文文件/"+fileName;
+        File file = new File(fullPath);
+        String ossPath = "正文文件/" + fileName;
         ossFileManager.uploadFile(aliyunAppendixConfig.getBucketName(),
-                ossPath,file,aliyunAppendixConfig.OSSClient1());
+                ossPath, file, aliyunAppendixConfig.OSSClient1());
         //删除本地的临时文件
         FileUtil.deleteDirRecursion(fullPath);
         return ResponseVO.buildSuccess(id);
+    }
+
+    /**
+     * 批量废除法规
+     *
+     * @param ids
+     * @return
+     */
+    @Override
+    public ResponseVO abolish(String[] ids) {
+        if (ids == null) {
+            return ResponseVO.buildFailure("id数组为空");
+        }
+        for (String id : ids) {
+            paperDAO.updateStatus(0, Integer.parseInt(id));
+        }
+        return ResponseVO.buildSuccess();
+    }
+
+    /**
+     * 批量发布法规
+     *
+     * @param ids
+     * @return
+     */
+    @Override
+    public ResponseVO publish(String[] ids) {
+        if (ids == null) {
+            return ResponseVO.buildFailure("id数组为空");
+        }
+        for (String id : ids) {
+            paperDAO.updateStatus(1, Integer.parseInt(id));
+        }
+        return ResponseVO.buildSuccess();
+    }
+
+    @Override
+    public ResponseVO updatePaper(int id, String title, String number,
+                                  String category, String department, String grade,
+                                  String release_time, String implement_time, String interpret,
+                                  String input_user, String input_time, MultipartFile multipartFile,
+                                  String status) {
+        if (paperDAO.numOfId(id) == 0) {
+            return ResponseVO.buildFailure("id不存在");
+        }
+        Timestamp release = new Timestamp(DateUtil.dateToStamp(release_time));
+        Timestamp implement = new Timestamp(DateUtil.dateToStamp(implement_time));
+        Timestamp input = new Timestamp(DateUtil.dateToStamp(input_time));
+        int userId = userDAO.getLoginInfo(input_user).getId();
+        int st = status.equals("true") ? 1 : 0;
+        //正文文件不更新的情况
+        if (multipartFile.isEmpty()) {
+            paperDAO.updateWithNoFile(title, number, category, department, release,
+                    implement, grade, interpret, userId, input, st, id);
+        } else {
+            String fileName = multipartFile.getOriginalFilename();
+            String sqlName = "filename:" + fileName;//数据库正文字段的值(存文件名)
+            String content = paperDAO.findContentById(id);
+            //本地完整路径
+            String fullPath = FileUtil.jointPath(ContentLocalDir, fileName);
+            //本地临时存储正文文件夹的路径
+            File folder = new File(ContentLocalDir);
+            if (!folder.exists() && !folder.isDirectory()) {
+                folder.mkdirs();
+            }
+
+            //如果原来是以文件形式存在
+            if (content.startsWith("filename:")) {
+                //先要在oss上删除旧的文件
+                String oldName = content.substring(content.indexOf(':') + 1);
+                String oldOssPath = "正文文件/" + oldName;
+                String newOldOssPath = "正文文件/" + fileName;
+                ossFileManager.deleteFile(aliyunAppendixConfig.getBucketName(),
+                        oldOssPath, aliyunAppendixConfig.OSSClient1());
+                //然后上传新文件
+                if (!FileUtil.saveFile(multipartFile, fullPath)) {
+                    return ResponseVO.buildFailure("未知错误 正文文件存储失败");
+                }
+                File file = new File(fullPath);
+                ossFileManager.uploadFile(aliyunAppendixConfig.getBucketName(),
+                        newOldOssPath, file, aliyunAppendixConfig.OSSClient1());
+                //删除本地的临时文件
+                FileUtil.deleteDirRecursion(fullPath);
+
+            } else {
+                //原来是以文字内容存在
+                String ossPath = "正文文件/" + fileName;
+                if (!FileUtil.saveFile(multipartFile, fullPath)) {
+                    return ResponseVO.buildFailure("未知错误 正文文件存储失败");
+                }
+                File file = new File(fullPath);
+                ossFileManager.uploadFile(aliyunAppendixConfig.getBucketName(),
+                        ossPath, file, aliyunAppendixConfig.OSSClient1());
+                //删除本地的临时文件
+                FileUtil.deleteDirRecursion(fullPath);
+                //数据库的正文字段就存储文件名
+
+            }
+            paperDAO.updateWithFile(title, number, category, department,
+                    release, implement, grade, interpret, userId, input,
+                    sqlName, st, id);
+        }
+        return ResponseVO.buildSuccess();
     }
 }
 

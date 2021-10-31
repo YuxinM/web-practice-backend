@@ -6,6 +6,11 @@ import com.csvreader.CsvReader;
 import com.example.webpractice.config.AliyunConfig;
 import com.example.webpractice.config.MainConfig;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.poi.POIXMLDocument;
+import org.apache.poi.POIXMLTextExtractor;
+import org.apache.poi.hwpf.extractor.WordExtractor;
+import org.apache.poi.openxml4j.opc.OPCPackage;
+import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -86,15 +91,45 @@ public class OssFileManager {
      * @param bucketName bucket名称
      * @param fileName  路径
      * @param ossClient oss
-     * @return  文件内容
+     * @return
      */
-    public String downloadContent(String bucketName,String fileName,OSS ossClient,File file){
+    public void  downloadContent(String bucketName,String fileName,OSS ossClient,File file){
 
         ossClient.getObject(new GetObjectRequest(bucketName, fileName), file);
+        ossClient.shutdown();
 
+    }
 
+    /**
+     * 读取word文件内容
+     * @param filePath 本地路径
+     * @return
+     * @throws Exception
+     */
+    public String readWord(String filePath){
+        String buffer = "";
+        try {
+            if (filePath.endsWith(".doc")) {
+                InputStream is = new FileInputStream(filePath);
+                //HWPFDocument hwpfDocument=new HWPFDocument(is);
+                WordExtractor ex = new WordExtractor(is);
+                buffer = ex.getText();
+                is.close();
 
-        return null;
+            } else if (filePath.endsWith(".docx")) {
+                OPCPackage opcPackage = POIXMLDocument.openPackage(filePath);
+                POIXMLTextExtractor extractor = new XWPFWordExtractor(opcPackage);
+                buffer = extractor.getText();
+                opcPackage.close();
+            } else {
+                return null;
+            }
+            return buffer;
+        } catch (Exception e) {
+            log.warn("读取{}失败",filePath);
+            e.printStackTrace();
+            return null;
+        }
     }
 
     /**

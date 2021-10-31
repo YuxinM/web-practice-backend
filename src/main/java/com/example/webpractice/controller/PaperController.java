@@ -55,7 +55,6 @@ public class PaperController {
                                @RequestParam(value = "status") String status
                                ) {
 
-
         return paperService.addPaper(title,number,category,department,grade,
                 release_time,implement_time,interpret,input_user,input_time,file,status);
     }
@@ -72,6 +71,38 @@ public class PaperController {
 
         return pageService.page(pageNum,title,grade,release_time,implement_time,department,status);
     }
+
+    @PutMapping("/abolish")
+    @ResponseBody
+    public ResponseVO abolish(@RequestParam("ids")String[] ids){
+       return paperService.abolish(ids);
+    }
+
+    @PutMapping("/publish")
+    @ResponseBody
+    public ResponseVO publish(@RequestParam("ids")String[] ids){
+        return paperService.publish(ids);
+    }
+
+    @PutMapping("/update/{id}")
+    @ResponseBody
+    public ResponseVO update(@PathVariable("id")int id,
+                             @RequestParam(value = "title") String title,
+                             @RequestParam(value = "number",required = false) String number,
+                             @RequestParam(value = "category") String category,
+                             @RequestParam(value = "department") String department,
+                             @RequestParam(value = "grade") String grade,
+                             @RequestParam(value = "release_time") String release_time,
+                             @RequestParam(value = "implement_time") String implement_time,
+                             @RequestParam(value = "interpret_department",required = false) String interpret,
+                             @RequestParam(value = "input_user") String input_user,
+                             @RequestParam(value = "input_time") String input_time,
+                             @RequestParam(value = "content") MultipartFile file,
+                             @RequestParam(value = "status") String status){
+        return paperService.updatePaper(id,title,number,category,department,grade,
+                release_time,implement_time,interpret,input_user,input_time,file,status);
+    }
+
 
 
 }

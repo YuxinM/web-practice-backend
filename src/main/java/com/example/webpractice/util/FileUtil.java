@@ -105,11 +105,11 @@ public class FileUtil {
         for (File value : files) {
             // 删除子文件
             if (value.isFile()) {
-                System.out.println(empty + "   --- try to delete file " + value.getAbsolutePath());
+                //System.out.println(empty + "   --- try to delete file " + value.getAbsolutePath());
                 File subFile = new File(value.getAbsolutePath());
                 flag = subFile.delete() && flag;
-                if (!flag) System.err.println(empty + "   --- failed to delete file " + path);
-                else System.out.println(empty + "   --- succeed to delete file " + path);
+//                if (!flag) System.err.println(empty + "   --- failed to delete file " + path);
+//                else System.out.println(empty + "   --- succeed to delete file " + path);
             }
             // 删除子目录
             else if (value.isDirectory()) {
@@ -117,7 +117,6 @@ public class FileUtil {
             }
         }
         if (!flag) {
-
             System.err.println(empty + "--- failed to delete all sub files of dir " + path);
             return false;
         }
