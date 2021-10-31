@@ -32,4 +32,6 @@ public interface PaperService {
                         String grade, String release_time, String implement_time,
                         String interpret, String input_user, String input_time,
                         MultipartFile file, String status);
+
+    ResponseVO delete(String[] ids);
 }

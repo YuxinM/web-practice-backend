@@ -33,6 +33,20 @@ public class OssFileManager {
 
 
     /**
+     * 获取文件信息
+     * @param bucketName bucketName
+     * @param path 阿里云路径
+     * @param ossClient oss
+     * @return
+     */
+    public SimplifiedObjectMeta getFileInfo(String bucketName,String path,OSS ossClient){
+        SimplifiedObjectMeta meta=ossClient.getSimplifiedObjectMeta(bucketName,path);
+        ossClient.shutdown();
+        //meta.getSize()
+        return meta;
+    }
+
+    /**
      * 上传文件
      * @param bucketName bucketName
      * @param path  阿里云路径

@@ -20,8 +20,9 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class Appendix {
 
-    public Appendix(String file_name, int paper_id) {
+    public Appendix(String file_name,String user_name ,int paper_id) {
         this.file_name = file_name;
+        this.user_name=user_name;
         this.paper_id = paper_id;
     }
 
@@ -32,6 +33,9 @@ public class Appendix {
 
     @Column(name = "file_name")
     private String file_name;
+
+    @Column(name = "user_name")
+    private String user_name;
 
     @Column(name = "paper_id")
     private int paper_id;

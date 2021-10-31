@@ -1,0 +1,131 @@
+package com.example.webpractice.blImpl;
+
+import com.aliyun.oss.model.SimplifiedObjectMeta;
+import com.example.webpractice.DAO.AppendixDAO;
+import com.example.webpractice.DAO.UserDAO;
+import com.example.webpractice.bl.AppendixService;
+import com.example.webpractice.config.AliyunAppendixConfig;
+import com.example.webpractice.config.MainConfig;
+import com.example.webpractice.po.Appendix;
+import com.example.webpractice.util.FileUtil;
+import com.example.webpractice.util.OssFileManager;
+import com.example.webpractice.util.SessionManager;
+import com.example.webpractice.vo.AppendixVO;
+import com.example.webpractice.vo.ResponseVO;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * @Author MengYuxin
+ * @Date 2021/10/31 19:49
+ */
+
+@Service
+@Slf4j
+public class AppendixServiceImpl implements AppendixService {
+
+    private static final String AppendixLocalDir = FileUtil.jointPath(MainConfig.PROJECT_ABSOLUTE_PATH,
+            MainConfig.APPENDIX);
+
+    @Autowired
+    AppendixDAO appendixDAO;
+
+    @Autowired
+    OssFileManager ossFileManager;
+
+    @Autowired
+    AliyunAppendixConfig aliyunAppendixConfig;
+
+
+    /**
+     * 上传附件
+     * @param paperId
+     * @param files
+     * @return
+     */
+    @Override
+    public ResponseVO uploadAppendix(int paperId, MultipartFile[] files) {
+
+        int userId = SessionManager.getLoginUser().getId(); //用户id
+        String user_name=SessionManager.getLoginUser().getUsername();
+
+        if (files == null || files.length == 0) {
+            return ResponseVO.buildFailure("文件不能为空");
+        }
+        File folder = new File(AppendixLocalDir);
+        if (!folder.exists() && !folder.isDirectory()) {
+            folder.mkdirs();
+        }
+        for (MultipartFile multipartFile : files) {
+            String name = userId + "-" + multipartFile.getOriginalFilename();
+
+            if (appendixDAO.findByFileName(name).size() != 0) {
+                return ResponseVO.buildFailure("文件名已存在");
+            }
+            String fullPath = FileUtil.jointPath(AppendixLocalDir, name);
+            if (!FileUtil.saveFile(multipartFile, fullPath)) {
+                return ResponseVO.buildFailure("未知错误 正文文件存储失败");
+            }
+            File file = new File(fullPath);
+            String ossPath = "附件/" + name;
+            //将文件上传到阿里云
+            ossFileManager.uploadFile(aliyunAppendixConfig.getBucketName(),
+                    ossPath, file, aliyunAppendixConfig.OSSClient1());
+            //删除本地临时文件
+            FileUtil.deleteDirRecursion(fullPath);
+            Appendix appendix = new Appendix(name, user_name,paperId);
+            appendixDAO.save(appendix);
+        }
+        return ResponseVO.buildSuccess();
+    }
+
+    /**
+     * 获取附件
+     * @param paperId
+     * @return
+     */
+    @Override
+    public ResponseVO getAppendix(int paperId) {
+        List<Appendix>appendices=appendixDAO.findByPaperId(paperId);
+        List<AppendixVO>appendixVOS=new ArrayList<>();
+        if(appendices==null){
+            return ResponseVO.buildSuccess(appendixVOS);
+        }
+        for(Appendix appendix:appendices){
+            String ossPath="附件/"+appendix.getFile_name();
+            SimplifiedObjectMeta meta= ossFileManager.getFileInfo(
+                    aliyunAppendixConfig.getBucketName(),ossPath,
+                    aliyunAppendixConfig.OSSClient1()
+            );
+            long size=meta.getSize();
+            AppendixVO appendixVO=new AppendixVO(appendix.getFile_name(),
+                    size,appendix.getUser_name());
+            appendixVOS.add(appendixVO);
+        }
+        return ResponseVO.buildSuccess(appendixVOS);
+    }
+
+
+    /**
+     * 删除附件
+     * @param id
+     * @return
+     */
+    @Override
+    public ResponseVO deleteAppendix(int id) {
+
+        Appendix appendix= appendixDAO.findAppendixById(id);
+        String ossPath="附件/"+appendix.getFile_name();
+        //在阿里云中删除文件
+        ossFileManager.deleteFile(aliyunAppendixConfig.getBucketName(),
+                ossPath,aliyunAppendixConfig.OSSClient1());
+        appendixDAO.deleteById(id);
+        return ResponseVO.buildSuccess();
+    }
+}

@@ -33,8 +33,8 @@ public interface PaperDAO extends JpaRepository<Papers, Integer>, JpaSpecificati
     @Query(nativeQuery = true,value = "select count(*) from practice.papers where content=?1")
     int numOfFileName(String name);
 
-    @Query(nativeQuery = true,value = "select count(*) from practice.papers where title=?1")
-    int numOfTitle(String title);
+    @Query(nativeQuery = true,value = "select count(*) from practice.papers where title=?1 and user_id=?2")
+    int numOfTitle(String title,int user_id);
 
     @Query(nativeQuery = true,value = "select count(*) from practice.papers where id=?1")
     int numOfId(int id);
@@ -66,6 +66,10 @@ public interface PaperDAO extends JpaRepository<Papers, Integer>, JpaSpecificati
 
     @Query(nativeQuery = true,value = "select content from practice.papers where id=?1")
     String findContentById(int id);
+
+    Papers findPapersById(int id);
+
+    void deleteById(int id);
 
 
 

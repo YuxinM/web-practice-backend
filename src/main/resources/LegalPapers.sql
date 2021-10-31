@@ -42,6 +42,7 @@ create table appendix
 (
     id        int          not null comment '附件id',
     file_name varchar(200) not null comment '文件名 阿里云oss中',
+    user_name varchar(100) not null comment '上传用户',
     paper_id  int          not null comment '法规id 外键',
     primary key (id),
     foreign key (paper_id) references papers (id)

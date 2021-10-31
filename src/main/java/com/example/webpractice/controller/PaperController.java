@@ -103,6 +103,13 @@ public class PaperController {
                 release_time,implement_time,interpret,input_user,input_time,file,status);
     }
 
+    @DeleteMapping("/del")
+    @ResponseBody
+    public ResponseVO deletePaper(@RequestParam("ids") String[] ids){
+        return paperService.delete(ids);
+
+    }
+
 
 
 }

@@ -1,10 +1,13 @@
 package com.example.webpractice.blImpl;
 
+import com.example.webpractice.DAO.AppendixDAO;
 import com.example.webpractice.DAO.PaperDAO;
 import com.example.webpractice.DAO.UserDAO;
+import com.example.webpractice.bl.AppendixService;
 import com.example.webpractice.bl.PaperService;
 import com.example.webpractice.config.AliyunAppendixConfig;
 import com.example.webpractice.config.MainConfig;
+import com.example.webpractice.po.Appendix;
 import com.example.webpractice.po.Papers;
 import com.example.webpractice.util.DateUtil;
 import com.example.webpractice.util.FileUtil;
@@ -37,10 +40,16 @@ public class PaperServiceImpl implements PaperService {
     UserDAO userDAO;
 
     @Autowired
+    AppendixDAO appendixDAO;
+
+    @Autowired
     OssFileManager ossFileManager;
 
     @Autowired
     AliyunAppendixConfig aliyunAppendixConfig;
+
+    @Autowired
+    AppendixService appendixService;
 
     //正文文件本地临时存储目录
     private static final String ContentLocalDir = FileUtil.jointPath(MainConfig.PROJECT_ABSOLUTE_PATH,
@@ -131,12 +140,14 @@ public class PaperServiceImpl implements PaperService {
                                String implement_time, String interpret, String input_user,
                                String input_time, MultipartFile multipartFile, String status) {
 
-        String fileName = multipartFile.getOriginalFilename();
+        int userId = userDAO.getLoginInfo(input_user).getId();
+
+        String fileName = userId + "-" + multipartFile.getOriginalFilename();
         String sqlFileName = "filename:" + fileName;
         if (paperDAO.numOfFileName(sqlFileName) != 0) {
             return ResponseVO.buildFailure("正文文件名已存在");
         }
-        if (paperDAO.numOfTitle(title) != 0) {
+        if (paperDAO.numOfTitle(title, userId) != 0) {
             return ResponseVO.buildFailure("标题已存在");
         }
         if (userDAO.UserExists(input_user) == 0) {
@@ -160,7 +171,7 @@ public class PaperServiceImpl implements PaperService {
         Timestamp implement = new Timestamp(DateUtil.dateToStamp(implement_time));
         Timestamp input = new Timestamp(DateUtil.dateToStamp(input_time));
         int st = status.equals("true") ? 1 : 0;
-        int userId = userDAO.getLoginInfo(input_user).getId();
+
         Papers papers = new Papers(title, number, category, department,
                 release, implement, grade, interpret, userId, input, sqlFileName, st);
         int id = paperDAO.save(papers).getId();
@@ -228,7 +239,7 @@ public class PaperServiceImpl implements PaperService {
             paperDAO.updateWithNoFile(title, number, category, department, release,
                     implement, grade, interpret, userId, input, st, id);
         } else {
-            String fileName = multipartFile.getOriginalFilename();
+            String fileName = userId + "-" + multipartFile.getOriginalFilename();
             String sqlName = "filename:" + fileName;//数据库正文字段的值(存文件名)
             String content = paperDAO.findContentById(id);
             //本地完整路径
@@ -268,12 +279,35 @@ public class PaperServiceImpl implements PaperService {
                         ossPath, file, aliyunAppendixConfig.OSSClient1());
                 //删除本地的临时文件
                 FileUtil.deleteDirRecursion(fullPath);
-                //数据库的正文字段就存储文件名
-
             }
+            //数据库的正文字段就存储文件名
             paperDAO.updateWithFile(title, number, category, department,
                     release, implement, grade, interpret, userId, input,
                     sqlName, st, id);
+        }
+        return ResponseVO.buildSuccess();
+    }
+
+    @Override
+    public ResponseVO delete(String[] ids) {
+        if (ids == null) {
+            return ResponseVO.buildFailure("id数组为空");
+        }
+        for(String id:ids){
+            //删除相关的附件
+            List<Appendix>appendices=appendixDAO.findByPaperId(Integer.parseInt(id));
+            for(Appendix appendix:appendices){
+                appendixService.deleteAppendix(appendix.getId());
+            }
+            Papers papers=paperDAO.findPapersById(Integer.parseInt(id));
+            if(papers.getContent().startsWith("filename")){
+                String fileName = papers.getContent().substring(papers.getContent().indexOf(':') + 1);
+                String ossPath="正文/"+fileName;
+                ossFileManager.deleteFile(aliyunAppendixConfig.getBucketName(),
+                        ossPath,aliyunAppendixConfig.OSSClient1());
+            }else {
+                paperDAO.deleteById(Integer.parseInt(id));
+            }
         }
         return ResponseVO.buildSuccess();
     }
