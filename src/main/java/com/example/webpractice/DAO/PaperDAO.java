@@ -58,11 +58,11 @@ public interface PaperDAO extends JpaRepository<Papers, Integer>, JpaSpecificati
     @Modifying
     @Query(nativeQuery = true, value = "update practice.papers set title=?1,number=?2," +
             "category=?3,department=?4,release_time=?5,implement_time=?6,grade=?7," +
-            "interpret=?8,user_id=?9,input_time=?10,content=?11,status=?12 where id=?13")
+            "interpret=?8,user_id=?9,input_time=?10,content=?11,status=?12,analyse_status=?13 where id=?14")
     void updateWithFile(String title, String number, String category,
                         String department, Timestamp release_time,
                         Timestamp implement_time, String grade, String interpret,
-                        int user_id, Timestamp input_time, String content, int status, int id);
+                        int user_id, Timestamp input_time, String content, int status, int analyse_status, int id);
 
     @Query(nativeQuery = true, value = "select content from practice.papers where id=?1")
     String findContentById(int id);

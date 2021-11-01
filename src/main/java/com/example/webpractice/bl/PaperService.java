@@ -3,6 +3,8 @@ package com.example.webpractice.bl;
 import com.example.webpractice.vo.ResponseVO;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
+
 /**
  * @Author MengYuxin
  * @Date 2021/10/27 18:43
@@ -22,16 +24,16 @@ public interface PaperService {
     ResponseVO addPaper(String title, String number, String category, String department,
                         String grade, String release_time, String implement_time,
                         String interpret, String input_user, String input_time,
-                        MultipartFile file, String status);
+                        MultipartFile file, String status, String analyse_status);
 
-    ResponseVO abolish(String[] ids);
+    ResponseVO abolish(List<Integer> ids);
 
-    ResponseVO publish(String[] ids);
+    ResponseVO publish(List<Integer> ids);
 
     ResponseVO updatePaper(int id, String title, String number, String category, String department,
                            String grade, String release_time, String implement_time,
                            String interpret, String input_user, String input_time,
-                           MultipartFile file, String status);
+                           MultipartFile file, String status,String analyse_status);
 
-    ResponseVO delete(String[] ids);
+    ResponseVO delete(List<Integer> ids);
 }

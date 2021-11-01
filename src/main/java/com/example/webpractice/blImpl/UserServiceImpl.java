@@ -5,6 +5,7 @@ import com.example.webpractice.bl.UserService;
 import com.example.webpractice.po.User;
 import com.example.webpractice.util.SessionManager;
 import com.example.webpractice.vo.ResponseVO;
+import com.example.webpractice.vo.UserInfoVO;
 import com.example.webpractice.vo.UserVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,7 +67,7 @@ public class UserServiceImpl implements UserService {
         }
         SessionManager.initLoginState(user);
         log.info("用户 {} 已登录", name);
-        return ResponseVO.buildSuccess(user.getId());
+        return ResponseVO.buildSuccess(new UserInfoVO(user.getId(), user.getUsername()));
     }
 
     /**

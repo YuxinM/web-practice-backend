@@ -29,5 +29,7 @@ public class SimplePaperVO {
 
     private boolean status;
 
+    private boolean analyse_status;
+
     private String number;
 }

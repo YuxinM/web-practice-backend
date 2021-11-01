@@ -49,8 +49,9 @@ public class LibraryCreateServiceImpl implements LibraryCreateService {
                      * 发文部门 效力等级 发布日期
                      * 实施日期 解读部门 录入人
                      * 录入时间 正文    状态
-                     * 这里都是从阿里云OSS读取下来的 为内规
-                     * 所以录入人统一为系统  状态统一为已发布
+                     * 内化状态
+                     * 这里都是从阿里云OSS读取下来的 为外规
+                     * 所以录入人统一为系统  状态统一为已发布  内化状态统一为未内化
                      */
 
 
@@ -71,7 +72,7 @@ public class LibraryCreateServiceImpl implements LibraryCreateService {
 
                         Papers papers = new Papers(csv[0], csv[1], csv[2],
                                 csv[3], release_ts, implement_ts, csv[4], csv[7], 1, input_ts,
-                                csv[10], Integer.parseInt(csv[11]));
+                                csv[10], Integer.parseInt(csv[11]), 0);
 
                         //存入一条法规
                         try {

@@ -52,16 +52,17 @@ public class PaperController {
                                @RequestParam(value = "input_user") String input_user,
                                @RequestParam(value = "input_time") String input_time,
                                @RequestParam(value = "content") MultipartFile file,
-                               @RequestParam(value = "status") String status
+                               @RequestParam(value = "status") String status,
+                               @RequestParam(value = "analyse_status") String analyse_status
     ) {
 
         return paperService.addPaper(title, number, category, department, grade,
-                release_time, implement_time, interpret, input_user, input_time, file, status);
+                release_time, implement_time, interpret, input_user, input_time, file, status, analyse_status);
     }
 
     @GetMapping("/get")
     @ResponseBody
-    public ResponseVO get(@RequestParam(value = "type", defaultValue = "1") Integer pageNum,
+    public ResponseVO get(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
                           @RequestParam(value = "title", required = false) String title,
                           @RequestParam(value = "grade", required = false) String grade,
                           @RequestParam(value = "release_time", required = false) String[] release_time,
@@ -74,17 +75,17 @@ public class PaperController {
 
     @PutMapping("/abolish")
     @ResponseBody
-    public ResponseVO abolish(@RequestParam("ids") String[] ids) {
+    public ResponseVO abolish(@RequestParam("ids") List<Integer> ids) {
         return paperService.abolish(ids);
     }
 
     @PutMapping("/publish")
     @ResponseBody
-    public ResponseVO publish(@RequestParam("ids") String[] ids) {
+    public ResponseVO publish(@RequestParam("ids") List<Integer> ids) {
         return paperService.publish(ids);
     }
 
-    @PutMapping("/update/{id}")
+    @PostMapping("/update/{id}")
     @ResponseBody
     public ResponseVO update(@PathVariable("id") int id,
                              @RequestParam(value = "title") String title,
@@ -97,15 +98,16 @@ public class PaperController {
                              @RequestParam(value = "interpret_department", required = false) String interpret,
                              @RequestParam(value = "input_user") String input_user,
                              @RequestParam(value = "input_time") String input_time,
-                             @RequestParam(value = "content") MultipartFile file,
-                             @RequestParam(value = "status") String status) {
+                             @RequestParam(value = "content", required = false) MultipartFile file,
+                             @RequestParam(value = "status") String status,
+                             @RequestParam(value = "analyse_status") String analyse_status) {
         return paperService.updatePaper(id, title, number, category, department, grade,
-                release_time, implement_time, interpret, input_user, input_time, file, status);
+                release_time, implement_time, interpret, input_user, input_time, file, status, analyse_status);
     }
 
     @DeleteMapping("/del")
     @ResponseBody
-    public ResponseVO deletePaper(@RequestParam("ids") String[] ids) {
+    public ResponseVO deletePaper(@RequestParam("ids") List<Integer> ids) {
         return paperService.delete(ids);
 
     }

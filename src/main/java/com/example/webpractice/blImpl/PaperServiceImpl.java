@@ -15,6 +15,7 @@ import com.example.webpractice.util.OssFileManager;
 import com.example.webpractice.util.SessionManager;
 import com.example.webpractice.vo.PaperVO;
 import com.example.webpractice.vo.ResponseVO;
+import com.example.webpractice.vo.UserInfoVO;
 import com.example.webpractice.vo.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -66,9 +67,9 @@ public class PaperServiceImpl implements PaperService {
     @Override
     public ResponseVO getPaperById(int id) {
 
-        if (SessionManager.getLoginUser() == null) {
-            return ResponseVO.buildFailure("请登录");
-        }
+//        if (SessionManager.getLoginUser() == null) {
+//            return ResponseVO.buildFailure("请登录");
+//        }
 
         List<Papers> papers = paperDAO.getPapersById(id);
         if (papers.size() == 0) {
@@ -138,18 +139,19 @@ public class PaperServiceImpl implements PaperService {
      * @param input_time
      * @param multipartFile  文件
      * @param status
+     * @param analyse_status
      * @return
      */
     @Override
     public ResponseVO addPaper(String title, String number, String category,
                                String department, String grade, String release_time,
                                String implement_time, String interpret, String input_user,
-                               String input_time, MultipartFile multipartFile, String status) {
+                               String input_time, MultipartFile multipartFile, String status, String analyse_status) {
 
 
-        if (SessionManager.getLoginUser() == null) {
-            return ResponseVO.buildFailure("请登录");
-        }
+//        if (SessionManager.getLoginUser() == null) {
+//            return ResponseVO.buildFailure("请登录");
+//        }
 
         int userId = userDAO.getLoginInfo(input_user).getId();
 
@@ -182,9 +184,10 @@ public class PaperServiceImpl implements PaperService {
         Timestamp implement = new Timestamp(DateUtil.dateToStamp(implement_time));
         Timestamp input = new Timestamp(DateUtil.dateToStamp(input_time));
         int st = status.equals("true") ? 1 : 0;
+        int analyse_st = analyse_status.equals("true") ? 1 : 0;
 
         Papers papers = new Papers(title, number, category, department,
-                release, implement, grade, interpret, userId, input, sqlFileName, st);
+                release, implement, grade, interpret, userId, input, sqlFileName, st, analyse_st);
         int id = paperDAO.save(papers).getId();
         //把本地的文件存入阿里云
         //本地临时文件
@@ -204,17 +207,17 @@ public class PaperServiceImpl implements PaperService {
      * @return
      */
     @Override
-    public ResponseVO abolish(String[] ids) {
+    public ResponseVO abolish(List<Integer> ids) {
 
-        if (SessionManager.getLoginUser() == null) {
-            return ResponseVO.buildFailure("请登录");
-        }
+//        if (SessionManager.getLoginUser() == null) {
+//            return ResponseVO.buildFailure("请登录");
+//        }
 
         if (ids == null) {
             return ResponseVO.buildFailure("id数组为空");
         }
-        for (String id : ids) {
-            paperDAO.updateStatus(0, Integer.parseInt(id));
+        for (Integer id : ids) {
+            paperDAO.updateStatus(0, id);
         }
         return ResponseVO.buildSuccess();
     }
@@ -226,17 +229,17 @@ public class PaperServiceImpl implements PaperService {
      * @return
      */
     @Override
-    public ResponseVO publish(String[] ids) {
+    public ResponseVO publish(List<Integer> ids) {
 
-        if (SessionManager.getLoginUser() == null) {
-            return ResponseVO.buildFailure("请登录");
-        }
+//        if (SessionManager.getLoginUser() == null) {
+//            return ResponseVO.buildFailure("请登录");
+//        }
 
         if (ids == null) {
             return ResponseVO.buildFailure("id数组为空");
         }
-        for (String id : ids) {
-            paperDAO.updateStatus(1, Integer.parseInt(id));
+        for (Integer id : ids) {
+            paperDAO.updateStatus(1, id);
         }
         return ResponseVO.buildSuccess();
     }
@@ -246,12 +249,12 @@ public class PaperServiceImpl implements PaperService {
                                   String category, String department, String grade,
                                   String release_time, String implement_time, String interpret,
                                   String input_user, String input_time, MultipartFile multipartFile,
-                                  String status) {
+                                  String status, String analyse_status) {
 
 
-        if (SessionManager.getLoginUser() == null) {
-            return ResponseVO.buildFailure("请登录");
-        }
+//        if (SessionManager.getLoginUser() == null) {
+//            return ResponseVO.buildFailure("请登录");
+//        }
 
         if (paperDAO.numOfId(id) == 0) {
             return ResponseVO.buildFailure("id不存在");
@@ -259,10 +262,11 @@ public class PaperServiceImpl implements PaperService {
         Timestamp release = new Timestamp(DateUtil.dateToStamp(release_time));
         Timestamp implement = new Timestamp(DateUtil.dateToStamp(implement_time));
         Timestamp input = new Timestamp(DateUtil.dateToStamp(input_time));
-        int userId = userDAO.getLoginInfo(input_user).getId();
+        int userId = Integer.valueOf(input_user);
         int st = status.equals("true") ? 1 : 0;
+        int analyse_st = analyse_status.equals("true") ? 1 : 0;
         //正文文件不更新的情况
-        if (multipartFile.isEmpty()) {
+        if (multipartFile == null) {
             paperDAO.updateWithNoFile(title, number, category, department, release,
                     implement, grade, interpret, userId, input, st, id);
         } else {
@@ -310,28 +314,28 @@ public class PaperServiceImpl implements PaperService {
             //数据库的正文字段就存储文件名
             paperDAO.updateWithFile(title, number, category, department,
                     release, implement, grade, interpret, userId, input,
-                    sqlName, st, id);
+                    sqlName, st, analyse_st, id);
         }
         return ResponseVO.buildSuccess();
     }
 
     @Override
-    public ResponseVO delete(String[] ids) {
+    public ResponseVO delete(List<Integer> ids) {
 
-        if (SessionManager.getLoginUser() == null) {
-            return ResponseVO.buildFailure("请登录");
-        }
+//        if (SessionManager.getLoginUser() == null) {
+//            return ResponseVO.buildFailure("请登录");
+//        }
 
         if (ids == null) {
             return ResponseVO.buildFailure("id数组为空");
         }
-        for (String id : ids) {
+        for (Integer id : ids) {
             //删除相关的附件
-            List<Appendix> appendices = appendixDAO.findByPaperId(Integer.parseInt(id));
+            List<Appendix> appendices = appendixDAO.findByPaperId(id);
             for (Appendix appendix : appendices) {
                 appendixService.deleteAppendix(appendix.getId());
             }
-            Papers papers = paperDAO.findPapersById(Integer.parseInt(id));
+            Papers papers = paperDAO.findPapersById(id);
             if (papers.getContent().startsWith("filename")) {
                 String fileName = papers.getContent().substring(papers.getContent().indexOf(':') + 1);
                 String ossPath = "正文文件/" + fileName;
@@ -341,7 +345,7 @@ public class PaperServiceImpl implements PaperService {
 
                 }
             }
-            paperDAO.deleteById(Integer.parseInt(id));
+            paperDAO.deleteById(id);
 
         }
         return ResponseVO.buildSuccess();

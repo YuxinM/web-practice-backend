@@ -32,6 +32,7 @@ create table papers
     input_time     datetime     not null comment '录入时间',
     content        text         not null comment '文本内容',
     status         int          not null comment '是否发布 0 1 表示',
+    analyse_status int          not null comment '是否已经内化 0 1 表示',
     primary key (id),
     foreign key (user_id) references user (id)
 ) ENGINE = InnoDB

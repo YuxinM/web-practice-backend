@@ -18,7 +18,7 @@ public class PageInfoVO {
     /**
      * 总数
      */
-    private int total;
+    private Long total;
 
     /**
      * 信息

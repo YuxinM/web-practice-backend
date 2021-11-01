@@ -50,10 +50,10 @@ public class PageServiceImpl implements PageService {
             SimplePaperVO in = new SimplePaperVO(p.getId(),
                     p.getTitle(), p.getDepartment(), release,
                     implement, p.getGrade(), p.getStatus() == 1,
-                    p.getPaper_number());
+                    p.getAnalyse_status() == 1, p.getPaper_number());
             simplePaperVOS.add(in);
         }
-        PageInfoVO pageInfoVO = new PageInfoVO(simplePaperVOS.size(), simplePaperVOS);
+        PageInfoVO pageInfoVO = new PageInfoVO(count(conditionVO), simplePaperVOS);
         return ResponseVO.buildSuccess(pageInfoVO);
     }
 
@@ -73,8 +73,8 @@ public class PageServiceImpl implements PageService {
 
                 if (!conditionVO.getTitle().equals("")) {
                     //System.out.println("标题");
-                    predicateList.add(criteriaBuilder.equal(root.get("title").as(String.class),
-                            conditionVO.getTitle()));
+                    predicateList.add(criteriaBuilder.like(root.get("title").as(String.class),
+                            "%" + conditionVO.getTitle() + "%"));
 
                 }
                 if (!conditionVO.getGrade().equals("")) {
@@ -103,8 +103,8 @@ public class PageServiceImpl implements PageService {
                             start, end));
                 }
                 if (!conditionVO.getDepartment().equals("")) {
-                    predicateList.add(criteriaBuilder.equal(root.get("department").as(String.class),
-                            conditionVO.getDepartment()));
+                    predicateList.add(criteriaBuilder.like(root.get("department").as(String.class),
+                            "%" + conditionVO.getDepartment() + "%"));
                 }
                 if (!conditionVO.getStatus().equals("")) {
                     int flag = conditionVO.getStatus().equals("true") ? 1 : 0;
@@ -131,6 +131,79 @@ public class PageServiceImpl implements PageService {
         }
 
         return result;
+
+    }
+
+    /**
+     * 多条件分页查询并且分页
+     *
+     * @param conditionVO 条件集合
+     * @return
+     */
+    public Long count(ConditionVO conditionVO) {
+
+        Long total = 0L;
+        Specification<Papers> queryCondition = new Specification<Papers>() {
+            @Override
+            public Predicate toPredicate(Root<Papers> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
+                List<Predicate> predicateList = new ArrayList<Predicate>();
+
+                if (!conditionVO.getTitle().equals("")) {
+                    //System.out.println("标题");
+                    predicateList.add(criteriaBuilder.like(root.get("title").as(String.class),
+                            "%" + conditionVO.getTitle() + "%"));
+
+                }
+                if (!conditionVO.getGrade().equals("")) {
+                    //System.out.println("等级");
+                    predicateList.add(criteriaBuilder.equal(root.get("grade").as(String.class),
+                            conditionVO.getGrade()));
+                }
+                if (conditionVO.getRelease_time() != null &&
+                        conditionVO.getRelease_time().length != 0) {
+                    // System.out.println("时间");
+                    Timestamp start = new Timestamp(
+                            DateUtil.dateToStamp(conditionVO.getRelease_time()[0]));
+                    Timestamp end = new Timestamp(
+                            DateUtil.dateToStamp(conditionVO.getRelease_time()[1]));
+                    predicateList.add(criteriaBuilder.between(root.get("release_time").as(Timestamp.class),
+                            start, end));
+
+                }
+                if (conditionVO.getImplement_time() != null &&
+                        conditionVO.getImplement_time().length != 0) {
+                    Timestamp start = new Timestamp(
+                            DateUtil.dateToStamp(conditionVO.getImplement_time()[0]));
+                    Timestamp end = new Timestamp(
+                            DateUtil.dateToStamp(conditionVO.getImplement_time()[1]));
+                    predicateList.add(criteriaBuilder.between(root.get("implement_time").as(Timestamp.class),
+                            start, end));
+                }
+                if (!conditionVO.getDepartment().equals("")) {
+                    predicateList.add(criteriaBuilder.like(root.get("department").as(String.class),
+                            "%" + conditionVO.getDepartment() + "%"));
+                }
+                if (!conditionVO.getStatus().equals("")) {
+                    int flag = conditionVO.getStatus().equals("true") ? 1 : 0;
+                    predicateList.add(criteriaBuilder.equal(root.get("status").as(String.class), flag));
+                }
+//                System.out.println(predicateList.size());
+//                System.out.println(predicateList.get(1));
+
+                return criteriaBuilder.and(predicateList.toArray(
+                        new Predicate[predicateList.size()]
+                ));
+            }
+        };
+
+        try {
+            total = paperDAO.count(queryCondition);
+        } catch (Exception e) {
+            e.printStackTrace();
+            log.error("分页查询失败");
+        }
+
+        return total;
 
     }
 
