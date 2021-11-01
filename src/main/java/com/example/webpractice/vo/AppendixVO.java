@@ -16,7 +16,7 @@ public class AppendixVO {
 
     private String name;
 
-    private long size;
+    private String size;
 
     private String creator;
 }

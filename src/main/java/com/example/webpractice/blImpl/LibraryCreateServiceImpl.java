@@ -39,7 +39,7 @@ public class LibraryCreateServiceImpl implements LibraryCreateService {
         List<String> csvList = ossFileManager.getFileNames(aliyunConfig.getBucketName(), aliyunConfig.OSSClient());
         for (String filename : csvList) {
 
-            if(filename.endsWith(".csv")) {
+            if (filename.endsWith(".csv")) {
                 //本地临时存储路径
                 String path = ossFileManager.downloadCsv(aliyunConfig.getBucketName(), filename, aliyunConfig.OSSClient());
                 if (path != null) {

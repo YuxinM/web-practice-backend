@@ -293,21 +293,24 @@ public class PaperServiceImpl implements PaperService {
         if (ids == null) {
             return ResponseVO.buildFailure("id数组为空");
         }
-        for(String id:ids){
+        for (String id : ids) {
             //删除相关的附件
-            List<Appendix>appendices=appendixDAO.findByPaperId(Integer.parseInt(id));
-            for(Appendix appendix:appendices){
+            List<Appendix> appendices = appendixDAO.findByPaperId(Integer.parseInt(id));
+            for (Appendix appendix : appendices) {
                 appendixService.deleteAppendix(appendix.getId());
             }
-            Papers papers=paperDAO.findPapersById(Integer.parseInt(id));
-            if(papers.getContent().startsWith("filename")){
+            Papers papers = paperDAO.findPapersById(Integer.parseInt(id));
+            if (papers.getContent().startsWith("filename")) {
                 String fileName = papers.getContent().substring(papers.getContent().indexOf(':') + 1);
-                String ossPath="正文/"+fileName;
-                ossFileManager.deleteFile(aliyunAppendixConfig.getBucketName(),
-                        ossPath,aliyunAppendixConfig.OSSClient1());
-            }else {
-                paperDAO.deleteById(Integer.parseInt(id));
+                String ossPath = "正文文件/" + fileName;
+                if (!ossFileManager.deleteFile(aliyunAppendixConfig.getBucketName(),
+                        ossPath, aliyunAppendixConfig.OSSClient1())) {
+                    return ResponseVO.buildFailure("删除阿里云上文件失败");
+
+                }
             }
+            paperDAO.deleteById(Integer.parseInt(id));
+
         }
         return ResponseVO.buildSuccess();
     }
