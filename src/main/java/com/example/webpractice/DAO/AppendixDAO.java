@@ -15,22 +15,18 @@ import java.util.List;
  */
 
 @Repository
-public interface AppendixDAO extends JpaRepository<Appendix,Integer> {
+public interface AppendixDAO extends JpaRepository<Appendix, Integer> {
 
 
-    @Query(nativeQuery = true,value = "select * from practice.appendix where file_name=?1")
-    List<Appendix>findByFileName(String fileName);
+    @Query(nativeQuery = true, value = "select * from practice.appendix where file_name=?1")
+    List<Appendix> findByFileName(String fileName);
 
-    @Query(nativeQuery = true,value = "select * from practice.appendix where paper_id=?1")
-    List<Appendix>findByPaperId(int paper_id);
+    @Query(nativeQuery = true, value = "select * from practice.appendix where paper_id=?1")
+    List<Appendix> findByPaperId(int paper_id);
 
     void deleteById(int id);
 
     Appendix findAppendixById(int id);
-
-
-
-
 
 
 }

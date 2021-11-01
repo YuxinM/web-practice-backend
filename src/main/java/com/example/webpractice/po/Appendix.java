@@ -8,6 +8,7 @@ import javax.persistence.*;
 
 /**
  * 附件
+ *
  * @Author MengYuxin
  * @Date 2021/10/29 19:19
  */
@@ -20,9 +21,9 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class Appendix {
 
-    public Appendix(String file_name,String user_name ,int paper_id) {
+    public Appendix(String file_name, String user_name, int paper_id) {
         this.file_name = file_name;
-        this.user_name=user_name;
+        this.user_name = user_name;
         this.paper_id = paper_id;
     }
 

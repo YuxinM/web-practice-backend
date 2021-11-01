@@ -19,14 +19,14 @@ public class DateUtil {
 
     /**
      * 将日期转化为时间戳
+     *
      * @param dateString
      * @return
      */
     public static long dateToStamp(String dateString) {
 
 
-
-        if (dateString==null||dateString.equals("")) {
+        if (dateString == null || dateString.equals("")) {
             log.warn("有法律文书文件中日期一栏为空");
             return 0;
         }
@@ -37,13 +37,13 @@ public class DateUtil {
             simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
 
-        }else if(dateString.contains("年")&&dateString.contains("月")&&dateString.contains("日")) {
-            dateString=dateString.replace("年","-");
-            dateString=dateString.replace("月","-");
-            dateString=dateString.replace("日","-");
+        } else if (dateString.contains("年") && dateString.contains("月") && dateString.contains("日")) {
+            dateString = dateString.replace("年", "-");
+            dateString = dateString.replace("月", "-");
+            dateString = dateString.replace("日", "-");
             simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        }else {
-            simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd");
+        } else {
+            simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         }
         try {
             Date date = simpleDateFormat.parse(dateString);
@@ -56,6 +56,7 @@ public class DateUtil {
 
     /**
      * 数据库时间戳转化为字符串格式
+     *
      * @param timestamp
      * @return
      */

@@ -9,7 +9,7 @@ public class WebPracticeApplication {
     public static void main(String[] args) {
         try {
             SpringApplication.run(WebPracticeApplication.class, args);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 

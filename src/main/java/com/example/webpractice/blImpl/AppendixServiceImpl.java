@@ -45,6 +45,7 @@ public class AppendixServiceImpl implements AppendixService {
 
     /**
      * 上传附件
+     *
      * @param paperId
      * @param files
      * @return
@@ -52,12 +53,12 @@ public class AppendixServiceImpl implements AppendixService {
     @Override
     public ResponseVO uploadAppendix(int paperId, MultipartFile[] files) {
 
-        if(SessionManager.getLoginUser()==null){
+        if (SessionManager.getLoginUser() == null) {
             return ResponseVO.buildFailure("请登录");
         }
 
         int userId = SessionManager.getLoginUser().getId(); //用户id
-        String user_name=SessionManager.getLoginUser().getUsername();
+        String user_name = SessionManager.getLoginUser().getUsername();
 
         if (files == null || files.length == 0) {
             return ResponseVO.buildFailure("文件不能为空");
@@ -83,7 +84,7 @@ public class AppendixServiceImpl implements AppendixService {
                     ossPath, file, aliyunAppendixConfig.OSSClient1());
             //删除本地临时文件
             FileUtil.deleteDirRecursion(fullPath);
-            Appendix appendix = new Appendix(name, user_name,paperId);
+            Appendix appendix = new Appendix(name, user_name, paperId);
             appendixDAO.save(appendix);
         }
         return ResponseVO.buildSuccess();
@@ -91,29 +92,30 @@ public class AppendixServiceImpl implements AppendixService {
 
     /**
      * 获取附件
+     *
      * @param paperId
      * @return
      */
     @Override
     public ResponseVO getAppendix(int paperId) {
 
-        if(SessionManager.getLoginUser()==null){
+        if (SessionManager.getLoginUser() == null) {
             return ResponseVO.buildFailure("请登录");
         }
-        List<Appendix>appendices=appendixDAO.findByPaperId(paperId);
-        List<AppendixVO>appendixVOS=new ArrayList<>();
-        if(appendices==null){
+        List<Appendix> appendices = appendixDAO.findByPaperId(paperId);
+        List<AppendixVO> appendixVOS = new ArrayList<>();
+        if (appendices == null) {
             return ResponseVO.buildSuccess(appendixVOS);
         }
-        for(Appendix appendix:appendices){
-            String ossPath="附件/"+appendix.getFile_name();
-            SimplifiedObjectMeta meta= ossFileManager.getFileInfo(
-                    aliyunAppendixConfig.getBucketName(),ossPath,
+        for (Appendix appendix : appendices) {
+            String ossPath = "附件/" + appendix.getFile_name();
+            SimplifiedObjectMeta meta = ossFileManager.getFileInfo(
+                    aliyunAppendixConfig.getBucketName(), ossPath,
                     aliyunAppendixConfig.OSSClient1()
             );
-            long size=meta.getSize();
-            AppendixVO appendixVO=new AppendixVO(appendix.getFile_name(),
-                    size+"kb",appendix.getUser_name());
+            long size = meta.getSize();
+            AppendixVO appendixVO = new AppendixVO(appendix.getFile_name(),
+                    size + "kb", appendix.getUser_name());
             appendixVOS.add(appendixVO);
         }
         return ResponseVO.buildSuccess(appendixVOS);
@@ -122,21 +124,22 @@ public class AppendixServiceImpl implements AppendixService {
 
     /**
      * 删除附件
+     *
      * @param id
      * @return
      */
     @Override
     public ResponseVO deleteAppendix(int id) {
 
-        if(SessionManager.getLoginUser()==null){
+        if (SessionManager.getLoginUser() == null) {
             return ResponseVO.buildFailure("请登录");
         }
 
-        Appendix appendix= appendixDAO.findAppendixById(id);
-        String ossPath="附件/"+appendix.getFile_name();
+        Appendix appendix = appendixDAO.findAppendixById(id);
+        String ossPath = "附件/" + appendix.getFile_name();
         //在阿里云中删除文件
         ossFileManager.deleteFile(aliyunAppendixConfig.getBucketName(),
-                ossPath,aliyunAppendixConfig.OSSClient1());
+                ossPath, aliyunAppendixConfig.OSSClient1());
         appendixDAO.deleteById(id);
         return ResponseVO.buildSuccess();
     }

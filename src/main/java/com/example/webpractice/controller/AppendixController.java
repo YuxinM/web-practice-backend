@@ -23,14 +23,14 @@ public class AppendixController {
 
     @PostMapping("/uploadAttachment/{paperId}")
     @ResponseBody
-    public ResponseVO uploadAppendix(@PathVariable("paperId")int paperId,
-                                     @RequestParam("attachmentFile")MultipartFile[] files){
-        return appendixService.uploadAppendix(paperId,files);
+    public ResponseVO uploadAppendix(@PathVariable("paperId") int paperId,
+                                     @RequestParam("attachmentFile") MultipartFile[] files) {
+        return appendixService.uploadAppendix(paperId, files);
     }
 
     @GetMapping("/getAttachmentList/{paperId}")
     @ResponseBody
-    public ResponseVO getAppendix(@PathVariable("paperId")int paperId){
+    public ResponseVO getAppendix(@PathVariable("paperId") int paperId) {
 
         return appendixService.getAppendix(paperId);
 
@@ -38,11 +38,9 @@ public class AppendixController {
 
     @DeleteMapping("deleteAttachment/{id}")
     @ResponseBody
-    public ResponseVO deleteAppendix(@PathVariable("id")int id){
+    public ResponseVO deleteAppendix(@PathVariable("id") int id) {
         return appendixService.deleteAppendix(id);
     }
-
-
 
 
 }

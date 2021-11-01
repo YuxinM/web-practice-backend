@@ -66,7 +66,7 @@ public class PaperServiceImpl implements PaperService {
     @Override
     public ResponseVO getPaperById(int id) {
 
-        if(SessionManager.getLoginUser()==null){
+        if (SessionManager.getLoginUser() == null) {
             return ResponseVO.buildFailure("请登录");
         }
 
@@ -147,7 +147,7 @@ public class PaperServiceImpl implements PaperService {
                                String input_time, MultipartFile multipartFile, String status) {
 
 
-        if(SessionManager.getLoginUser()==null){
+        if (SessionManager.getLoginUser() == null) {
             return ResponseVO.buildFailure("请登录");
         }
 
@@ -206,7 +206,7 @@ public class PaperServiceImpl implements PaperService {
     @Override
     public ResponseVO abolish(String[] ids) {
 
-        if(SessionManager.getLoginUser()==null){
+        if (SessionManager.getLoginUser() == null) {
             return ResponseVO.buildFailure("请登录");
         }
 
@@ -228,7 +228,7 @@ public class PaperServiceImpl implements PaperService {
     @Override
     public ResponseVO publish(String[] ids) {
 
-        if(SessionManager.getLoginUser()==null){
+        if (SessionManager.getLoginUser() == null) {
             return ResponseVO.buildFailure("请登录");
         }
 
@@ -249,7 +249,7 @@ public class PaperServiceImpl implements PaperService {
                                   String status) {
 
 
-        if(SessionManager.getLoginUser()==null){
+        if (SessionManager.getLoginUser() == null) {
             return ResponseVO.buildFailure("请登录");
         }
 
@@ -318,7 +318,7 @@ public class PaperServiceImpl implements PaperService {
     @Override
     public ResponseVO delete(String[] ids) {
 
-        if(SessionManager.getLoginUser()==null){
+        if (SessionManager.getLoginUser() == null) {
             return ResponseVO.buildFailure("请登录");
         }
 

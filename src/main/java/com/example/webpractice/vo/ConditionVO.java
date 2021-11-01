@@ -8,6 +8,7 @@ import javax.persistence.NamedEntityGraph;
 
 /**
  * 分页查询条件VO
+ *
  * @Author MengYuxin
  * @Date 2021/10/28 16:22
  */

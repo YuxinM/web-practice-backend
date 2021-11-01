@@ -60,15 +60,16 @@ public class FileUtil {
 
     /**
      * 保存web段传来的文件到本地
+     *
      * @param multipartFile 文件
-     * @param savePath  保存路径
-     * @return  保存是否成功
+     * @param savePath      保存路径
+     * @return 保存是否成功
      */
-    public static boolean saveFile(MultipartFile multipartFile, String savePath){
+    public static boolean saveFile(MultipartFile multipartFile, String savePath) {
         try {
-            File file=new File(savePath);
+            File file = new File(savePath);
             multipartFile.transferTo(file);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return false;
         }

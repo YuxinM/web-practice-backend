@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * 法规简要信息列表
+ *
  * @Author MengYuxin
  * @Date 2021/10/28 19:57
  */

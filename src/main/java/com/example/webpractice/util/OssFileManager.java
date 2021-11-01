@@ -24,6 +24,7 @@ import java.util.List;
 
 /**
  * 阿里云文件管理类
+ *
  * @Author MengYuxin
  * @Date 2021/10/25 17:24
  */
@@ -34,13 +35,14 @@ public class OssFileManager {
 
     /**
      * 获取文件信息
+     *
      * @param bucketName bucketName
-     * @param path 阿里云路径
-     * @param ossClient oss
+     * @param path       阿里云路径
+     * @param ossClient  oss
      * @return
      */
-    public SimplifiedObjectMeta getFileInfo(String bucketName,String path,OSS ossClient){
-        SimplifiedObjectMeta meta=ossClient.getSimplifiedObjectMeta(bucketName,path);
+    public SimplifiedObjectMeta getFileInfo(String bucketName, String path, OSS ossClient) {
+        SimplifiedObjectMeta meta = ossClient.getSimplifiedObjectMeta(bucketName, path);
         ossClient.shutdown();
         //meta.getSize()
         return meta;
@@ -48,15 +50,16 @@ public class OssFileManager {
 
     /**
      * 上传文件
+     *
      * @param bucketName bucketName
-     * @param path  阿里云路径
-     * @param file  文件
-     * @param ossClient oss
+     * @param path       阿里云路径
+     * @param file       文件
+     * @param ossClient  oss
      */
-    public void uploadFile(String bucketName,String path,File
-                            file,OSS ossClient){
+    public void uploadFile(String bucketName, String path, File
+            file, OSS ossClient) {
 
-        PutObjectRequest putObjectRequest = new PutObjectRequest(bucketName,path,file);
+        PutObjectRequest putObjectRequest = new PutObjectRequest(bucketName, path, file);
         ossClient.putObject(putObjectRequest);
         ossClient.shutdown();
 
@@ -64,14 +67,15 @@ public class OssFileManager {
 
     /**
      * 删除阿里云上的文件
+     *
      * @param bucketName bucket名称
-     * @param path  路径
-     * @param ossClient oss
+     * @param path       路径
+     * @param ossClient  oss
      * @return 删除是否成功
      */
-    public boolean deleteFile(String bucketName,String path,OSS ossClient){
+    public boolean deleteFile(String bucketName, String path, OSS ossClient) {
 
-        if(!ossClient.doesObjectExist(bucketName, path)){
+        if (!ossClient.doesObjectExist(bucketName, path)) {
             return false;
         }
         ossClient.deleteObject(bucketName, path);
@@ -82,18 +86,19 @@ public class OssFileManager {
 
     /**
      * 得到阿里云OSS的指定bucket中所有文件名
+     *
      * @param bucketName bucket名称
      * @return 文件名
      */
-    public List<String> getFileNames(String bucketName,OSS ossClient) {
+    public List<String> getFileNames(String bucketName, OSS ossClient) {
 
-      //  OSS ossClient = aliyunConfig.OSSClient();
+        //  OSS ossClient = aliyunConfig.OSSClient();
         ObjectListing objectListing = ossClient.listObjects(
                 new ListObjectsRequest(bucketName).withMaxKeys(500));
         List<OSSObjectSummary> summaries = objectListing.getObjectSummaries();
         List<String> names = new ArrayList<>();
         for (OSSObjectSummary s : summaries) {
-                names.add(s.getKey());
+            names.add(s.getKey());
         }
         log.info("得到阿里云OSS上所有的文件，一共{}个", names.size());
         return names;
@@ -102,12 +107,13 @@ public class OssFileManager {
 
     /**
      * 下载文件
+     *
      * @param bucketName bucket名称
-     * @param fileName  路径
-     * @param ossClient oss
+     * @param fileName   路径
+     * @param ossClient  oss
      * @return
      */
-    public void  downloadContent(String bucketName,String fileName,OSS ossClient,File file){
+    public void downloadContent(String bucketName, String fileName, OSS ossClient, File file) {
 
         ossClient.getObject(new GetObjectRequest(bucketName, fileName), file);
         ossClient.shutdown();
@@ -116,11 +122,12 @@ public class OssFileManager {
 
     /**
      * 读取word文件内容
+     *
      * @param filePath 本地路径
      * @return
      * @throws Exception
      */
-    public String readWord(String filePath){
+    public String readWord(String filePath) {
         String buffer = "";
         try {
             if (filePath.endsWith(".doc")) {
@@ -140,7 +147,7 @@ public class OssFileManager {
             }
             return buffer;
         } catch (Exception e) {
-            log.warn("读取{}失败",filePath);
+            log.warn("读取{}失败", filePath);
             e.printStackTrace();
             return null;
         }
@@ -148,14 +155,15 @@ public class OssFileManager {
 
     /**
      * 下载文件到本地临时存储位置
+     *
      * @param bucketName bucket名称
      * @param fileName   OSS中文件名
      * @return 返回正常字符串是文件本地路径说明下载成功 null说明下载失败
      */
 
-    public String downloadCsv(String bucketName, String fileName,OSS ossClient) {
+    public String downloadCsv(String bucketName, String fileName, OSS ossClient) {
 
-     ///   OSS ossClient = aliyunConfig.OSSClient();
+        ///   OSS ossClient = aliyunConfig.OSSClient();
         OSSObject ossObject = ossClient.getObject(bucketName,
                 fileName);
 
@@ -209,9 +217,9 @@ public class OssFileManager {
             ArrayList<String[]> csv = new ArrayList<String[]>();
             CsvReader reader = new CsvReader(filepath, ',', Charset.forName("GBK"));
             reader.readHeaders();
-           // log.error("出错");
-            while (reader.readRecord()){
-                String[] a=reader.getValues();
+            // log.error("出错");
+            while (reader.readRecord()) {
+                String[] a = reader.getValues();
                 csv.add(a);
             }
             reader.close();

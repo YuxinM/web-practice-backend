@@ -12,8 +12,9 @@ import org.springframework.stereotype.Component;
 /**
  * 阿里云OSS 附件bucket配置类
  * bucket下有两个目录:
- *  /正文文件
- *  /附件
+ * /正文文件
+ * /附件
+ *
  * @Author MengYuxin
  * @Date 2021/10/29 18:09
  */
@@ -43,7 +44,6 @@ public class AliyunAppendixConfig {
     public OSS OSSClient1() {
         return new OSSClient(endPoint, accessKeyId, accessKeySecret);
     }
-
 
 
 }

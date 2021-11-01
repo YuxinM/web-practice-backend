@@ -11,7 +11,6 @@ import org.springframework.web.multipart.MultipartFile;
 public interface AppendixService {
 
 
-
     ResponseVO uploadAppendix(int paperId, MultipartFile[] files);
 
     ResponseVO getAppendix(int paperId);
