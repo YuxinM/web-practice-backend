@@ -12,6 +12,7 @@ import com.example.webpractice.po.Papers;
 import com.example.webpractice.util.DateUtil;
 import com.example.webpractice.util.FileUtil;
 import com.example.webpractice.util.OssFileManager;
+import com.example.webpractice.util.SessionManager;
 import com.example.webpractice.vo.PaperVO;
 import com.example.webpractice.vo.ResponseVO;
 import com.example.webpractice.vo.UserVO;
@@ -64,6 +65,11 @@ public class PaperServiceImpl implements PaperService {
      */
     @Override
     public ResponseVO getPaperById(int id) {
+
+        if(SessionManager.getLoginUser()==null){
+            return ResponseVO.buildFailure("请登录");
+        }
+
         List<Papers> papers = paperDAO.getPapersById(id);
         if (papers.size() == 0) {
             return ResponseVO.buildFailure("对应id的法律文书不存在");
@@ -140,6 +146,11 @@ public class PaperServiceImpl implements PaperService {
                                String implement_time, String interpret, String input_user,
                                String input_time, MultipartFile multipartFile, String status) {
 
+
+        if(SessionManager.getLoginUser()==null){
+            return ResponseVO.buildFailure("请登录");
+        }
+
         int userId = userDAO.getLoginInfo(input_user).getId();
 
         String fileName = userId + "-" + multipartFile.getOriginalFilename();
@@ -194,6 +205,11 @@ public class PaperServiceImpl implements PaperService {
      */
     @Override
     public ResponseVO abolish(String[] ids) {
+
+        if(SessionManager.getLoginUser()==null){
+            return ResponseVO.buildFailure("请登录");
+        }
+
         if (ids == null) {
             return ResponseVO.buildFailure("id数组为空");
         }
@@ -211,6 +227,11 @@ public class PaperServiceImpl implements PaperService {
      */
     @Override
     public ResponseVO publish(String[] ids) {
+
+        if(SessionManager.getLoginUser()==null){
+            return ResponseVO.buildFailure("请登录");
+        }
+
         if (ids == null) {
             return ResponseVO.buildFailure("id数组为空");
         }
@@ -226,6 +247,12 @@ public class PaperServiceImpl implements PaperService {
                                   String release_time, String implement_time, String interpret,
                                   String input_user, String input_time, MultipartFile multipartFile,
                                   String status) {
+
+
+        if(SessionManager.getLoginUser()==null){
+            return ResponseVO.buildFailure("请登录");
+        }
+
         if (paperDAO.numOfId(id) == 0) {
             return ResponseVO.buildFailure("id不存在");
         }
@@ -290,6 +317,11 @@ public class PaperServiceImpl implements PaperService {
 
     @Override
     public ResponseVO delete(String[] ids) {
+
+        if(SessionManager.getLoginUser()==null){
+            return ResponseVO.buildFailure("请登录");
+        }
+
         if (ids == null) {
             return ResponseVO.buildFailure("id数组为空");
         }

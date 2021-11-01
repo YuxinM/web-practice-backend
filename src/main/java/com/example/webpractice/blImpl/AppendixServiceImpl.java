@@ -52,6 +52,10 @@ public class AppendixServiceImpl implements AppendixService {
     @Override
     public ResponseVO uploadAppendix(int paperId, MultipartFile[] files) {
 
+        if(SessionManager.getLoginUser()==null){
+            return ResponseVO.buildFailure("请登录");
+        }
+
         int userId = SessionManager.getLoginUser().getId(); //用户id
         String user_name=SessionManager.getLoginUser().getUsername();
 
@@ -92,6 +96,10 @@ public class AppendixServiceImpl implements AppendixService {
      */
     @Override
     public ResponseVO getAppendix(int paperId) {
+
+        if(SessionManager.getLoginUser()==null){
+            return ResponseVO.buildFailure("请登录");
+        }
         List<Appendix>appendices=appendixDAO.findByPaperId(paperId);
         List<AppendixVO>appendixVOS=new ArrayList<>();
         if(appendices==null){
@@ -119,6 +127,10 @@ public class AppendixServiceImpl implements AppendixService {
      */
     @Override
     public ResponseVO deleteAppendix(int id) {
+
+        if(SessionManager.getLoginUser()==null){
+            return ResponseVO.buildFailure("请登录");
+        }
 
         Appendix appendix= appendixDAO.findAppendixById(id);
         String ossPath="附件/"+appendix.getFile_name();
