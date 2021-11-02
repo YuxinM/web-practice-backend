@@ -38,7 +38,7 @@ public class PageServiceImpl implements PageService {
 
 
     @Override
-    public ResponseVO page(Integer pageNum, String title, String grade, String[] release_time, String[] implement_time, String department, String status) {
+    public ResponseVO page(Integer pageNum, String title, String grade, String[] release_time, String[] implement_time, String[] department, String status) {
         ConditionVO conditionVO = new ConditionVO(pageNum, title, grade, release_time,
                 implement_time, department, status);
         List<Papers> papers = find(conditionVO);
@@ -91,7 +91,6 @@ public class PageServiceImpl implements PageService {
                             DateUtil.dateToStamp(conditionVO.getRelease_time()[1]));
                     predicateList.add(criteriaBuilder.between(root.get("release_time").as(Timestamp.class),
                             start, end));
-
                 }
                 if (conditionVO.getImplement_time() != null &&
                         conditionVO.getImplement_time().length != 0) {
@@ -102,16 +101,20 @@ public class PageServiceImpl implements PageService {
                     predicateList.add(criteriaBuilder.between(root.get("implement_time").as(Timestamp.class),
                             start, end));
                 }
-                if (!conditionVO.getDepartment().equals("")) {
-                    predicateList.add(criteriaBuilder.like(root.get("department").as(String.class),
-                            "%" + conditionVO.getDepartment() + "%"));
+//                if (!conditionVO.getDepartment().equals("")) {
+//                    predicateList.add(criteriaBuilder.like(root.get("department").as(String.class),
+//                            "%" + conditionVO.getDepartment() + "%"));
+//                }
+                if (conditionVO.getDepartment().length > 0) {
+                    for (String d : conditionVO.getDepartment()) {
+                        predicateList.add(criteriaBuilder.like(root.get("department").as(String.class),
+                                "%" + d + "%"));
+                    }
                 }
                 if (!conditionVO.getStatus().equals("")) {
                     int flag = conditionVO.getStatus().equals("true") ? 1 : 0;
                     predicateList.add(criteriaBuilder.equal(root.get("status").as(String.class), flag));
                 }
-//                System.out.println(predicateList.size());
-//                System.out.println(predicateList.get(1));
 
                 return criteriaBuilder.and(predicateList.toArray(
                         new Predicate[predicateList.size()]
@@ -179,9 +182,15 @@ public class PageServiceImpl implements PageService {
                     predicateList.add(criteriaBuilder.between(root.get("implement_time").as(Timestamp.class),
                             start, end));
                 }
-                if (!conditionVO.getDepartment().equals("")) {
-                    predicateList.add(criteriaBuilder.like(root.get("department").as(String.class),
-                            "%" + conditionVO.getDepartment() + "%"));
+//                if (!conditionVO.getDepartment().equals("")) {
+//                    predicateList.add(criteriaBuilder.like(root.get("department").as(String.class),
+//                            "%" + conditionVO.getDepartment() + "%"));
+//                }
+                if (conditionVO.getDepartment().length > 0) {
+                    for (String d : conditionVO.getDepartment()) {
+                        predicateList.add(criteriaBuilder.like(root.get("department").as(String.class),
+                                "%" + d + "%"));
+                    }
                 }
                 if (!conditionVO.getStatus().equals("")) {
                     int flag = conditionVO.getStatus().equals("true") ? 1 : 0;

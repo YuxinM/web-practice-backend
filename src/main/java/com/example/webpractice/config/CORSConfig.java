@@ -47,6 +47,7 @@ public class CORSConfig {
         registry.addMapping("/**")
                 .allowedOrigins("*")
                 .allowedMethods("GET", "POST", "PUT", "OPTIONS", "DELETE", "PATCH")
-                .allowCredentials(true).maxAge(3600);
+                .allowCredentials(true)
+                .maxAge(3600);
     }
 }

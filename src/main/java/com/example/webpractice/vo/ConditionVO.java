@@ -4,8 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.NamedEntityGraph;
-
 /**
  * 分页查询条件VO
  *
@@ -28,7 +26,7 @@ public class ConditionVO {
 
     private String[] implement_time;
 
-    private String department;
+    private String[] department;
 
     private String status;
 }

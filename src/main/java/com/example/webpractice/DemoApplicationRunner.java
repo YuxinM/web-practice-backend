@@ -8,12 +8,13 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
+
 /**
  * @Author MengYuxin
  * @Date 2021/10/26 17:28
  */
 
-//@Component
+@Component
 public class DemoApplicationRunner implements ApplicationRunner {
 
     @Autowired
@@ -34,7 +35,7 @@ public class DemoApplicationRunner implements ApplicationRunner {
                 MainConfig.USER_DATA_DIR_NAME));
         try {
             libraryCreateService.writeInDatabase();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 

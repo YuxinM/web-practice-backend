@@ -115,7 +115,7 @@ public class AppendixServiceImpl implements AppendixService {
             );
             long size = meta.getSize();
             AppendixVO appendixVO = new AppendixVO(appendix.getFile_name(),
-                    size + "kb", appendix.getUser_name());
+                    String.valueOf(size), appendix.getUser_name());
             appendixVOS.add(appendixVO);
         }
         return ResponseVO.buildSuccess(appendixVOS);

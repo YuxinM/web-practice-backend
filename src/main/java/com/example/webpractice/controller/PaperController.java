@@ -67,7 +67,7 @@ public class PaperController {
                           @RequestParam(value = "grade", required = false) String grade,
                           @RequestParam(value = "release_time", required = false) String[] release_time,
                           @RequestParam(value = "implement_time", required = false) String[] implement_time,
-                          @RequestParam(value = "department", required = false) String department,
+                          @RequestParam(value = "department", required = false) String[] department,
                           @RequestParam(value = "status", required = false) String status) {
 
 

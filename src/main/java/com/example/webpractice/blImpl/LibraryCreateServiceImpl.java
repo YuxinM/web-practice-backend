@@ -59,6 +59,7 @@ public class LibraryCreateServiceImpl implements LibraryCreateService {
                     if (csv != null) {
                         Timestamp release_ts = null;
                         Timestamp implement_ts = null;
+
                         if (csv[5] != null) {
                             release_ts = new Timestamp(DateUtil.dateToStamp(csv[5]));
                         }
@@ -70,8 +71,10 @@ public class LibraryCreateServiceImpl implements LibraryCreateService {
                         }
                         Timestamp input_ts = new Timestamp(DateUtil.dateToStamp(csv[9]));
 
+                        String department = csv[3].replaceAll(" ", "").replaceAll("\n", ",");
+
                         Papers papers = new Papers(csv[0], csv[1], csv[2],
-                                csv[3], release_ts, implement_ts, csv[4], csv[7], 1, input_ts,
+                                department.substring(0, department.length() - 1), release_ts, implement_ts, csv[4], csv[7], 1, input_ts,
                                 csv[10], Integer.parseInt(csv[11]), Integer.parseInt(csv[12]));
 
                         //存入一条法规
@@ -87,6 +90,7 @@ public class LibraryCreateServiceImpl implements LibraryCreateService {
                 }
             }
         }
+        log.info("爬虫数据读取完毕");
         return null;
     }
 
