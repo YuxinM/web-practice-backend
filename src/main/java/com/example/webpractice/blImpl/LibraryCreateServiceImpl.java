@@ -72,7 +72,7 @@ public class LibraryCreateServiceImpl implements LibraryCreateService {
 
                         Papers papers = new Papers(csv[0], csv[1], csv[2],
                                 csv[3], release_ts, implement_ts, csv[4], csv[7], 1, input_ts,
-                                csv[10], Integer.parseInt(csv[11]), 0);
+                                csv[10], Integer.parseInt(csv[11]), Integer.parseInt(csv[12]));
 
                         //存入一条法规
                         try {

@@ -3,8 +3,14 @@ spring:
     url: jdbc:mysql://localhost:3306/practice?useSSL=false&rewriteBatchedStatements=true&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
     username: root
     #本地数据库的密码
-    password: root
+    password: 'myxmyx1207'
     driver-class-name: com.mysql.jdbc.Driver
+
+  #文件大小限制
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
 
 
   #JPA配置
@@ -15,7 +21,7 @@ spring:
     hibernate:
       ddl-auto: none
 
-logging:
-  config: classpath:logback.xml
+#logging:
+#  config: classpath:logback.xml
 
 

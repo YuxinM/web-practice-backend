@@ -224,7 +224,7 @@ public class OssFileManager {
             }
             reader.close();
             //提取需要的信息
-            String[] var = new String[12];
+            String[] var = new String[13];
             for (int i = 0; i < csv.size(); i++) {
                 var[i] = csv.get(i)[1]; //属性在第二列
             }

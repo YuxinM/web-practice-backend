@@ -1,6 +1,7 @@
 package com.example.webpractice.controller;
 
 import com.example.webpractice.bl.UserService;
+import com.example.webpractice.util.SessionManager;
 import com.example.webpractice.vo.ResponseVO;
 import com.example.webpractice.vo.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;

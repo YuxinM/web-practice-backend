@@ -13,9 +13,12 @@ import javax.servlet.http.HttpSession;
  * @Author MengYuxin
  * @Date 2021/10/27 23:00
  */
+
 public class SessionManager {
 
     private static final String key = "login";
+
+    private static final String ini="id";
 
 
     /**
@@ -26,7 +29,10 @@ public class SessionManager {
     public static void initLoginState(User user) {
         HttpSession session = getHttpSession();
         session.setAttribute(key, user);
+        session.setAttribute(ini,user.getId());
     }
+
+
 
     /**
      * 得到登录的用户
@@ -38,6 +44,11 @@ public class SessionManager {
         return (User) session.getAttribute(key);
     }
 
+    public static int getId(){
+        HttpSession session=getHttpSession();
+        return (int)session.getAttribute(ini);
+    }
+
 
     /**
      * 移除用户的登录状态
@@ -45,6 +56,7 @@ public class SessionManager {
     public static void removeLoginState() {
         HttpSession session = getHttpSession();
         session.removeAttribute(key);
+        session.removeAttribute(ini);
         session.invalidate();
     }
 

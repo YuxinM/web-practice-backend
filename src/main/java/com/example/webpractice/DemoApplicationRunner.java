@@ -32,6 +32,11 @@ public class DemoApplicationRunner implements ApplicationRunner {
         //先删除user_data文件夹中的临时数据
         FileUtil.deleteDirRecursion(FileUtil.jointPath(MainConfig.PROJECT_ABSOLUTE_PATH,
                 MainConfig.USER_DATA_DIR_NAME));
-        libraryCreateService.writeInDatabase();
+        try {
+            libraryCreateService.writeInDatabase();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 }

@@ -67,9 +67,9 @@ public class PaperServiceImpl implements PaperService {
     @Override
     public ResponseVO getPaperById(int id) {
 
-//        if (SessionManager.getLoginUser() == null) {
-//            return ResponseVO.buildFailure("请登录");
-//        }
+        if (SessionManager.getLoginUser() == null) {
+            return ResponseVO.buildFailure("请登录");
+        }
 
         List<Papers> papers = paperDAO.getPapersById(id);
         if (papers.size() == 0) {
@@ -149,11 +149,12 @@ public class PaperServiceImpl implements PaperService {
                                String input_time, MultipartFile multipartFile, String status, String analyse_status) {
 
 
-//        if (SessionManager.getLoginUser() == null) {
-//            return ResponseVO.buildFailure("请登录");
-//        }
+        if (SessionManager.getLoginUser() == null) {
+            return ResponseVO.buildFailure("请登录");
+        }
+        System.out.println(input_user);
 
-        int userId = userDAO.getLoginInfo(input_user).getId();
+        int userId = Integer.parseInt(input_user);
 
         String fileName = userId + "-" + multipartFile.getOriginalFilename();
         String sqlFileName = "filename:" + fileName;
@@ -163,7 +164,7 @@ public class PaperServiceImpl implements PaperService {
         if (paperDAO.numOfTitle(title, userId) != 0) {
             return ResponseVO.buildFailure("标题已存在");
         }
-        if (userDAO.UserExists(input_user) == 0) {
+        if (userDAO.UserExistsById(Integer.parseInt(input_user)) == 0) {
             return ResponseVO.buildFailure("用户名不存在");
         }
         if (multipartFile.isEmpty()) {
@@ -209,9 +210,9 @@ public class PaperServiceImpl implements PaperService {
     @Override
     public ResponseVO abolish(List<Integer> ids) {
 
-//        if (SessionManager.getLoginUser() == null) {
-//            return ResponseVO.buildFailure("请登录");
-//        }
+        if (SessionManager.getLoginUser() == null) {
+            return ResponseVO.buildFailure("请登录");
+        }
 
         if (ids == null) {
             return ResponseVO.buildFailure("id数组为空");
@@ -231,10 +232,9 @@ public class PaperServiceImpl implements PaperService {
     @Override
     public ResponseVO publish(List<Integer> ids) {
 
-//        if (SessionManager.getLoginUser() == null) {
-//            return ResponseVO.buildFailure("请登录");
-//        }
-
+        if (SessionManager.getLoginUser() == null) {
+            return ResponseVO.buildFailure("请登录");
+        }
         if (ids == null) {
             return ResponseVO.buildFailure("id数组为空");
         }
@@ -252,9 +252,9 @@ public class PaperServiceImpl implements PaperService {
                                   String status, String analyse_status) {
 
 
-//        if (SessionManager.getLoginUser() == null) {
-//            return ResponseVO.buildFailure("请登录");
-//        }
+        if (SessionManager.getLoginUser() == null) {
+            return ResponseVO.buildFailure("请登录");
+        }
 
         if (paperDAO.numOfId(id) == 0) {
             return ResponseVO.buildFailure("id不存在");
@@ -262,7 +262,7 @@ public class PaperServiceImpl implements PaperService {
         Timestamp release = new Timestamp(DateUtil.dateToStamp(release_time));
         Timestamp implement = new Timestamp(DateUtil.dateToStamp(implement_time));
         Timestamp input = new Timestamp(DateUtil.dateToStamp(input_time));
-        int userId = Integer.valueOf(input_user);
+        int userId = Integer.parseInt(input_user);
         int st = status.equals("true") ? 1 : 0;
         int analyse_st = analyse_status.equals("true") ? 1 : 0;
         //正文文件不更新的情况
@@ -322,9 +322,9 @@ public class PaperServiceImpl implements PaperService {
     @Override
     public ResponseVO delete(List<Integer> ids) {
 
-//        if (SessionManager.getLoginUser() == null) {
-//            return ResponseVO.buildFailure("请登录");
-//        }
+        if (SessionManager.getLoginUser() == null) {
+            return ResponseVO.buildFailure("请登录");
+        }
 
         if (ids == null) {
             return ResponseVO.buildFailure("id数组为空");

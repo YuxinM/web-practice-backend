@@ -82,6 +82,7 @@ public class UserServiceImpl implements UserService {
             return ResponseVO.buildFailure("用户不存在");
         }
         SessionManager.removeLoginState();
+        log.info("用户{}退出登录",id);
         return ResponseVO.buildSuccess();
     }
 }

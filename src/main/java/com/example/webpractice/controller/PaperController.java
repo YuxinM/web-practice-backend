@@ -70,6 +70,7 @@ public class PaperController {
                           @RequestParam(value = "department", required = false) String department,
                           @RequestParam(value = "status", required = false) String status) {
 
+
         return pageService.page(pageNum, title, grade, release_time, implement_time, department, status);
     }
 
