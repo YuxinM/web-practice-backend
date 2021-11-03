@@ -1,5 +1,7 @@
 package com.example.webpractice.config;
 
+import com.example.webpractice.DAO.PaperDAO;
+
 import java.io.File;
 
 /**
@@ -34,6 +36,7 @@ public class MainConfig {
 
     public static void main(String[] args) {
         System.out.println(PROJECT_ABSOLUTE_PATH);
+
 
     }
 }

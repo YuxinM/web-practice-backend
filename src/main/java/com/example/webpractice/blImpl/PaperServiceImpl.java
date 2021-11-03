@@ -8,6 +8,7 @@ import com.example.webpractice.bl.PaperService;
 import com.example.webpractice.config.AliyunAppendixConfig;
 import com.example.webpractice.config.MainConfig;
 import com.example.webpractice.po.Appendix;
+import com.example.webpractice.po.ChartData;
 import com.example.webpractice.po.Papers;
 import com.example.webpractice.util.DateUtil;
 import com.example.webpractice.util.FileUtil;
@@ -24,6 +25,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -353,7 +355,16 @@ public class PaperServiceImpl implements PaperService {
 
     @Override
     public ResponseVO getStatisticalData(){
-        return ResponseVO.buildSuccess(paperDAO.getChartByCategory());
+        List<ChartData>chartDataList=new ArrayList<>();
+        List list= paperDAO.getChartByCategory();
+        for (Object row:list){
+            Object[] cells=(Object[]) row;
+            ChartData chartData=new ChartData();
+            chartData.setName((String) cells[0]);
+            chartData.setValue(((Number)cells[1]).longValue());
+            chartDataList.add(chartData);
+        }
+        return ResponseVO.buildSuccess(chartDataList);
     }
 }
 

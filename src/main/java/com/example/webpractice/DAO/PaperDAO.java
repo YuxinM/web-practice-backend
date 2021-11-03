@@ -74,7 +74,7 @@ public interface PaperDAO extends JpaRepository<Papers, Integer>, JpaSpecificati
 
     //统计数据用
     @Query(nativeQuery = true, value = "SELECT category AS name,COUNT(*) AS value FROM practice.papers GROUP BY category")
-    List<ChartData> getChartByCategory();
+    List getChartByCategory();
 
 
 }
