@@ -16,8 +16,8 @@ public class CORSConfig {
             "127.0.0.1:8000",
             "127.0.0.1",
             "localhost",
-            "172.19.144.143",
-            "172.19.144.143:8000"
+            "106.15.42.179",
+            "106.15.42.179:8088"
     };
 
     @Bean
@@ -26,7 +26,7 @@ public class CORSConfig {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
         config.addAllowedOrigin("http://localhost:8000");
-//        config.addAllowedOrigin("http://106.14.27.210:8081");
+        config.addAllowedOrigin("http://106.15.42.179:8088");  //服务器前端
         config.addAllowedHeader(CorsConfiguration.ALL);
         config.addAllowedMethod(CorsConfiguration.ALL);
         source.registerCorsConfiguration("/**", config);
