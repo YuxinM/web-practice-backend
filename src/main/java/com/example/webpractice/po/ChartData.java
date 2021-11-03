@@ -1,8 +1,8 @@
 package com.example.webpractice.po;
 
 public class ChartData {
-    String name;
-    Long value;
+    private String name;
+    private Long value;
 
     public String getName() {
         return name;
@@ -20,8 +20,7 @@ public class ChartData {
         this.value = value;
     }
 
-    public ChartData(){
-
+    public ChartData() {
     }
 
     public ChartData(String name, Long value) {

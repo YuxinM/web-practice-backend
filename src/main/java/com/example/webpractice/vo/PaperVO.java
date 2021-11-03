@@ -84,4 +84,10 @@ public class PaperVO {
      */
     private boolean status;
 
+    /**
+     * 状态
+     * 未发布/已发布
+     */
+    private int analyse_id;
+
 }

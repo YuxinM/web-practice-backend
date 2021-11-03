@@ -84,7 +84,7 @@ public class AppendixServiceImpl implements AppendixService {
                     ossPath, file, aliyunAppendixConfig.OSSClient1());
             //删除本地临时文件
             FileUtil.deleteDirRecursion(fullPath);
-            Appendix appendix = new Appendix(name, user_name, paperId);
+            Appendix appendix = new Appendix(name, user_name, paperId, -1);
             appendixDAO.save(appendix);
         }
         return ResponseVO.buildSuccess();

@@ -24,7 +24,7 @@ public interface PaperService {
     ResponseVO addPaper(String title, String number, String category, String department,
                         String grade, String release_time, String implement_time,
                         String interpret, String input_user, String input_time,
-                        MultipartFile file, String status, String analyse_status);
+                        MultipartFile file, String status, String analyse_id);
 
     ResponseVO abolish(List<Integer> ids);
 
@@ -33,9 +33,11 @@ public interface PaperService {
     ResponseVO updatePaper(int id, String title, String number, String category, String department,
                            String grade, String release_time, String implement_time,
                            String interpret, String input_user, String input_time,
-                           MultipartFile file, String status,String analyse_status);
+                           MultipartFile file, String status,String analyse_id);
 
     ResponseVO delete(List<Integer> ids);
 
     ResponseVO getStatisticalData();
+
+    ResponseVO analyse(int id);
 }

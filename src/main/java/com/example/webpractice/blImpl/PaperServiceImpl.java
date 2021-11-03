@@ -14,10 +14,7 @@ import com.example.webpractice.util.DateUtil;
 import com.example.webpractice.util.FileUtil;
 import com.example.webpractice.util.OssFileManager;
 import com.example.webpractice.util.SessionManager;
-import com.example.webpractice.vo.PaperVO;
-import com.example.webpractice.vo.ResponseVO;
-import com.example.webpractice.vo.UserInfoVO;
-import com.example.webpractice.vo.UserVO;
+import com.example.webpractice.vo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -120,7 +117,7 @@ public class PaperServiceImpl implements PaperService {
             PaperVO paperVO = new PaperVO(target.getId(), target.getTitle(),
                     target.getPaper_number(), target.getCategory(), target.getDepartment(),
                     release_time, implement_time, target.getGrade(), target.getInterpret_department(),
-                    input_user, input_time, content, target.getStatus() == 1);
+                    input_user, input_time, content, target.getStatus() == 1, target.getAnalyse_id());
             return ResponseVO.buildSuccess(paperVO);
 
         }
@@ -141,14 +138,14 @@ public class PaperServiceImpl implements PaperService {
      * @param input_time
      * @param multipartFile  文件
      * @param status
-     * @param analyse_status
+     * @param analyse_id
      * @return
      */
     @Override
     public ResponseVO addPaper(String title, String number, String category,
                                String department, String grade, String release_time,
                                String implement_time, String interpret, String input_user,
-                               String input_time, MultipartFile multipartFile, String status, String analyse_status) {
+                               String input_time, MultipartFile multipartFile, String status, String analyse_id) {
 
 
         if (SessionManager.getLoginUser() == null) {
@@ -187,10 +184,9 @@ public class PaperServiceImpl implements PaperService {
         Timestamp implement = new Timestamp(DateUtil.dateToStamp(implement_time));
         Timestamp input = new Timestamp(DateUtil.dateToStamp(input_time));
         int st = status.equals("true") ? 1 : 0;
-        int analyse_st = analyse_status.equals("true") ? 1 : 0;
 
         Papers papers = new Papers(title, number, category, department,
-                release, implement, grade, interpret, userId, input, sqlFileName, st, analyse_st);
+                release, implement, grade, interpret, userId, input, sqlFileName, st, -1);
         int id = paperDAO.save(papers).getId();
         //把本地的文件存入阿里云
         //本地临时文件
@@ -251,7 +247,7 @@ public class PaperServiceImpl implements PaperService {
                                   String category, String department, String grade,
                                   String release_time, String implement_time, String interpret,
                                   String input_user, String input_time, MultipartFile multipartFile,
-                                  String status, String analyse_status) {
+                                  String status, String analyse_id) {
 
 
         if (SessionManager.getLoginUser() == null) {
@@ -266,7 +262,7 @@ public class PaperServiceImpl implements PaperService {
         Timestamp input = new Timestamp(DateUtil.dateToStamp(input_time));
         int userId = Integer.parseInt(input_user);
         int st = status.equals("true") ? 1 : 0;
-        int analyse_st = analyse_status.equals("true") ? 1 : 0;
+        int analyseId = Integer.parseInt(analyse_id);
         //正文文件不更新的情况
         if (multipartFile == null) {
             paperDAO.updateWithNoFile(title, number, category, department, release,
@@ -316,7 +312,7 @@ public class PaperServiceImpl implements PaperService {
             //数据库的正文字段就存储文件名
             paperDAO.updateWithFile(title, number, category, department,
                     release, implement, grade, interpret, userId, input,
-                    sqlName, st, analyse_st, id);
+                    sqlName, st, analyseId, id);
         }
         return ResponseVO.buildSuccess();
     }
@@ -354,17 +350,33 @@ public class PaperServiceImpl implements PaperService {
     }
 
     @Override
-    public ResponseVO getStatisticalData(){
-        List<ChartData>chartDataList=new ArrayList<>();
-        List list= paperDAO.getChartByCategory();
-        for (Object row:list){
-            Object[] cells=(Object[]) row;
-            ChartData chartData=new ChartData();
+    public ResponseVO getStatisticalData() {
+        //分类饼图
+        List<ChartData> categoryPie = new ArrayList<>();
+        List categoryPieList = paperDAO.getChartByCategory();
+        for (Object row : categoryPieList) {
+            Object[] cells = (Object[]) row;
+            ChartData chartData = new ChartData();
             chartData.setName((String) cells[0]);
-            chartData.setValue(((Number)cells[1]).longValue());
-            chartDataList.add(chartData);
+            chartData.setValue(((Number) cells[1]).longValue());
+            categoryPie.add(chartData);
         }
-        return ResponseVO.buildSuccess(chartDataList);
+        //每年法规
+        List<ChartData> yearLine = new ArrayList<>();
+        List yearLineList = paperDAO.getChartByYear();
+        for (Object row : yearLineList) {
+            Object[] cells = (Object[]) row;
+            ChartData chartData = new ChartData();
+            chartData.setName(String.valueOf(cells[0]));
+            chartData.setValue(((Number) cells[1]).longValue());
+            yearLine.add(chartData);
+        }
+        return ResponseVO.buildSuccess(new StatisticalDataVO(categoryPie, yearLine));
+    }
+
+    @Override
+    public ResponseVO analyse(int id) {
+        return ResponseVO.buildSuccess(paperDAO.analyse(id));
     }
 }
 

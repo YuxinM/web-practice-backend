@@ -26,7 +26,7 @@ public class Papers {
     public Papers(String title, String paper_number, String category,
                   String department, Timestamp release_time, Timestamp implement_time,
                   String grade, String interpret_department, int user_id, Timestamp input_time,
-                  String content, int status, int analyse_status) {
+                  String content, int status, int analyse_id) {
         this.title = title;
         this.paper_number = paper_number;
         this.category = category;
@@ -39,7 +39,7 @@ public class Papers {
         this.input_time = input_time;
         this.content = content;
         this.status = status;
-        this.analyse_status = analyse_status;
+        this.analyse_id = analyse_id;
     }
 
     @Id
@@ -83,8 +83,8 @@ public class Papers {
     @Column(name = "status")
     private int status;
 
-    @Column(name = "analyse_status")
-    private int analyse_status;
+    @Column(name = "analyse_id")
+    private int analyse_id;
 
 
 }

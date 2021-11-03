@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
  * @Date 2021/10/26 17:28
  */
 
-//@Component
+@Component
 public class DemoApplicationRunner implements ApplicationRunner {
 
     @Autowired

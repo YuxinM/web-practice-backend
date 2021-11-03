@@ -53,11 +53,11 @@ public class PaperController {
                                @RequestParam(value = "input_time") String input_time,
                                @RequestParam(value = "content") MultipartFile file,
                                @RequestParam(value = "status") String status,
-                               @RequestParam(value = "analyse_status") String analyse_status
+                               @RequestParam(value = "analyse_id") String analyse_id
     ) {
 
         return paperService.addPaper(title, number, category, department, grade,
-                release_time, implement_time, interpret, input_user, input_time, file, status, analyse_status);
+                release_time, implement_time, interpret, input_user, input_time, file, status, analyse_id);
     }
 
     @GetMapping("/get")
@@ -101,9 +101,9 @@ public class PaperController {
                              @RequestParam(value = "input_time") String input_time,
                              @RequestParam(value = "content", required = false) MultipartFile file,
                              @RequestParam(value = "status") String status,
-                             @RequestParam(value = "analyse_status") String analyse_status) {
+                             @RequestParam(value = "analyse_id") String analyse_id) {
         return paperService.updatePaper(id, title, number, category, department, grade,
-                release_time, implement_time, interpret, input_user, input_time, file, status, analyse_status);
+                release_time, implement_time, interpret, input_user, input_time, file, status, analyse_id);
     }
 
     @DeleteMapping("/del")
@@ -117,5 +117,11 @@ public class PaperController {
     @ResponseBody
     public ResponseVO getStatisticalData() {
         return paperService.getStatisticalData();
+    }
+
+    @PutMapping("/analyse")
+    @ResponseBody
+    public ResponseVO publish(@RequestParam("id") int id) {
+        return paperService.analyse(id);
     }
 }

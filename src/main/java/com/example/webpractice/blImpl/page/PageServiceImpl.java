@@ -50,7 +50,7 @@ public class PageServiceImpl implements PageService {
             SimplePaperVO in = new SimplePaperVO(p.getId(),
                     p.getTitle(), p.getDepartment(), release,
                     implement, p.getGrade(), p.getStatus() == 1,
-                    p.getAnalyse_status() == 1, p.getPaper_number());
+                    p.getAnalyse_id(), p.getPaper_number());
             simplePaperVOS.add(in);
         }
         PageInfoVO pageInfoVO = new PageInfoVO(count(conditionVO), simplePaperVOS);
