@@ -24,4 +24,7 @@ spring:
 #logging:
 #  config: classpath:logback.xml
 
+springdoc:
+  packagesToScan: com.example.webpractice.controller
+
 
