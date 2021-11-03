@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletResponse;
+
 /**
  * @Author MengYuxin
  * @Date 2021/10/31 19:32
@@ -38,6 +40,12 @@ public class AppendixController {
     @ResponseBody
     public ResponseVO deleteAppendix(@PathVariable("id") int id) {
         return appendixService.deleteAppendix(id);
+    }
+
+    @GetMapping("/downloadAppendix/{id}")
+    @ResponseBody
+    public ResponseVO downloadAppendix(HttpServletResponse response, @PathVariable("id")int id){
+        return appendixService.downloadAppendix(id,response);
     }
 
 

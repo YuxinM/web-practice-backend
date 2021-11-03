@@ -24,6 +24,9 @@ public interface AppendixDAO extends JpaRepository<Appendix, Integer> {
     @Query(nativeQuery = true, value = "select * from practice.appendix where paper_id=?1")
     List<Appendix> findByPaperId(int paper_id);
 
+    @Query(nativeQuery = true,value = "select file_name from practice.appendix where paper_id=?1")
+    String findFilenameById(int paper_id);
+
     void deleteById(int id);
 
     Appendix findAppendixById(int id);

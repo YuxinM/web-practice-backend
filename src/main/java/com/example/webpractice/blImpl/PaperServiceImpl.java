@@ -56,6 +56,8 @@ public class PaperServiceImpl implements PaperService {
     private static final String ContentLocalDir = FileUtil.jointPath(MainConfig.PROJECT_ABSOLUTE_PATH,
             MainConfig.CONTENT);
 
+    private static final String ossContentDir="正文文件/";
+
 
     /**
      * 根据id获取法规详情
@@ -88,8 +90,8 @@ public class PaperServiceImpl implements PaperService {
                 //正文文件的名称
                 String fileName = target.getContent().substring(target.getContent().indexOf(':') + 1);
                 //这是文件在阿里云中的存储位置
-                String ossPath = "正文文件/" + fileName;
-                System.out.println(ossPath);
+                String ossPath = ossContentDir + fileName;
+                //System.out.println(ossPath);
                 //从阿里云获取文件的流
 
                 File folder = new File(ContentLocalDir);
@@ -191,7 +193,7 @@ public class PaperServiceImpl implements PaperService {
         //把本地的文件存入阿里云
         //本地临时文件
         File file = new File(fullPath);
-        String ossPath = "正文文件/" + fileName;
+        String ossPath = ossContentDir + fileName;
         ossFileManager.uploadFile(aliyunAppendixConfig.getBucketName(),
                 ossPath, file, aliyunAppendixConfig.OSSClient1());
         //删除本地的临时文件
@@ -283,8 +285,8 @@ public class PaperServiceImpl implements PaperService {
             if (content.startsWith("filename:")) {
                 //先要在oss上删除旧的文件
                 String oldName = content.substring(content.indexOf(':') + 1);
-                String oldOssPath = "正文文件/" + oldName;
-                String newOldOssPath = "正文文件/" + fileName;
+                String oldOssPath = ossContentDir + oldName;
+                String newOldOssPath = ossContentDir + fileName;
                 ossFileManager.deleteFile(aliyunAppendixConfig.getBucketName(),
                         oldOssPath, aliyunAppendixConfig.OSSClient1());
                 //然后上传新文件
@@ -299,7 +301,7 @@ public class PaperServiceImpl implements PaperService {
 
             } else {
                 //原来是以文字内容存在
-                String ossPath = "正文文件/" + fileName;
+                String ossPath = ossContentDir + fileName;
                 if (!FileUtil.saveFile(multipartFile, fullPath)) {
                     return ResponseVO.buildFailure("未知错误 正文文件存储失败");
                 }
@@ -336,7 +338,7 @@ public class PaperServiceImpl implements PaperService {
             Papers papers = paperDAO.findPapersById(id);
             if (papers.getContent().startsWith("filename")) {
                 String fileName = papers.getContent().substring(papers.getContent().indexOf(':') + 1);
-                String ossPath = "正文文件/" + fileName;
+                String ossPath = ossContentDir + fileName;
                 if (!ossFileManager.deleteFile(aliyunAppendixConfig.getBucketName(),
                         ossPath, aliyunAppendixConfig.OSSClient1())) {
                     return ResponseVO.buildFailure("删除阿里云上文件失败");

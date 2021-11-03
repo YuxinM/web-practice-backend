@@ -17,7 +17,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +38,8 @@ public class AppendixServiceImpl implements AppendixService {
 
     private static final String AppendixLocalDir = FileUtil.jointPath(MainConfig.PROJECT_ABSOLUTE_PATH,
             MainConfig.APPENDIX);
+
+    private static final String ossAppendixDir="附件/";
 
     @Autowired
     AppendixDAO appendixDAO;
@@ -78,7 +86,7 @@ public class AppendixServiceImpl implements AppendixService {
                 return ResponseVO.buildFailure("未知错误 正文文件存储失败");
             }
             File file = new File(fullPath);
-            String ossPath = "附件/" + name;
+            String ossPath = ossAppendixDir + name;
             //将文件上传到阿里云
             ossFileManager.uploadFile(aliyunAppendixConfig.getBucketName(),
                     ossPath, file, aliyunAppendixConfig.OSSClient1());
@@ -108,7 +116,7 @@ public class AppendixServiceImpl implements AppendixService {
             return ResponseVO.buildSuccess(appendixVOS);
         }
         for (Appendix appendix : appendices) {
-            String ossPath = "附件/" + appendix.getFile_name();
+            String ossPath = ossAppendixDir + appendix.getFile_name();
             SimplifiedObjectMeta meta = ossFileManager.getFileInfo(
                     aliyunAppendixConfig.getBucketName(), ossPath,
                     aliyunAppendixConfig.OSSClient1()
@@ -136,11 +144,63 @@ public class AppendixServiceImpl implements AppendixService {
         }
 
         Appendix appendix = appendixDAO.findAppendixById(id);
-        String ossPath = "附件/" + appendix.getFile_name();
+        String ossPath = ossAppendixDir + appendix.getFile_name();
         //在阿里云中删除文件
         ossFileManager.deleteFile(aliyunAppendixConfig.getBucketName(),
                 ossPath, aliyunAppendixConfig.OSSClient1());
         appendixDAO.deleteById(id);
+        return ResponseVO.buildSuccess();
+    }
+
+    @Override
+    public ResponseVO downloadAppendix(int id, HttpServletResponse response) {
+
+        String fileName= appendixDAO.findFilenameById(id);
+        String ossPath=ossAppendixDir+fileName;
+        File folder = new File(AppendixLocalDir);
+        if (!folder.exists() && !folder.isDirectory()) {
+            folder.mkdirs();
+        }
+        //本地路径
+        String path = FileUtil.jointPath(AppendixLocalDir, fileName);
+        File file = new File(path);
+        //将文件下载到本地临时存储位置
+        ossFileManager.downloadContent(aliyunAppendixConfig.getBucketName(),
+                ossPath, aliyunAppendixConfig.OSSClient1(), file);
+
+        FileInputStream bis = null;
+        OutputStream bos = null;
+        try{
+            response.setHeader("Content-disposition", "attachment;filename=" + fileName);
+            bis = new FileInputStream(file);
+
+            bos = response.getOutputStream();
+            byte[] buffer = new byte[1024];
+            int length;
+            while ((length = bis.read(buffer)) != -1) {
+                bos.write(buffer, 0, length);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            return ResponseVO.buildFailure("导出为文件失败");
+        } finally {
+            if(bis != null)
+                try { bis.close(); }
+                catch (IOException e){
+                    e.printStackTrace();
+                } finally {
+                    if (bos != null)
+                        try { bos.close(); }
+                        catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        finally {
+                            if(!file.delete()){
+                                log.warn("文件{}删除失败",path);
+                            }
+                        }
+                }
+        }
         return ResponseVO.buildSuccess();
     }
 }

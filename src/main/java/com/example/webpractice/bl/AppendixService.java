@@ -3,6 +3,8 @@ package com.example.webpractice.bl;
 import com.example.webpractice.vo.ResponseVO;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletResponse;
+
 /**
  * @Author MengYuxin
  * @Date 2021/10/31 19:48
@@ -16,4 +18,6 @@ public interface AppendixService {
     ResponseVO getAppendix(int paperId);
 
     ResponseVO deleteAppendix(int id);
+
+    ResponseVO downloadAppendix(int id, HttpServletResponse response);
 }
