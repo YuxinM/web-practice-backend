@@ -50,7 +50,7 @@ public class AppendixController {
     @Operation(summary = "下载附件", description = "根据ID下载附件")
     @PostMapping("/downloadAppendix/{id}")
     @ResponseBody
-    public void downloadAppendix(HttpServletResponse response, @PathVariable("id") int id) {
+    public void downloadAppendix(@PathVariable("id") int id, HttpServletResponse response) {
         appendixService.downloadAppendix(id, response);
     }
 
