@@ -17,10 +17,9 @@ public class AnalyseVO {
     private String number;
     private String category;
     private String interpret_department;
-    private int input_user;
+    private String input_user;
     private String input_time;
     private String content;
-    private int paper_id;
 
     public AnalyseVO(Analyse analyse) {
         this.id = analyse.getId();
@@ -28,9 +27,7 @@ public class AnalyseVO {
         this.number = analyse.getPaper_number();
         this.category = analyse.getCategory();
         this.interpret_department = analyse.getInterpret_department();
-        this.input_user = analyse.getUser_id();
         this.input_time = DateUtil.StampToDate(analyse.getInput_time());
         this.content = analyse.getContent();
-        this.paper_id = analyse.getPaper_id();
     }
 }

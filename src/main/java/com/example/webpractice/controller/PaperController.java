@@ -51,7 +51,7 @@ public class PaperController {
                                @RequestParam(value = "interpret_department", required = false) String interpret,
                                @RequestParam(value = "input_user") String input_user,
                                @RequestParam(value = "input_time") String input_time,
-                               @RequestParam(value = "content") MultipartFile file,
+                               @RequestParam(value = "content", required = false) MultipartFile file,
                                @RequestParam(value = "status") String status,
                                @RequestParam(value = "analyse_id") String analyse_id
     ) {
@@ -119,9 +119,4 @@ public class PaperController {
         return paperService.getStatisticalData();
     }
 
-    @PutMapping("/analyse")
-    @ResponseBody
-    public ResponseVO publish(@RequestParam("id") int id) {
-        return paperService.analyse(id);
-    }
 }

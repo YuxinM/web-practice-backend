@@ -20,9 +20,9 @@ public interface AnalyseService {
     ResponseVO getAnalyseById(int id);
 
     ResponseVO addAnalyse(String title, String number, String category, String interpret,
-                          String input_user, String input_time, MultipartFile file, String paper_id);
+                          String input_user, String input_time, MultipartFile multipartFile, String paper_id);
 
     ResponseVO updateAnalyse(int id, String title, String number, String category, String interpret,
-                             String input_user, String input_time, MultipartFile file, String paper_id);
+                             String input_user, String input_time, MultipartFile multipartFile);
 
 }

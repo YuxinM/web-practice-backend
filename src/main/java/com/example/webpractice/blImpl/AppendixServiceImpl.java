@@ -39,7 +39,7 @@ public class AppendixServiceImpl implements AppendixService {
     private static final String AppendixLocalDir = FileUtil.jointPath(MainConfig.PROJECT_ABSOLUTE_PATH,
             MainConfig.APPENDIX);
 
-    private static final String ossAppendixDir="附件/";
+    private static final String ossAppendixDir = "附件/";
 
     @Autowired
     AppendixDAO appendixDAO;
@@ -69,7 +69,7 @@ public class AppendixServiceImpl implements AppendixService {
         String user_name = SessionManager.getLoginUser().getUsername();
 
         if (files == null || files.length == 0) {
-            return ResponseVO.buildFailure("文件不能为空");
+            return ResponseVO.buildSuccess("文件不能为空");
         }
         File folder = new File(AppendixLocalDir);
         if (!folder.exists() && !folder.isDirectory()) {
@@ -122,7 +122,7 @@ public class AppendixServiceImpl implements AppendixService {
                     aliyunAppendixConfig.OSSClient1()
             );
             long size = meta.getSize();
-            AppendixVO appendixVO = new AppendixVO(appendix.getFile_name(),
+            AppendixVO appendixVO = new AppendixVO(appendix.getId(), appendix.getFile_name(),
                     String.valueOf(size), appendix.getUser_name());
             appendixVOS.add(appendixVO);
         }
@@ -153,10 +153,10 @@ public class AppendixServiceImpl implements AppendixService {
     }
 
     @Override
-    public ResponseVO downloadAppendix(int id, HttpServletResponse response) {
+    public void downloadAppendix(int id, HttpServletResponse response) {
 
-        String fileName= appendixDAO.findFilenameById(id);
-        String ossPath=ossAppendixDir+fileName;
+        String fileName = appendixDAO.findFilenameById(id);
+        String ossPath = ossAppendixDir + fileName;
         File folder = new File(AppendixLocalDir);
         if (!folder.exists() && !folder.isDirectory()) {
             folder.mkdirs();
@@ -170,7 +170,7 @@ public class AppendixServiceImpl implements AppendixService {
 
         FileInputStream bis = null;
         OutputStream bos = null;
-        try{
+        try {
             response.setHeader("Content-disposition", "attachment;filename=" + fileName);
             bis = new FileInputStream(file);
 
@@ -182,25 +182,26 @@ public class AppendixServiceImpl implements AppendixService {
             }
         } catch (IOException e) {
             e.printStackTrace();
-            return ResponseVO.buildFailure("导出为文件失败");
+//            return ResponseVO.buildFailure("导出为文件失败");
         } finally {
-            if(bis != null)
-                try { bis.close(); }
-                catch (IOException e){
+            if (bis != null)
+                try {
+                    bis.close();
+                } catch (IOException e) {
                     e.printStackTrace();
                 } finally {
                     if (bos != null)
-                        try { bos.close(); }
-                        catch (IOException e) {
+                        try {
+                            bos.close();
+                        } catch (IOException e) {
                             e.printStackTrace();
-                        }
-                        finally {
-                            if(!file.delete()){
-                                log.warn("文件{}删除失败",path);
+                        } finally {
+                            if (!file.delete()) {
+                                log.warn("文件{}删除失败", path);
                             }
                         }
                 }
         }
-        return ResponseVO.buildSuccess();
+//        return ResponseVO.buildSuccess();
     }
 }

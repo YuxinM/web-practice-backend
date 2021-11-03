@@ -77,7 +77,7 @@ public interface PaperDAO extends JpaRepository<Papers, Integer>, JpaSpecificati
 
     @Transactional
     @Modifying
-    @Query(nativeQuery = true, value = "update practice.papers set analyse_id=1 where id=?1")
-    int analyse(int id);
+    @Query(nativeQuery = true, value = "update practice.papers set analyse_id=?2 where id=?1")
+    int analyze(int id, int analyse_id);
 
 }

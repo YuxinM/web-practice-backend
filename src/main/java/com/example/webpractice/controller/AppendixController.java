@@ -26,7 +26,7 @@ public class AppendixController {
     @PostMapping("/uploadAppendix/{paperId}")
     @ResponseBody
     public ResponseVO uploadAppendix(@PathVariable("paperId") int paperId,
-                                     @RequestParam("appendixFile") MultipartFile[] files) {
+                                     @RequestParam(value = "appendixFile", required = false) MultipartFile[] files) {
         return appendixService.uploadAppendix(paperId, files);
     }
 
@@ -42,10 +42,10 @@ public class AppendixController {
         return appendixService.deleteAppendix(id);
     }
 
-    @GetMapping("/downloadAppendix/{id}")
+    @PostMapping("/downloadAppendix/{id}")
     @ResponseBody
-    public ResponseVO downloadAppendix(HttpServletResponse response, @PathVariable("id")int id){
-        return appendixService.downloadAppendix(id,response);
+    public void downloadAppendix(HttpServletResponse response, @PathVariable("id") int id) {
+        appendixService.downloadAppendix(id, response);
     }
 
 

@@ -16,9 +16,7 @@ public interface AnalyseDAO extends JpaRepository<Analyse, Integer>, JpaSpecific
     @Modifying
     @Query(nativeQuery = true, value = "update practice.analyse set title=?1,number=?2,category=?3," +
             "interpret=?4,user_id=?5,input_time=?6 where id=?7")
-    void updateWithNoFile(String title, String number, String category,
-                          String department, Timestamp release_time,
-                          Timestamp implement_time, String grade, String interpret,
+    void updateWithNoFile(String title, String number, String category, String interpret,
                           int user_id, Timestamp input_time, int id);
 
     @Transactional

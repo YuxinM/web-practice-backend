@@ -38,6 +38,4 @@ public interface PaperService {
     ResponseVO delete(List<Integer> ids);
 
     ResponseVO getStatisticalData();
-
-    ResponseVO analyse(int id);
 }

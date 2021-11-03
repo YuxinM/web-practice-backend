@@ -375,10 +375,5 @@ public class PaperServiceImpl implements PaperService {
         }
         return ResponseVO.buildSuccess(new StatisticalDataVO(categoryPie, yearLine));
     }
-
-    @Override
-    public ResponseVO analyse(int id) {
-        return ResponseVO.buildSuccess(paperDAO.analyse(id));
-    }
 }
 

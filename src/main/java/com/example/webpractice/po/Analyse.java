@@ -21,7 +21,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 public class Analyse {
 
-    public Analyse(String title, String paper_number, String category, String interpret_department, int user_id, Timestamp input_time, String content, int paper_id) {
+    public Analyse(String title, String paper_number, String category, String interpret_department, int user_id, Timestamp input_time, String content) {
         this.title = title;
         this.paper_number = paper_number;
         this.category = category;
@@ -29,7 +29,6 @@ public class Analyse {
         this.user_id = user_id;
         this.input_time = input_time;
         this.content = content;
-        this.paper_id = paper_id;
     }
 
     @Id
@@ -57,9 +56,6 @@ public class Analyse {
 
     @Column(name = "content")
     private String content;
-
-    @Column(name = "paper_id")
-    private int paper_id;
 
 
 }

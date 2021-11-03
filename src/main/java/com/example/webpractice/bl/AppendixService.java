@@ -19,5 +19,5 @@ public interface AppendixService {
 
     ResponseVO deleteAppendix(int id);
 
-    ResponseVO downloadAppendix(int id, HttpServletResponse response);
+    void downloadAppendix(int id, HttpServletResponse response);
 }

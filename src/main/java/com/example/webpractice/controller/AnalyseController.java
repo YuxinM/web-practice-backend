@@ -17,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Controller
 @RequestMapping("/api/analyse")
 public class AnalyseController {
+
     @Autowired
     AnalyseService analyseService;
 
@@ -34,7 +35,7 @@ public class AnalyseController {
                                @RequestParam(value = "interpret_department", required = false) String interpret,
                                @RequestParam(value = "input_user") String input_user,
                                @RequestParam(value = "input_time") String input_time,
-                               @RequestParam(value = "content") MultipartFile file,
+                               @RequestParam(value = "content", required = false) MultipartFile file,
                                @RequestParam(value = "paper_id") String paper_id
     ) {
         return analyseService.addAnalyse(title, number, category, interpret, input_user, input_time, file, paper_id);
@@ -49,9 +50,8 @@ public class AnalyseController {
                              @RequestParam(value = "interpret_department", required = false) String interpret,
                              @RequestParam(value = "input_user") String input_user,
                              @RequestParam(value = "input_time") String input_time,
-                             @RequestParam(value = "content", required = false) MultipartFile file,
-                             @RequestParam(value = "paper_id") String paper_id) {
-        return analyseService.updateAnalyse(id, title, number, category, interpret, input_user, input_time, file, paper_id);
+                             @RequestParam(value = "content", required = false) MultipartFile file) {
+        return analyseService.updateAnalyse(id, title, number, category, interpret, input_user, input_time, file);
     }
 
 }
