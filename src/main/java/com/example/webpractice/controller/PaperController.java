@@ -113,5 +113,9 @@ public class PaperController {
 
     }
 
-
+    @GetMapping("/getStatisticalData")
+    @ResponseBody
+    public ResponseVO getStatisticalData() {
+        return paperService.getStatisticalData();
+    }
 }

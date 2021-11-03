@@ -1,5 +1,6 @@
 package com.example.webpractice.DAO;
 
+import com.example.webpractice.po.ChartData;
 import com.example.webpractice.po.Papers;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -70,6 +71,10 @@ public interface PaperDAO extends JpaRepository<Papers, Integer>, JpaSpecificati
     Papers findPapersById(int id);
 
     void deleteById(int id);
+
+    //统计数据用
+    @Query(nativeQuery = true, value = "SELECT category AS name,COUNT(*) AS value FROM practice.papers GROUP BY category")
+    List<ChartData> getChartByCategory();
 
 
 }

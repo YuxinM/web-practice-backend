@@ -36,4 +36,6 @@ public interface PaperService {
                            MultipartFile file, String status,String analyse_status);
 
     ResponseVO delete(List<Integer> ids);
+
+    ResponseVO getStatisticalData();
 }

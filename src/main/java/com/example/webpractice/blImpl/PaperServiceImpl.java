@@ -350,5 +350,10 @@ public class PaperServiceImpl implements PaperService {
         }
         return ResponseVO.buildSuccess();
     }
+
+    @Override
+    public ResponseVO getStatisticalData(){
+        return ResponseVO.buildSuccess(paperDAO.getChartByCategory());
+    }
 }
 
