@@ -2,8 +2,6 @@ package com.example.webpractice.controller;
 
 import com.example.webpractice.bl.PaperService;
 import com.example.webpractice.bl.page.PageService;
-import com.example.webpractice.po.Papers;
-import com.example.webpractice.vo.PaperVO;
 import com.example.webpractice.vo.ResponseVO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -12,9 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServlet;
-import java.net.ServerSocket;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -125,6 +120,13 @@ public class PaperController {
     @ResponseBody
     public ResponseVO getStatisticalData() {
         return paperService.getStatisticalData();
+    }
+
+    @Operation(summary = "获取最近内化法规", description = "获取最近内化的3条法规")
+    @GetMapping("/getRecentAnalyzed")
+    @ResponseBody
+    public ResponseVO getRecentAnalyzedPapers() {
+        return paperService.getRecentAnalyzedPapers();
     }
 
 }

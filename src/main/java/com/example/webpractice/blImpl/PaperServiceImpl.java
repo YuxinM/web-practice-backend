@@ -19,7 +19,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.BufferedInputStream;
 import java.io.File;
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -56,7 +55,7 @@ public class PaperServiceImpl implements PaperService {
     private static final String ContentLocalDir = FileUtil.jointPath(MainConfig.PROJECT_ABSOLUTE_PATH,
             MainConfig.CONTENT);
 
-    private static final String ossContentDir="正文文件/";
+    private static final String ossContentDir = "正文文件/";
 
 
     /**
@@ -374,6 +373,11 @@ public class PaperServiceImpl implements PaperService {
             yearLine.add(chartData);
         }
         return ResponseVO.buildSuccess(new StatisticalDataVO(categoryPie, yearLine));
+    }
+
+    @Override
+    public ResponseVO getRecentAnalyzedPapers() {
+        return ResponseVO.buildSuccess(paperDAO.getRecentAnalyzedPapers());
     }
 }
 
