@@ -31,9 +31,7 @@ public class AppendixController {
     @GetMapping("/getAppendixList/{paperId}")
     @ResponseBody
     public ResponseVO getAppendix(@PathVariable("paperId") int paperId) {
-
         return appendixService.getAppendix(paperId);
-
     }
 
     @DeleteMapping("deleteAppendix/{id}")
