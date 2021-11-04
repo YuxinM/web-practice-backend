@@ -27,6 +27,6 @@ public interface AnalyseService {
     ResponseVO updateAnalyse(int id, String title, String number, String category, String interpret,
                              String input_user, String input_time, MultipartFile multipartFile);
 
-    void getFile(int id, HttpServletResponse response);
+    void downloadResultFile(int id, HttpServletResponse response);
 
 }

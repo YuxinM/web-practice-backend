@@ -207,25 +207,26 @@ public class AnalyseServiceImpl implements AnalyseService {
 
     /**
      * 获取解释结果的pdf文件
+     *
      * @param id
      * @param response
      */
     @Override
-    public void getFile(int id, HttpServletResponse response) {
-        Analyse analyse=analyseDAO.findById(id).get();
-        AnalyseVO analyseVO=new AnalyseVO(analyse);
+    public void downloadResultFile(int id, HttpServletResponse response) {
+        Analyse analyse = analyseDAO.findById(id).get();
+        AnalyseVO analyseVO = new AnalyseVO(analyse);
         File folder = new File(PdfLocalDir);
         if (!folder.exists() && !folder.isDirectory()) {
             folder.mkdirs();
         }
-        String name=analyse.getPaper_number()+".pdf";
-        String path=FileUtil.jointPath(PdfLocalDir,name);
-        PdfUtil.make(path,analyseVO);
-        File file=new File(path);
+        String name = analyse.getPaper_number() + ".pdf";
+        String path = FileUtil.jointPath(PdfLocalDir, name);
+        PdfUtil.make(path, analyseVO);
+        File file = new File(path);
         FileInputStream bis = null;
         OutputStream bos = null;
         try {
-            response.setHeader("Content-disposition", "attachment;filename=" + name);
+            response.setContentType("application/pdf");
             bis = new FileInputStream(file);
 
             bos = response.getOutputStream();
@@ -257,8 +258,6 @@ public class AnalyseServiceImpl implements AnalyseService {
                         }
                 }
         }
-
-
 
 
     }

@@ -61,11 +61,11 @@ public class AnalyseController {
         return analyseService.updateAnalyse(id, title, number, category, interpret, input_user, input_time, file);
     }
 
-    @Operation(summary = "获取内规pdf文件",description = "根据ID获取文件")
-    @PostMapping("/getFile/{id}")
+    @Operation(summary = "获取内规pdf文件", description = "根据ID获取文件")
+    @PostMapping("/downloadResultFile/{id}")
     @ResponseBody
-    public void getFile(@PathVariable("id")int id, HttpServletResponse response){
-        analyseService.getFile(id,response);
+    public void downloadResultFile(@PathVariable("id") int id, HttpServletResponse response) {
+        analyseService.downloadResultFile(id, response);
     }
 
 }
