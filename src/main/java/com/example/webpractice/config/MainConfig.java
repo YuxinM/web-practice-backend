@@ -24,14 +24,19 @@ public class MainConfig {
     public static final String USER_DATA_DIR_NAME = "user_data";
 
     /**
-     * 存放正文文件夹
+     * 存放正文临时文件夹
      */
     public static final String CONTENT = "content";
 
     /**
-     * 存放附件文件夹
+     * 存放附件临时文件夹
      */
     public static final String APPENDIX = "appendix";
+
+    /**
+     * 存放pdf的临时文件夹
+     */
+    public static final String Pdf="pdf";
 
 
     public static void main(String[] args) {

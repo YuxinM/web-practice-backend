@@ -3,6 +3,8 @@ package com.example.webpractice.bl;
 import com.example.webpractice.vo.ResponseVO;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletResponse;
+
 /**
  * @Author PanYue
  * @Date 2021/11/3 14:10
@@ -24,5 +26,7 @@ public interface AnalyseService {
 
     ResponseVO updateAnalyse(int id, String title, String number, String category, String interpret,
                              String input_user, String input_time, MultipartFile multipartFile);
+
+    void getFile(int id, HttpServletResponse response);
 
 }

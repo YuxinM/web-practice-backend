@@ -27,4 +27,6 @@ public interface AnalyseDAO extends JpaRepository<Analyse, Integer>, JpaSpecific
                         int user_id, Timestamp input_time, String content, int id);
 
 
+
+
 }

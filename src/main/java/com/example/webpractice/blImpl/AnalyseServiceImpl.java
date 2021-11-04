@@ -8,10 +8,7 @@ import com.example.webpractice.config.AliyunAppendixConfig;
 import com.example.webpractice.config.MainConfig;
 import com.example.webpractice.po.Analyse;
 import com.example.webpractice.po.Papers;
-import com.example.webpractice.util.DateUtil;
-import com.example.webpractice.util.FileUtil;
-import com.example.webpractice.util.OssFileManager;
-import com.example.webpractice.util.SessionManager;
+import com.example.webpractice.util.*;
 import com.example.webpractice.vo.AnalyseVO;
 import com.example.webpractice.vo.ResponseVO;
 import lombok.extern.slf4j.Slf4j;
@@ -19,7 +16,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletResponse;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.sql.Timestamp;
 
 /**
@@ -49,6 +50,10 @@ public class AnalyseServiceImpl implements AnalyseService {
     //正文文件本地临时存储目录
     private static final String ContentLocalDir = FileUtil.jointPath(MainConfig.PROJECT_ABSOLUTE_PATH,
             MainConfig.CONTENT);
+
+    //pdf文件本地临时存储目录
+    private static final String PdfLocalDir = FileUtil.jointPath(MainConfig.PROJECT_ABSOLUTE_PATH,
+            MainConfig.Pdf);
 
     private static final String ossContentDir = "正文文件/";
 
@@ -97,7 +102,6 @@ public class AnalyseServiceImpl implements AnalyseService {
         if (SessionManager.getLoginUser() == null) {
             return ResponseVO.buildFailure("请登录");
         }
-//        System.out.println(input_user);
 
         int userId = Integer.parseInt(input_user);
 
@@ -199,5 +203,63 @@ public class AnalyseServiceImpl implements AnalyseService {
             analyseDAO.updateWithFile(title, number, category, interpret, userId, input, sqlName, id);
         }
         return ResponseVO.buildSuccess();
+    }
+
+    /**
+     * 获取解释结果的pdf文件
+     * @param id
+     * @param response
+     */
+    @Override
+    public void getFile(int id, HttpServletResponse response) {
+        Analyse analyse=analyseDAO.findById(id).get();
+        AnalyseVO analyseVO=new AnalyseVO(analyse);
+        File folder = new File(PdfLocalDir);
+        if (!folder.exists() && !folder.isDirectory()) {
+            folder.mkdirs();
+        }
+        String name=analyse.getPaper_number()+".pdf";
+        String path=FileUtil.jointPath(PdfLocalDir,name);
+        PdfUtil.make(path,analyseVO);
+        File file=new File(path);
+        FileInputStream bis = null;
+        OutputStream bos = null;
+        try {
+            response.setHeader("Content-disposition", "attachment;filename=" + name);
+            bis = new FileInputStream(file);
+
+            bos = response.getOutputStream();
+            byte[] buffer = new byte[1024];
+            int length;
+            while ((length = bis.read(buffer)) != -1) {
+                bos.write(buffer, 0, length);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            log.warn("导出附件文件{}失败", name);
+
+        } finally {
+            if (bis != null)
+                try {
+                    bis.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } finally {
+                    if (bos != null)
+                        try {
+                            bos.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        } finally {
+                            if (!file.delete()) {
+                                log.warn("文件{}删除失败", path);
+                            }
+                        }
+                }
+        }
+
+
+
+
     }
 }

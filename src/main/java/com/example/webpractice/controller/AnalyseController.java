@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletResponse;
+
 /**
  * @Author PanYue
  * @Date 2021/11/3 14:14
@@ -57,6 +59,13 @@ public class AnalyseController {
                              @RequestParam(value = "input_time") String input_time,
                              @RequestParam(value = "content", required = false) MultipartFile file) {
         return analyseService.updateAnalyse(id, title, number, category, interpret, input_user, input_time, file);
+    }
+
+    @Operation(summary = "获取内规pdf文件",description = "根据ID获取文件")
+    @PostMapping("/getFile/{id}")
+    @ResponseBody
+    public void getFile(@PathVariable("id")int id, HttpServletResponse response){
+        analyseService.getFile(id,response);
     }
 
 }
