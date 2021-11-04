@@ -83,7 +83,7 @@ public class AppendixServiceImpl implements AppendixService {
             }
             String fullPath = FileUtil.jointPath(AppendixLocalDir, name);
             if (!FileUtil.saveFile(multipartFile, fullPath)) {
-                return ResponseVO.buildFailure("未知错误 正文文件存储失败");
+                return ResponseVO.buildFailure("未知错误 附件文件存储失败");
             }
             File file = new File(fullPath);
             String ossPath = ossAppendixDir + name;

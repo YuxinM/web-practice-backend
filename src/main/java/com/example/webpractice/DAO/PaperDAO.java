@@ -80,4 +80,7 @@ public interface PaperDAO extends JpaRepository<Papers, Integer>, JpaSpecificati
     @Query(nativeQuery = true, value = "update practice.papers set analyse_id=?2 where id=?1")
     int analyze(int id, int analyse_id);
 
+    @Query(nativeQuery = true, value = "select p.* from papers p,analyse a where p.analyse_id=a.id order by a.input_time desc limit 5;")
+    List<Papers> getRecentAnalyzedPapers();
+
 }

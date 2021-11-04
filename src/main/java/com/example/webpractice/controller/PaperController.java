@@ -2,17 +2,14 @@ package com.example.webpractice.controller;
 
 import com.example.webpractice.bl.PaperService;
 import com.example.webpractice.bl.page.PageService;
-import com.example.webpractice.po.Papers;
-import com.example.webpractice.vo.PaperVO;
 import com.example.webpractice.vo.ResponseVO;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServlet;
-import java.net.ServerSocket;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,10 +18,10 @@ import java.util.List;
  */
 
 @CrossOrigin
+@Tag(name = "外规接口", description = "外规相关操作")
 @Controller
 @RequestMapping("/api/paper")
 public class PaperController {
-
 
     @Autowired
     PaperService paperService;
@@ -32,13 +29,14 @@ public class PaperController {
     @Autowired
     PageService pageService;
 
-
+    @Operation(summary = "获取法规", description = "根据ID获取法规")
     @GetMapping("/get/{id}")
     @ResponseBody
     public ResponseVO getPaperById(@PathVariable("id") int id) {
         return paperService.getPaperById(id);
     }
 
+    @Operation(summary = "新增法规", description = "新增法规")
     @PostMapping("/add")
     @ResponseBody
     public ResponseVO addPaper(@RequestParam(value = "title") String title,
@@ -55,11 +53,11 @@ public class PaperController {
                                @RequestParam(value = "status") String status,
                                @RequestParam(value = "analyse_id") String analyse_id
     ) {
-
         return paperService.addPaper(title, number, category, department, grade,
                 release_time, implement_time, interpret, input_user, input_time, file, status, analyse_id);
     }
 
+    @Operation(summary = "获取法规", description = "分页获取法规列表")
     @GetMapping("/get")
     @ResponseBody
     public ResponseVO get(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
@@ -74,19 +72,22 @@ public class PaperController {
         return pageService.page(pageNum, title, grade, release_time, implement_time, department, status);
     }
 
+    @Operation(summary = "废止法规", description = "根据ID列表废止法规")
     @PutMapping("/abolish")
     @ResponseBody
     public ResponseVO abolish(@RequestParam("ids") List<Integer> ids) {
         return paperService.abolish(ids);
     }
 
+    @Operation(summary = "发布法规", description = "根据ID列表发布法规")
     @PutMapping("/publish")
     @ResponseBody
     public ResponseVO publish(@RequestParam("ids") List<Integer> ids) {
         return paperService.publish(ids);
     }
 
-    @PostMapping("/update/{id}")
+    @Operation(summary = "更新法规", description = "根据ID更新法规")
+    @PutMapping("/update/{id}")
     @ResponseBody
     public ResponseVO update(@PathVariable("id") int id,
                              @RequestParam(value = "title") String title,
@@ -106,6 +107,7 @@ public class PaperController {
                 release_time, implement_time, interpret, input_user, input_time, file, status, analyse_id);
     }
 
+    @Operation(summary = "删除法规", description = "根据ID列表删除法规")
     @DeleteMapping("/del")
     @ResponseBody
     public ResponseVO deletePaper(@RequestParam("ids") List<Integer> ids) {
@@ -113,10 +115,18 @@ public class PaperController {
 
     }
 
+    @Operation(summary = "获取法规统计数据", description = "获取法规统计数据")
     @GetMapping("/getStatisticalData")
     @ResponseBody
     public ResponseVO getStatisticalData() {
         return paperService.getStatisticalData();
+    }
+
+    @Operation(summary = "获取最近内化法规", description = "获取最近内化的3条法规")
+    @GetMapping("/getRecentAnalyzed")
+    @ResponseBody
+    public ResponseVO getRecentAnalyzedPapers() {
+        return paperService.getRecentAnalyzedPapers();
     }
 
 }

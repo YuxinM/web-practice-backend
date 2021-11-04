@@ -1,9 +1,11 @@
 package com.example.webpractice.vo;
 
 import com.example.webpractice.po.ChartData;
+import lombok.Data;
 
 import java.util.List;
 
+@Data
 public class StatisticalDataVO {
     private List<ChartData> categoryPie;
     private List<ChartData> yearLine;
