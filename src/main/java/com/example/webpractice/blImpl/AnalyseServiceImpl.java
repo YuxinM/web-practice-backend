@@ -77,7 +77,7 @@ public class AnalyseServiceImpl implements AnalyseService {
             //System.out.println(file.exists());
             //将文件下载到本地临时存储位置
 
-            ossFileManager.downloadContent(aliyunAppendixConfig.getBucketName(),
+            ossFileManager.downloadFile(aliyunAppendixConfig.getBucketName(),
                     ossPath, aliyunAppendixConfig.OSSClient1(), file);
             analyse.setContent(ossFileManager.readWord(path));
             if (analyse.getContent() == null) {

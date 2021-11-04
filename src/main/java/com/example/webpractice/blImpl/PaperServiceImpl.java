@@ -105,7 +105,7 @@ public class PaperServiceImpl implements PaperService {
                 //System.out.println(file.exists());
                 //将文件下载到本地临时存储位置
 
-                ossFileManager.downloadContent(aliyunAppendixConfig.getBucketName(),
+                ossFileManager.downloadFile(aliyunAppendixConfig.getBucketName(),
                         ossPath, aliyunAppendixConfig.OSSClient1(), file);
                 content = ossFileManager.readWord(path);
                 if (content == null) {

@@ -165,7 +165,7 @@ public class AppendixServiceImpl implements AppendixService {
         String path = FileUtil.jointPath(AppendixLocalDir, fileName);
         File file = new File(path);
         //将文件下载到本地临时存储位置
-        ossFileManager.downloadContent(aliyunAppendixConfig.getBucketName(),
+        ossFileManager.downloadFile(aliyunAppendixConfig.getBucketName(),
                 ossPath, aliyunAppendixConfig.OSSClient1(), file);
 
         FileInputStream bis = null;
@@ -182,7 +182,8 @@ public class AppendixServiceImpl implements AppendixService {
             }
         } catch (IOException e) {
             e.printStackTrace();
-//            return ResponseVO.buildFailure("导出为文件失败");
+            log.warn("导出附件文件{}失败", fileName);
+
         } finally {
             if (bis != null)
                 try {
@@ -202,6 +203,6 @@ public class AppendixServiceImpl implements AppendixService {
                         }
                 }
         }
-//        return ResponseVO.buildSuccess();
+
     }
 }

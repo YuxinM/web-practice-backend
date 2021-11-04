@@ -113,7 +113,7 @@ public class OssFileManager {
      * @param ossClient  oss
      * @return
      */
-    public void downloadContent(String bucketName, String fileName, OSS ossClient, File file) {
+    public void downloadFile(String bucketName, String fileName, OSS ossClient, File file) {
 
         ossClient.getObject(new GetObjectRequest(bucketName, fileName), file);
         ossClient.shutdown();

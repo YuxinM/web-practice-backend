@@ -1,17 +1,21 @@
 package com.example.webpractice.blImpl;
 
+import com.example.webpractice.DAO.AppendixDAO;
 import com.example.webpractice.DAO.PaperDAO;
 import com.example.webpractice.bl.LibraryCreateService;
+import com.example.webpractice.config.AliyunAppendixConfig;
 import com.example.webpractice.config.AliyunConfig;
+import com.example.webpractice.config.MainConfig;
+import com.example.webpractice.po.Appendix;
 import com.example.webpractice.po.Papers;
 import com.example.webpractice.util.DateUtil;
 import com.example.webpractice.util.OssFileManager;
 import com.example.webpractice.util.FileUtil;
-import com.example.webpractice.vo.ResponseVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -25,15 +29,26 @@ import java.util.List;
 @Slf4j
 public class LibraryCreateServiceImpl implements LibraryCreateService {
 
+    //本地附件文件夹
+    private static final String AppendixLocalDir = FileUtil.jointPath(MainConfig.PROJECT_ABSOLUTE_PATH,
+            MainConfig.APPENDIX);
+
+    //oss附件文件夹
+    private static final String ossAppendixDir = "附件/";
+
     @Autowired
     PaperDAO paperDAO;
     @Autowired
     OssFileManager ossFileManager;
     @Autowired
     AliyunConfig aliyunConfig;
+    @Autowired
+    AppendixDAO appendixDAO;
+    @Autowired
+    AliyunAppendixConfig aliyunAppendixConfig;
 
     @Override
-    public ResponseVO writeInDatabase() {
+    public void writeInDatabase() {
 
         log.info("开始读取爬虫数据至数据库");
         List<String> csvList = ossFileManager.getFileNames(aliyunConfig.getBucketName(), aliyunConfig.OSSClient());
@@ -83,7 +98,59 @@ public class LibraryCreateServiceImpl implements LibraryCreateService {
                             int id = paperDAO.save(papers).getId();
                             //然后把临时文件删除
                             FileUtil.deleteDirRecursion(path);
+
+                            //写入附件
+                            if (csv[13] != null && !csv[13].equals("")) {
+                                String[] strings = csv[13].split("\n");
+                                for (String fileName : strings) {
+                                    //手动处理几个特殊情况
+                                    if(fileName.equals("附件1：废止的规范性文件目录.doc")){
+                                        fileName="废止的规范性文件目录.doc";
+                                    }
+                                    if(fileName.equals("附件：27 家非银行支付机构《支付业务许可证》续展决定.pdf")){
+                                        fileName="27 家非银行支付机构《支付业务许可证》续展决定.pdf";
+                                    }
+                                    if(fileName.equals("附件1：废止的规章目录.doc")){
+                                        fileName="废止的规章目录.doc";
+                                    }
+                                    if(fileName.equals("附件：中国人民银行关于修改《金融机构大额交易和可疑交易报告管理办法》的决定.doc")){
+                                        fileName="中国人民银行关于修改《金融机构大额交易和可疑交易报告管理办法》的决定.doc";
+                                    }
+                                    if(fileName.equals("附件2：中国人民银行现行有效的规章目录.docx")){
+                                        fileName="中国人民银行现行有效的规章目录.docx";
+                                    }
+                                    if(fileName.equals("附件2：中国人民银行主要规范性文件目录.doc")){
+                                        fileName="中国人民银行主要规范性文件目录.doc";
+                                    }
+                                    if (fileName.equals("附件.doc")) {
+                                        fileName = csv[0] + "的" + fileName;
+                                    }
+                                    String ossPath = csv[4] + "/" + "附件/" + fileName;
+                                    File folder = new File(AppendixLocalDir);
+                                    if (!folder.exists() && !folder.isDirectory()) {
+                                        folder.mkdirs();
+                                    }
+                                    String fullPath = FileUtil.jointPath(AppendixLocalDir, fileName);
+                                    File file = new File(fullPath);
+                                    ossFileManager.downloadFile(aliyunConfig.getBucketName(),
+                                            ossPath, aliyunConfig.OSSClient(), file);
+                                    fileName=FileUtil.solveName(fileName);
+                                    //System.out.println(file.exists());
+                                    String newName = 1 + "-" + fileName;
+                                    String newPath = FileUtil.jointPath(AppendixLocalDir, newName);
+                                    file.renameTo(new File(newPath));
+                                    file=new File(newPath);
+                                    String storeOssPath = ossAppendixDir + newName;
+                                    //System.out.println(storeOssPath);
+                                    ossFileManager.uploadFile(aliyunAppendixConfig.getBucketName(),
+                                            storeOssPath, file, aliyunAppendixConfig.OSSClient1());
+                                    FileUtil.deleteDirRecursion(newPath);
+                                    Appendix appendix = new Appendix(newName, "admin", id);
+                                    appendixDAO.save(appendix);
+                                }
+                            }
                         } catch (Exception e) {
+                           // e.printStackTrace();
                             log.error("数据出错，不能存入数据库");
                         }
                     }
@@ -91,7 +158,6 @@ public class LibraryCreateServiceImpl implements LibraryCreateService {
             }
         }
         log.info("爬虫数据读取完毕");
-        return null;
     }
 
 

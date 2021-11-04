@@ -91,7 +91,7 @@ public class FileUtil {
         File file = new File(path);
         //文件是否存在
         if (!file.exists()) {
-            log.error("要删除的目标路径不存在");
+            log.warn("要删除的目标路径不存在");
             return false;
         }
         boolean flag = true;
@@ -129,5 +129,25 @@ public class FileUtil {
             System.err.println(empty + "--- failed to delete dir " + path);
             return false;
         }
+    }
+
+    /**
+     * 去掉文件名中前面的 '.'
+     * @param name
+     * @return
+     */
+    public static String solveName(String name){
+        int last=name.lastIndexOf('.');
+        StringBuilder stringBuilder=new StringBuilder();
+        for(int i=0;i<name.length();i++){
+            if(name.charAt(i)!='.'){
+                stringBuilder.append(name.charAt(i));
+            }else {
+                if(i==last){
+                    stringBuilder.append(name.charAt(i));
+                }
+            }
+        }
+        return stringBuilder.toString();
     }
 }
