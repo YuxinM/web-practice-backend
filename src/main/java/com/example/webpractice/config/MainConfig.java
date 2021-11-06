@@ -34,6 +34,11 @@ public class MainConfig {
     public static final String APPENDIX = "appendix";
 
     /**
+     * 存放内化文件的临时文件夹
+     */
+    public static final String ANALYSE="analyse";
+
+    /**
      * 存放pdf的临时文件夹
      */
     public static final String Pdf="pdf";

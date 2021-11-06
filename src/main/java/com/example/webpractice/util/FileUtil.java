@@ -19,6 +19,23 @@ public class FileUtil {
 
 
     /**
+     * 创建文件夹
+     *
+     * @param dir
+     * @param fileName
+     * @return 返回文件夹下对应文件名的全路径
+     */
+    public static String makeFile(String dir, String fileName) {
+        File folder = new File(dir);
+        if (!folder.exists() && !folder.isDirectory()) {
+            folder.mkdirs();
+        }
+        //本地路径
+        return FileUtil.jointPath(dir, fileName);
+    }
+
+
+    /**
      * 随机生成UUID
      *
      * @return
@@ -133,17 +150,18 @@ public class FileUtil {
 
     /**
      * 去掉文件名中前面的 '.'
+     *
      * @param name
      * @return
      */
-    public static String solveName(String name){
-        int last=name.lastIndexOf('.');
-        StringBuilder stringBuilder=new StringBuilder();
-        for(int i=0;i<name.length();i++){
-            if(name.charAt(i)!='.'){
+    public static String solveName(String name) {
+        int last = name.lastIndexOf('.');
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < name.length(); i++) {
+            if (name.charAt(i) != '.') {
                 stringBuilder.append(name.charAt(i));
-            }else {
-                if(i==last){
+            } else {
+                if (i == last) {
                     stringBuilder.append(name.charAt(i));
                 }
             }

@@ -27,6 +27,12 @@ public interface AnalyseDAO extends JpaRepository<Analyse, Integer>, JpaSpecific
                         int user_id, Timestamp input_time, String content, int id);
 
 
+    @Query(nativeQuery = true, value = "select count(*) from practice.analyse where content=?1")
+    int numOfFileName(String name);
+
+
+    @Query(nativeQuery = true, value = "select count(*) from practice.analyse where title=?1 and user_id=?2")
+    int numOfTitle(String title, int user_id);
 
 
 }

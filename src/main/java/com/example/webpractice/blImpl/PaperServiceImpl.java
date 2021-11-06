@@ -91,14 +91,9 @@ public class PaperServiceImpl implements PaperService {
                 //这是文件在阿里云中的存储位置
                 String ossPath = ossContentDir + fileName;
                 //System.out.println(ossPath);
-                //从阿里云获取文件的流
 
-                File folder = new File(ContentLocalDir);
-                if (!folder.exists() && !folder.isDirectory()) {
-                    folder.mkdirs();
-                }
                 //本地路径
-                String path = FileUtil.jointPath(ContentLocalDir, fileName);
+                String path = FileUtil.makeFile(ContentLocalDir,fileName);
                 // System.out.println(path);
                 File file = new File(path);
                 //System.out.println(file.exists());
@@ -152,7 +147,7 @@ public class PaperServiceImpl implements PaperService {
         if (SessionManager.getLoginUser() == null) {
             return ResponseVO.buildFailure("请登录");
         }
-        System.out.println(input_user);
+        //System.out.println(input_user);
 
         int userId = Integer.parseInt(input_user);
 
@@ -177,7 +172,7 @@ public class PaperServiceImpl implements PaperService {
             folder.mkdirs();
         }
         //正文文件的完整路径
-        String fullPath = FileUtil.jointPath(ContentLocalDir, fileName);
+        String fullPath = FileUtil.makeFile(ContentLocalDir,fileName);
         if (!FileUtil.saveFile(multipartFile, fullPath)) {
             return ResponseVO.buildFailure("未知错误 正文文件存储失败");
         }
@@ -273,13 +268,7 @@ public class PaperServiceImpl implements PaperService {
             String sqlName = "filename:" + fileName;//数据库正文字段的值(存文件名)
             String content = paperDAO.findContentById(id);
             //本地完整路径
-            String fullPath = FileUtil.jointPath(ContentLocalDir, fileName);
-            //本地临时存储正文文件夹的路径
-            File folder = new File(ContentLocalDir);
-            if (!folder.exists() && !folder.isDirectory()) {
-                folder.mkdirs();
-            }
-
+            String fullPath = FileUtil.makeFile(ContentLocalDir,fileName);
             //如果原来是以文件形式存在
             if (content.startsWith("filename:")) {
                 //先要在oss上删除旧的文件

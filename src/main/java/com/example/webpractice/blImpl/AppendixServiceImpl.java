@@ -157,12 +157,8 @@ public class AppendixServiceImpl implements AppendixService {
 
         String fileName = appendixDAO.findFilenameById(id);
         String ossPath = ossAppendixDir + fileName;
-        File folder = new File(AppendixLocalDir);
-        if (!folder.exists() && !folder.isDirectory()) {
-            folder.mkdirs();
-        }
         //本地路径
-        String path = FileUtil.jointPath(AppendixLocalDir, fileName);
+        String path = FileUtil.makeFile(AppendixLocalDir, fileName);
         File file = new File(path);
         //将文件下载到本地临时存储位置
         ossFileManager.downloadFile(aliyunAppendixConfig.getBucketName(),
