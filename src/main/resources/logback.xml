@@ -16,7 +16,7 @@
             <pattern>%white(%d{yyyy-MM-dd HH:mm:ss.SSS}) %green([%thread]) %customcolor(%-5level) %boldMagenta(%logger)
                 -[%file:%line]- %msg%n
             </pattern>
-            <charset>UTF-8</charset>
+<!--            <charset>UTF-8</charset>-->
         </encoder>
     </appender>
 
@@ -26,7 +26,7 @@
         <encoder>
             <!--日志输出格式-->
             <pattern>%d [%thread] %-5level -[%file:%line]- %msg%n</pattern>
-            <charset>UTF-8</charset>
+<!--            <charset>UTF-8</charset>-->
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <fileNamePattern>${logFile}.%d{yyyy-MM-dd}.%i.log</fileNamePattern>

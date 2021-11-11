@@ -151,7 +151,7 @@ public class LibraryCreateServiceImpl implements LibraryCreateService {
                             }
                         } catch (Exception e) {
                            // e.printStackTrace();
-                            log.error("数据出错，不能存入数据库");
+                            log.warn("数据出错，不能存入数据库");
                         }
                     }
                 }
