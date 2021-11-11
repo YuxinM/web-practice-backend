@@ -1,0 +1,13 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <!-- 基本规范：id使用[任务ID]-[日期]-[序号]格式；必须填写author -->
+
+    <!-- 新建表并插入初始测试数据 -->
+    <changeSet id="T-2021-001" author="web">
+<!--        <sqlFile path="LegalPapers.sql" />-->
+    </changeSet>
+</databaseChangeLog>
