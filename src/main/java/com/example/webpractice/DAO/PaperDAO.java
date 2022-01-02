@@ -24,6 +24,9 @@ public interface PaperDAO extends JpaRepository<Papers, Integer>, JpaSpecificati
 
     List<Papers> getPapersById(int id);
 
+    @Query(nativeQuery = true,value = "select * from practice.papers where title like ?1")
+    List<Papers> findLikeTitle(String title);
+
     @Query(nativeQuery = true, value = "select * from practice.papers where title=?1")
     List<Papers> findByTitle(String title);
 

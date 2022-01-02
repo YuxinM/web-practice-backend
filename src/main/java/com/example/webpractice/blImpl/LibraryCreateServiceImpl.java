@@ -1,13 +1,11 @@
 package com.example.webpractice.blImpl;
 
-import com.example.webpractice.DAO.AppendixDAO;
-import com.example.webpractice.DAO.PaperDAO;
+import com.example.webpractice.DAO.*;
 import com.example.webpractice.bl.LibraryCreateService;
 import com.example.webpractice.config.AliyunAppendixConfig;
 import com.example.webpractice.config.AliyunConfig;
 import com.example.webpractice.config.MainConfig;
-import com.example.webpractice.po.Appendix;
-import com.example.webpractice.po.Papers;
+import com.example.webpractice.po.*;
 import com.example.webpractice.util.DateUtil;
 import com.example.webpractice.util.OssFileManager;
 import com.example.webpractice.util.FileUtil;
@@ -17,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -45,6 +44,12 @@ public class LibraryCreateServiceImpl implements LibraryCreateService {
     @Autowired
     AppendixDAO appendixDAO;
     @Autowired
+    PreLawDAO preLawDAO;
+    @Autowired
+    PostLawDAO postLawDAO;
+    @Autowired
+    AbolishLawDAO abolishLawDAO;
+    @Autowired
     AliyunAppendixConfig aliyunAppendixConfig;
 
     @Override
@@ -52,9 +57,11 @@ public class LibraryCreateServiceImpl implements LibraryCreateService {
 
         log.info("开始读取爬虫数据至数据库");
         List<String> csvList = ossFileManager.getFileNames(aliyunConfig.getBucketName(), aliyunConfig.OSSClient());
+
+        //读取法规信息
         for (String filename : csvList) {
 
-            if (filename.endsWith(".csv")) {
+            if (filename.endsWith(".csv")&&(!filename.endsWith("prePostLaws.csv"))) {
                 //本地临时存储路径
                 String path = ossFileManager.downloadCsv(aliyunConfig.getBucketName(), filename, aliyunConfig.OSSClient());
                 if (path != null) {
@@ -154,6 +161,61 @@ public class LibraryCreateServiceImpl implements LibraryCreateService {
                             log.warn("数据出错，不能存入数据库");
                         }
                     }
+                }
+            }
+        }
+
+        /**
+         *  读取上位法下位法以及废除法规的信息
+         *  第一列是本法规信息 a[0]
+         *  第二列是本法规依据什么法规指定 a[1]
+         *  第三列是本法规废除了什么法规 a[2]
+         */
+        for(String filename:csvList){
+            if(filename.endsWith("prePostLaws.csv")){
+                String path = ossFileManager.downloadCsv(aliyunConfig.getBucketName(), filename, aliyunConfig.OSSClient());
+                if(path!=null){
+                    ArrayList<String[]>csv= ossFileManager.readKgCsv(path);
+                    for(String[] a:csv){
+                        String paperName=a[0].substring(a[0].lastIndexOf("\\")+1);
+                        String newPaperName=paperName.substring(0,paperName.length()-1);
+                       // System.out.println(paperName);
+                        List<Papers>papers= paperDAO.findLikeTitle(newPaperName+"%");
+                        //数据库里能找到对应的法规的情况
+                        if(papers.size()!=0){
+                           // System.out.println(papers.get(0).getTitle());
+                            //如果上位法数据不是空就解析那一列的数据
+                            if(!a[1].equals("无")) {
+                                String[] allTitle = a[1].split("\n");
+                                //存入上位下位关系
+                                for(int i=0;i<allTitle.length;i++){
+                                    String title=allTitle[i].replaceAll("《","");
+                                    title=title.replaceAll("》","");
+                                    PreLaw preLaw=new PreLaw(paperName,title);
+                                    preLawDAO.save(preLaw);
+                                    PostLaw postLaw=new PostLaw(title,paperName);
+                                    postLawDAO.save(postLaw);
+                                }
+                            }
+                            //如果废除法规数据不是空就解析那一列的数据
+                            if (!a[2].equals("无")){
+                                String[] allPost=a[2].split("\n");
+                                for(int i=0;i<allPost.length;i++){
+                                    AbolishLaw abolishLaw=new AbolishLaw(paperName,allPost[i]);
+                                    try {
+                                        abolishLawDAO.save(abolishLaw);
+                                    }catch (Exception e){
+                                        //System.out.println(paperName);
+                                    }
+
+                                }
+                            }
+                        }else {
+                            System.out.println("sss"+paperName);
+                        }
+                    }
+
+
                 }
             }
         }

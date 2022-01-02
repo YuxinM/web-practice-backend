@@ -40,4 +40,12 @@ public interface PaperService {
     ResponseVO getStatisticalData();
 
     ResponseVO getRecentAnalyzedPapers();
+
+    /**
+     * 根据标题获取法规的Id
+     * 做跳转用
+     * 如果数据库中存在就返回法规id
+     * 如果数据库中不存在就返回null
+     */
+    ResponseVO getPaperIdByTitle(String title);
 }

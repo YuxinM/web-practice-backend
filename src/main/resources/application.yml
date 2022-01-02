@@ -1,7 +1,7 @@
 spring:
   #环境 dev:开发环境|prod:生产环境
   profiles:
-    active: prod #激活的配置文件
+    active: dev #激活的配置文件
 
   datasource:
     url: jdbc:mysql://106.15.42.179:3303/practice?useSSL=false&rewriteBatchedStatements=true&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true

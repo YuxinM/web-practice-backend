@@ -129,4 +129,11 @@ public class PaperController {
         return paperService.getRecentAnalyzedPapers();
     }
 
+    @Operation(summary = "根据标题获取法规id",description = "根据标题获取法规id")
+    @GetMapping("/getPaperId")
+    @ResponseBody
+    public ResponseVO getPaperIdByTitle(@RequestParam(value = "title") String title){
+        return paperService.getPaperIdByTitle(title);
+    }
+
 }

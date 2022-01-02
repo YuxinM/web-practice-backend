@@ -90,4 +90,9 @@ public class PaperVO {
      */
     private int analyse_id;
 
+    /**
+     * 法规的关系
+     */
+    private RelationVO relationVO;
+
 }

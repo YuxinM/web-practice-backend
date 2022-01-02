@@ -6,6 +6,9 @@ use practice;
 drop table if exists `appendix`;
 drop table if exists `papers`;
 drop table if exists `user`;
+drop table if exists `relation`;
+drop table if exists `post`;
+drop table if exists `abolish`;
 
 create table user
 (
@@ -65,6 +68,36 @@ create table appendix
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_unicode_ci;
+
+create table pre
+(
+    id        int          not null auto_increment comment '关系id',
+    title     varchar(200) not null comment '本法规名称',
+    pre       varchar(200) not null comment '上位法规名称',
+    primary key (id)
+)ENGINE = InnoDB
+ DEFAULT CHARSET = utf8mb4
+ COLLATE = utf8mb4_unicode_ci;
+
+create table post
+(
+    id        int          not null auto_increment comment '关系id',
+    title     varchar(200) not null comment '本法规名称',
+    post      varchar(200) not null comment '下位法规名称',
+    primary key (id)
+)ENGINE = InnoDB
+ DEFAULT CHARSET = utf8mb4
+ COLLATE = utf8mb4_unicode_ci;
+
+create table abolish
+(
+    id        int          not null auto_increment comment '关系id',
+    title     varchar(200) not null comment '本法规名称',
+    abolish   varchar(200) not null comment '废除法规名称',
+    primary key (id)
+)ENGINE = InnoDB
+ DEFAULT CHARSET = utf8mb4
+ COLLATE = utf8mb4_unicode_ci;
 
 
 insert into `user`

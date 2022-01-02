@@ -1,0 +1,58 @@
+2021-11-12 14:09:06,492 [main] INFO  -[StartupInfoLogger.java:55]- Starting WebPracticeApplication using Java 1.8.0_291 on LAPTOP-8CTC9VJK with PID 13820 (D:\WebPractice\target\classes started by Lenovo in D:\WebPractice)
+2021-11-12 14:09:06,507 [main] INFO  -[SpringApplication.java:663]- The following profiles are active: dev
+2021-11-12 14:09:14,263 [main] INFO  -[StartupInfoLogger.java:61]- Started WebPracticeApplication in 8.217 seconds (JVM running for 9.91)
+2021-11-12 14:09:14,263 [main] WARN  -[FileUtil.java:111]- 要删除的目标路径不存在
+2021-11-12 14:10:12,522 [main] INFO  -[StartupInfoLogger.java:55]- Starting WebPracticeApplication using Java 1.8.0_291 on LAPTOP-8CTC9VJK with PID 10900 (D:\WebPractice\target\classes started by Lenovo in D:\WebPractice)
+2021-11-12 14:10:12,535 [main] INFO  -[SpringApplication.java:663]- The following profiles are active: dev
+2021-11-12 14:10:19,065 [main] INFO  -[StartupInfoLogger.java:61]- Started WebPracticeApplication in 6.942 seconds (JVM running for 8.476)
+2021-11-12 14:10:19,065 [main] WARN  -[FileUtil.java:111]- 要删除的目标路径不存在
+2021-11-12 14:10:19,065 [main] WARN  -[FileUtil.java:111]- 要删除的目标路径不存在
+2021-11-12 14:10:19,065 [main] WARN  -[FileUtil.java:111]- 要删除的目标路径不存在
+2021-11-12 14:12:37,760 [main] INFO  -[StartupInfoLogger.java:55]- Starting WebPracticeApplication using Java 1.8.0_291 on LAPTOP-8CTC9VJK with PID 4620 (D:\WebPractice\target\classes started by Lenovo in D:\WebPractice)
+2021-11-12 14:12:37,762 [main] INFO  -[SpringApplication.java:663]- The following profiles are active: dev
+2021-11-12 14:12:44,916 [main] INFO  -[StartupInfoLogger.java:61]- Started WebPracticeApplication in 7.583 seconds (JVM running for 9.355)
+2021-11-12 14:12:44,918 [main] WARN  -[FileUtil.java:111]- 要删除的目标路径不存在
+2021-11-12 14:12:44,918 [main] WARN  -[FileUtil.java:111]- 要删除的目标路径不存在
+2021-11-12 14:12:44,918 [main] WARN  -[FileUtil.java:111]- 要删除的目标路径不存在
+2021-11-12 14:12:45,181 [main] INFO  -[OssFileManager.java:103]- 得到阿里云OSS上所有的文件，一共39个
+2021-11-12 14:12:51,278 [main] INFO  -[LibraryCreateServiceImpl.java:53]- 开始读取爬虫数据至数据库
+2021-11-12 14:12:51,665 [main] INFO  -[OssFileManager.java:103]- 得到阿里云OSS上所有的文件，一共397个
+2021-11-12 14:12:59,052 [main] WARN  -[DateUtil.java:30]- 有法律文书文件中日期一栏为空
+2021-11-12 14:13:01,827 [main] WARN  -[DateUtil.java:30]- 有法律文书文件中日期一栏为空
+2021-11-12 14:13:55,127 [main] ERROR -[OssFileManager.java:202]- 下载阿里云上文件出错,文件名为csv/规范性文件/中国人民银行 国家发展和改革委员会 商务部 国务院国有资产监督管理委员会 中国银行保险监督管理委员会 国家外汇管理局关于进一步优化跨境人民币政策 支持稳外贸稳外资的通知.csv
+2021-11-12 14:13:55,292 [main] WARN  -[DateUtil.java:30]- 有法律文书文件中日期一栏为空
+2021-11-12 14:13:55,439 [main] WARN  -[DateUtil.java:30]- 有法律文书文件中日期一栏为空
+2021-11-12 14:13:55,570 [main] WARN  -[DateUtil.java:52]- 日期格式转换出错
+2021-11-12 14:13:56,023 [main] WARN  -[DateUtil.java:30]- 有法律文书文件中日期一栏为空
+2021-11-12 14:13:56,582 [main] WARN  -[DateUtil.java:52]- 日期格式转换出错
+2021-11-12 14:13:57,585 [main] WARN  -[DateUtil.java:30]- 有法律文书文件中日期一栏为空
+2021-11-12 14:14:00,476 [main] WARN  -[DateUtil.java:30]- 有法律文书文件中日期一栏为空
+2021-11-12 14:14:00,592 [main] WARN  -[DateUtil.java:30]- 有法律文书文件中日期一栏为空
+2021-11-12 14:14:01,527 [main] WARN  -[DateUtil.java:30]- 有法律文书文件中日期一栏为空
+2021-11-12 14:14:01,772 [main] WARN  -[LibraryCreateServiceImpl.java:154]- 数据出错，不能存入数据库
+2021-11-12 14:14:02,782 [main] WARN  -[DateUtil.java:30]- 有法律文书文件中日期一栏为空
+2021-11-12 14:14:03,670 [main] WARN  -[DateUtil.java:30]- 有法律文书文件中日期一栏为空
+2021-11-12 14:14:04,753 [main] WARN  -[DateUtil.java:52]- 日期格式转换出错
+2021-11-12 14:14:05,124 [main] WARN  -[DateUtil.java:30]- 有法律文书文件中日期一栏为空
+2021-11-12 14:14:05,276 [main] WARN  -[DateUtil.java:30]- 有法律文书文件中日期一栏为空
+2021-11-12 14:14:06,372 [main] WARN  -[DateUtil.java:30]- 有法律文书文件中日期一栏为空
+2021-11-12 14:14:06,475 [main] WARN  -[DateUtil.java:30]- 有法律文书文件中日期一栏为空
+2021-11-12 14:14:09,029 [main] WARN  -[DateUtil.java:30]- 有法律文书文件中日期一栏为空
+2021-11-12 14:14:09,177 [main] WARN  -[DateUtil.java:30]- 有法律文书文件中日期一栏为空
+2021-11-12 14:14:09,599 [main] WARN  -[DateUtil.java:30]- 有法律文书文件中日期一栏为空
+2021-11-12 14:14:09,778 [main] WARN  -[DateUtil.java:30]- 有法律文书文件中日期一栏为空
+2021-11-12 14:14:13,412 [main] WARN  -[DateUtil.java:30]- 有法律文书文件中日期一栏为空
+2021-11-12 14:14:13,565 [main] WARN  -[DateUtil.java:30]- 有法律文书文件中日期一栏为空
+2021-11-12 14:14:13,998 [main] WARN  -[DateUtil.java:30]- 有法律文书文件中日期一栏为空
+2021-11-12 14:14:14,313 [main] WARN  -[DateUtil.java:30]- 有法律文书文件中日期一栏为空
+2021-11-12 14:14:14,715 [main] WARN  -[DateUtil.java:30]- 有法律文书文件中日期一栏为空
+2021-11-12 14:14:15,704 [main] WARN  -[DateUtil.java:30]- 有法律文书文件中日期一栏为空
+2021-11-12 14:14:15,833 [main] WARN  -[DateUtil.java:30]- 有法律文书文件中日期一栏为空
+2021-11-12 14:14:16,265 [main] WARN  -[DateUtil.java:30]- 有法律文书文件中日期一栏为空
+2021-11-12 14:14:16,449 [main] WARN  -[LibraryCreateServiceImpl.java:154]- 数据出错，不能存入数据库
+2021-11-12 14:14:16,580 [main] WARN  -[DateUtil.java:30]- 有法律文书文件中日期一栏为空
+2021-11-12 14:14:16,999 [main] WARN  -[DateUtil.java:30]- 有法律文书文件中日期一栏为空
+2021-11-12 14:14:17,400 [main] WARN  -[DateUtil.java:30]- 有法律文书文件中日期一栏为空
+2021-11-12 14:14:17,904 [main] WARN  -[DateUtil.java:30]- 有法律文书文件中日期一栏为空
+2021-11-12 14:14:19,006 [main] WARN  -[DateUtil.java:30]- 有法律文书文件中日期一栏为空
+2021-11-12 14:14:19,445 [main] WARN  -[DateUtil.java:30]- 有法律文书文件中日期一栏为空

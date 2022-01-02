@@ -1,20 +1,17 @@
 package com.example.webpractice.blImpl;
 
-import com.example.webpractice.DAO.AppendixDAO;
-import com.example.webpractice.DAO.PaperDAO;
-import com.example.webpractice.DAO.UserDAO;
+import com.example.webpractice.DAO.*;
 import com.example.webpractice.bl.AppendixService;
 import com.example.webpractice.bl.PaperService;
 import com.example.webpractice.config.AliyunAppendixConfig;
 import com.example.webpractice.config.MainConfig;
-import com.example.webpractice.po.Appendix;
-import com.example.webpractice.po.ChartData;
-import com.example.webpractice.po.Papers;
+import com.example.webpractice.po.*;
 import com.example.webpractice.util.DateUtil;
 import com.example.webpractice.util.FileUtil;
 import com.example.webpractice.util.OssFileManager;
 import com.example.webpractice.util.SessionManager;
 import com.example.webpractice.vo.*;
+import liquibase.pro.packaged.L;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -41,6 +38,15 @@ public class PaperServiceImpl implements PaperService {
 
     @Autowired
     AppendixDAO appendixDAO;
+
+    @Autowired
+    PreLawDAO preLawDAO;
+
+    @Autowired
+    PostLawDAO postLawDAO;
+
+    @Autowired
+    AbolishLawDAO abolishLawDAO;
 
     @Autowired
     OssFileManager ossFileManager;
@@ -110,10 +116,28 @@ public class PaperServiceImpl implements PaperService {
             } else {
                 content = target.getContent();
             }
+
+            List<PreLaw>pre=preLawDAO.findByTitle(target.getTitle());
+            List<PostLaw>post=postLawDAO.findByTitle(target.getTitle());
+            List<AbolishLaw>abolish=abolishLawDAO.findByTitle(target.getTitle());
+            List<String>preLaw=new ArrayList<>();
+            List<String>postLaw=new ArrayList<>();
+            List<String>abolishLaw=new ArrayList<>();
+            for(int i=0;i<pre.size();i++){
+                preLaw.add(pre.get(i).getPre());
+            }
+            for (int i=0;i<post.size();i++){
+                postLaw.add(post.get(i).getPost());
+            }
+            for (int i=0;i<abolish.size();i++){
+                abolishLaw.add(abolish.get(i).getAbolish());
+            }
+            RelationVO relationVO=new RelationVO(preLaw,postLaw,abolishLaw);
+
             PaperVO paperVO = new PaperVO(target.getId(), target.getTitle(),
                     target.getPaper_number(), target.getCategory(), target.getDepartment(),
                     release_time, implement_time, target.getGrade(), target.getInterpret_department(),
-                    input_user, input_time, content, target.getStatus() == 1, target.getAnalyse_id());
+                    input_user, input_time, content, target.getStatus() == 1, target.getAnalyse_id(),relationVO);
             return ResponseVO.buildSuccess(paperVO);
 
         }
@@ -367,6 +391,19 @@ public class PaperServiceImpl implements PaperService {
     @Override
     public ResponseVO getRecentAnalyzedPapers() {
         return ResponseVO.buildSuccess(paperDAO.getRecentAnalyzedPapers());
+    }
+
+    @Override
+    public ResponseVO getPaperIdByTitle(String title) {
+        //去除书名号
+        String condition=title.replace("《","");
+        condition=condition.replace("》","");
+        System.out.println(condition);
+        List<Papers>papers=paperDAO.findLikeTitle(condition);
+        if(papers.size()!=0){
+            return ResponseVO.buildSuccess(papers.get(0).getId());
+        }
+        return ResponseVO.buildFailure("数据库中没有收录此条");
     }
 }
 

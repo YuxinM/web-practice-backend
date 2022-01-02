@@ -230,6 +230,34 @@ public class OssFileManager {
             }
             return var;
         } catch (Exception e) {
+
+            log.error("读取文件出错");
+            System.out.println(filepath);
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * 读取上位法下位法以及废除法规关系的csv文件
+     * 第一列是本法规名称 第二列是上位法 第三列是废除法规
+     * @param filepath
+     * @return
+     */
+    public ArrayList<String[]> readKgCsv(String filepath){
+        try {
+            ArrayList<String[]> csv = new ArrayList<String[]>();
+            CsvReader reader = new CsvReader(filepath, ',', Charset.forName("GBK"));
+            reader.readHeaders();
+            // log.error("出错");
+            while (reader.readRecord()) {
+                String[] a = reader.getValues();
+                csv.add(a);
+            }
+            reader.close();
+            //提取需要的信息
+            return csv;
+        } catch (Exception e) {
             log.error("读取文件出错");
             System.out.println("error");
             e.printStackTrace();
